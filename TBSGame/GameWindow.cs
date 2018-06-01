@@ -12,25 +12,18 @@ namespace TBSGame
 {
     public partial class GameWindow : Form
     {
-        public GameWindow()
+        public GameWindow(string p1Name, string p2Name)
         {
             InitializeComponent();
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void Minimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
 
         private void GameWindow_Load(object sender, EventArgs e)
         {
 
         }
+
+
 
 
 
