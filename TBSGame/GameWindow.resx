@@ -117,45 +117,355 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="info.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="unitInfo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="descriptionDisplay.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="selectedUnitName.AutoSize" type="System.Boolean, mscorlib">
+  <data name="descriptionDisplay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="selectedUnitName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="descriptionDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="selectedUnitName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 16</value>
+  <data name="descriptionDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 200</value>
   </data>
-  <data name="selectedUnitName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 13</value>
+  <data name="descriptionDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="selectedUnitName.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="descriptionDisplay.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
   </data>
-  <data name="selectedUnitName.Text" xml:space="preserve">
-    <value>Selected unit name here</value>
+  <data name="descriptionDisplay.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
   </data>
-  <data name="selectedUnitName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="descriptionDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
   </data>
-  <data name="&gt;&gt;selectedUnitName.Name" xml:space="preserve">
-    <value>selectedUnitName</value>
+  <data name="descriptionDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;selectedUnitName.Type" xml:space="preserve">
+  <data name="descriptionDisplay.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="&gt;&gt;descriptionDisplay.Name" xml:space="preserve">
+    <value>descriptionDisplay</value>
+  </data>
+  <data name="&gt;&gt;descriptionDisplay.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;selectedUnitName.Parent" xml:space="preserve">
-    <value>info</value>
+  <data name="&gt;&gt;descriptionDisplay.Parent" xml:space="preserve">
+    <value>unitInfo</value>
   </data>
-  <data name="&gt;&gt;selectedUnitName.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;descriptionDisplay.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="unitNameDisplay.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="unitNameDisplay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="unitNameDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="unitNameDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 20</value>
+  </data>
+  <data name="unitNameDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="unitNameDisplay.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="unitNameDisplay.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="unitNameDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="unitNameDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="unitNameDisplay.Text" xml:space="preserve">
+    <value>Unit name</value>
+  </data>
+  <data name="unitNameDisplay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;unitNameDisplay.Name" xml:space="preserve">
+    <value>unitNameDisplay</value>
+  </data>
+  <data name="&gt;&gt;unitNameDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unitNameDisplay.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;unitNameDisplay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="dmgDisplay.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dmgDisplay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dmgDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="dmgDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 100</value>
+  </data>
+  <data name="dmgDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="dmgDisplay.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="dmgDisplay.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="dmgDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="dmgDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="dmgDisplay.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dmgDisplay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;dmgDisplay.Name" xml:space="preserve">
+    <value>dmgDisplay</value>
+  </data>
+  <data name="&gt;&gt;dmgDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dmgDisplay.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;dmgDisplay.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="dmgIcon.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dmgIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJ
+        TUUH4gYCCRsW4CJoRgAAAFF0RVh0Q29tbWVudABDb3B5cmlnaHQgSU5DT1JTIEdtYkggKHd3dy5pY29u
+        ZXhwZXJpZW5jZS5jb20pIC0gVW5saWNlbnNlZCBwcmV2aWV3IGltYWdltppppgAAADh0RVh0Q29weXJp
+        Z2h0AENvcHlyaWdodCBJTkNPUlMgR21iSCAod3d3Lmljb25leHBlcmllbmNlLmNvbSlOzplOAAAAJnRF
+        WHRUaXRsZQBzd29yZCBpY29uIGJ5IGljb25leHBlcmllbmNlLmNvbTL0RMgAAAAZdEVYdFNvZnR3YXJl
+        AHBhaW50Lm5ldCA0LjAuMjHxIGmVAAABiklEQVQ4T32SS0sCYRSGx35Bi6D6DYUF/ZMgiqhFGxdBGUqS
+        lVlZdDEi7EIGRVCYEC3ctW2RQVRQCIXCVGMhYzqOd/PyvX0TmHOjxXM45z3PYRhmGAD/Qki1FSAGkJqB
+        zi0oi8CLExBD+gcqOkCq9LgsHRsRXgL2aHy/qCsrIMLNNX16N+178Gx/whGN750PqBY7NbIactVVRGQW
+        JGQBvDS6nSrUdwpRj2T8jbC+NuCEAQmO06ixU4gq2guFPLftv8Sg1YFXTzPw6KBxw5HLCjK5/OvOWQB9
+        5mlY1r0QUzxBwPhC+CBXdzRHEqlMtrR1coG+iTmYlzeRzub+3lOOJkik0rWN43P0W5wYXXBDSGcqaqeO
+        YuCTwvfaoR8D1nmYHCv4ElJEvlfz13zyidrygQ+Dk4sYsS8hFk/8eyjxW6KxOHHtn2LI5sKwbQFcjC+p
+        RT2kIu76A+gdm6GfZI6w0U9eJjTJeg0M+xEjJqcb1lVPJfzG3akE6X+WzwqYyPsHQhGW9pCKrqQPmB8V
+        qaebKAxukwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="dmgIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="dmgIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 100</value>
+  </data>
+  <data name="dmgIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="dmgIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;dmgIcon.Name" xml:space="preserve">
+    <value>dmgIcon</value>
+  </data>
+  <data name="&gt;&gt;dmgIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dmgIcon.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;dmgIcon.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="lifeDisplay.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lifeDisplay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lifeDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lifeDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 50</value>
+  </data>
+  <data name="lifeDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lifeDisplay.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="lifeDisplay.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="lifeDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lifeDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lifeDisplay.Text" xml:space="preserve">
+    <value>0/0</value>
+  </data>
+  <data name="lifeDisplay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lifeDisplay.Name" xml:space="preserve">
+    <value>lifeDisplay</value>
+  </data>
+  <data name="&gt;&gt;lifeDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lifeDisplay.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;lifeDisplay.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="lifeBar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lifeBar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lifeBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 50</value>
+  </data>
+  <data name="lifeBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lifeBar.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lifeBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lifeBar.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lifeBar.Name" xml:space="preserve">
+    <value>lifeBar</value>
+  </data>
+  <data name="&gt;&gt;lifeBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lifeBar.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;lifeBar.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="lifeIcon.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lifeIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4gYCCRogNoPMngAAAgNJREFU
+        OE+NkslLW1EUxr9HbEVXJhF0IRJSoUj/B5cOmxQ0LoIUxW2FQqEgOK4cIoIYLBma0oluXCgortwaXIq2
+        3RTqWJGADWgUfMM9ni/JRhfVC4dzz/l+3313eAgD6AIa1gYHPx2srFwcr69LbnJyb9rvb0uGQog3NrZt
+        T03tnWxsyMHq6gU58iH14aVOss3Nu0dzc1JMpbyrpSXzL5ORXCSS/wa82u7uzp+n01JMJEwxmfQO43HJ
+        NjXt0ocZIJlraRF7YMB2olHj9vbKTV+fV2hvN78Br9DRYW5iMc+NRsXp6TF2f7+9FQ4LffgCnO37fOIG
+        g0YCARG/X0x9vTi1tcYBXKemxphgUKSurqS5gYAhTx+WAfsUEE9DHhHkyNOHj8Af3Z44lmXEsuRO0HCv
+        R448fTzz+KYWl4Dz0NepkyNPH54B1Skgt6ON6/8swD51cuTpw2t9rndA+DPw91cZcO8vUDG61MmRpw/z
+        gE8LjAIvvgKnPyugq9loMLNmnzo58vThvU4WdPJW8wjwXIHDHwpe8ZkqmTX71MmRpw9pjazGIlA1pHlY
+        t6R/1j63WNAzMrNmnzo58vRhWiOjwUZCBYUwBrR+B/JbamRmzT51cuTpKw299tJK+naYBZ7oubhAZELN
+        zKzZp06O/J0R1/hQnkJv2IoBTzuBN8ys2adOrjyAWw8ETkImR734AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lifeIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lifeIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 50</value>
+  </data>
+  <data name="lifeIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="lifeIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lifeIcon.Name" xml:space="preserve">
+    <value>lifeIcon</value>
+  </data>
+  <data name="&gt;&gt;lifeIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lifeIcon.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;lifeIcon.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="APIcon.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="APIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAk6NAAJOjQFAepa8AAAAB3RJ
+        TUUH4gYCCDsDGbnCOAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHeSURBVDhP
+        dZNLSyNBEMfbyQoedB7t+7IoKOzJ77Cw30A8e9qPoag3QfBkwMT4COYgrrCCggcf6yO+8KJHQw6KoMsK
+        2t2KGKO9/6p00F1NwZ+aYeZX9a/qGWFSsqS0FHop9ExSHptJadWv4FllA6t2kHc4f4UEFKPMYSYATsgY
+        5yn5zYxLq+ejF7UHYDt4cuDQO5CCuxKcZAdzyFathkW1GxQduOJAz4muWQR63HVadpiEvDeZyMJu2eo5
+        1OpernL9XgPgJ4ZTcpAtL4dPsPwCywT3QNStCfIhKkS5VIxtZ6Ia2M1hZprzEQ+KyAXoEte30G+oAB1D
+        zZCDqeuk7IVlq39GRbcoq/d9qw986l4e4QzqhAjk2YVbVDfyMBbVj0UNYOa+69mWq+t0i1VbIe0gj4Jt
+        DuSNM/w29FiDp+P1wiTqv6jRpofbTINFsbzaDNrVnv8PyLBblgfb1fpHVHM3DDgpR0w6sjrrn6pDv12d
+        AMz+B5aDl5aSVTzCjKxFvtKL0cVNzm+7uayrDFLgjEtHlkBOyu/Y+h915H9W63h5LawMUnDnKXzbiyEV
+        mYW6TJzvY1iUYH0EUrDlkvVGqJP2gO87phcigeOrDFKQbbUdCrXBnakQ/V18jOTm4xDiL9RqghbAOE4X
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="APIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 150</value>
+  </data>
+  <data name="APIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="APIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="APIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;APIcon.Name" xml:space="preserve">
+    <value>APIcon</value>
+  </data>
+  <data name="&gt;&gt;APIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;APIcon.Parent" xml:space="preserve">
+    <value>unitInfo</value>
+  </data>
+  <data name="&gt;&gt;APIcon.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="APdisplay.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="APdisplay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -163,19 +473,28 @@
     <value>NoControl</value>
   </data>
   <data name="APdisplay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 548</value>
+    <value>35, 150</value>
   </data>
   <data name="APdisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
+  <data name="APdisplay.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
+  <data name="APdisplay.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
   <data name="APdisplay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 13</value>
+    <value>180, 13</value>
   </data>
   <data name="APdisplay.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="APdisplay.Text" xml:space="preserve">
-    <value>0</value>
+    <value>0/0</value>
+  </data>
+  <data name="APdisplay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;APdisplay.Name" xml:space="preserve">
     <value>APdisplay</value>
@@ -184,55 +503,28 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;APdisplay.Parent" xml:space="preserve">
-    <value>info</value>
+    <value>unitInfo</value>
   </data>
   <data name="&gt;&gt;APdisplay.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>8</value>
   </data>
-  <data name="APlabel.AutoSize" type="System.Boolean, mscorlib">
+  <metadata name="APbar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="APlabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="APlabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 548</value>
-  </data>
-  <data name="APlabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 13</value>
-  </data>
-  <data name="APlabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="APlabel.Text" xml:space="preserve">
-    <value>AP remaining</value>
-  </data>
-  <data name="&gt;&gt;APlabel.Name" xml:space="preserve">
-    <value>APlabel</value>
-  </data>
-  <data name="&gt;&gt;APlabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;APlabel.Parent" xml:space="preserve">
-    <value>info</value>
-  </data>
-  <data name="&gt;&gt;APlabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
+  </metadata>
   <data name="APbar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="APbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 548</value>
+    <value>35, 150</value>
   </data>
   <data name="APbar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="APbar.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
+    <value>180, 13</value>
   </data>
   <data name="APbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
+    <value>180, 13</value>
   </data>
   <data name="APbar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -244,31 +536,31 @@
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;APbar.Parent" xml:space="preserve">
-    <value>info</value>
+    <value>unitInfo</value>
   </data>
   <data name="&gt;&gt;APbar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>9</value>
   </data>
-  <data name="info.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 0</value>
+  <data name="unitInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 250</value>
   </data>
-  <data name="info.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 6000</value>
+  <data name="unitInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 350</value>
   </data>
-  <data name="info.TabIndex" type="System.Int32, mscorlib">
+  <data name="unitInfo.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;info.Name" xml:space="preserve">
-    <value>info</value>
+  <data name="&gt;&gt;unitInfo.Name" xml:space="preserve">
+    <value>unitInfo</value>
   </data>
-  <data name="&gt;&gt;info.Type" xml:space="preserve">
+  <data name="&gt;&gt;unitInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;info.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;unitInfo.Parent" xml:space="preserve">
+    <value>infoArea</value>
   </data>
-  <data name="&gt;&gt;info.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;unitInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="PlayerNameDisplay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -277,7 +569,7 @@
     <value>NoControl</value>
   </data>
   <data name="PlayerNameDisplay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 3</value>
+    <value>245, 16</value>
   </data>
   <data name="PlayerNameDisplay.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 13</value>
@@ -295,46 +587,25 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PlayerNameDisplay.Parent" xml:space="preserve">
-    <value>panel1</value>
+    <value>panel2</value>
   </data>
   <data name="&gt;&gt;PlayerNameDisplay.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <metadata name="actionPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="actionPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 450</value>
-  </data>
-  <data name="actionPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 150</value>
-  </data>
-  <data name="actionPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;actionPanel.Name" xml:space="preserve">
-    <value>actionPanel</value>
-  </data>
-  <data name="&gt;&gt;actionPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;actionPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;actionPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 50</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 450</value>
+    <value>550, 550</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="panel1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
@@ -346,6 +617,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="panel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>550, 50</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="infoArea.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="infoArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 0</value>
+  </data>
+  <data name="infoArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 600</value>
+  </data>
+  <data name="infoArea.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Name" xml:space="preserve">
+    <value>infoArea</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;infoArea.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -356,9 +675,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 600</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

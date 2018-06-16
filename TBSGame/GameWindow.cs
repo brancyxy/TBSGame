@@ -23,17 +23,14 @@ namespace TBSGame
 
         }
 
+        private void info_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-
-
-        /* APdisplay.Text = Convert.ToString(APbar.Value);
-         if (APbar.Value > 8) BarColorSwitch.SetState(APbar, 1);
-         else if (APbar.Value > 4) BarColorSwitch.SetState(APbar, 3);
-         else BarColorSwitch.SetState(APbar, 2);*/
-
-
-
+        }
     }
 }
