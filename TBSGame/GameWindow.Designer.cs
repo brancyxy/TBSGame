@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.unitInfo = new System.Windows.Forms.Panel();
+            this.descriptionDisplay = new System.Windows.Forms.Label();
+            this.unitNameDisplay = new System.Windows.Forms.Label();
+            this.dmgDisplay = new System.Windows.Forms.Label();
+            this.dmgIcon = new System.Windows.Forms.PictureBox();
             this.lifeDisplay = new System.Windows.Forms.Label();
             this.lifeBar = new System.Windows.Forms.ProgressBar();
             this.lifeIcon = new System.Windows.Forms.PictureBox();
@@ -37,18 +41,14 @@
             this.APdisplay = new System.Windows.Forms.Label();
             this.APbar = new System.Windows.Forms.ProgressBar();
             this.PlayerNameDisplay = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dmgIcon = new System.Windows.Forms.PictureBox();
-            this.dmgDisplay = new System.Windows.Forms.Label();
-            this.unitNameDisplay = new System.Windows.Forms.Label();
+            this.gameArea = new System.Windows.Forms.Panel();
+            this.topPanel = new System.Windows.Forms.Panel();
             this.infoArea = new System.Windows.Forms.Panel();
-            this.descriptionDisplay = new System.Windows.Forms.Label();
             this.unitInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
+            this.topPanel.SuspendLayout();
             this.infoArea.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,30 @@
             this.unitInfo.Controls.Add(this.APbar);
             resources.ApplyResources(this.unitInfo, "unitInfo");
             this.unitInfo.Name = "unitInfo";
-            this.unitInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.info_Paint);
+            // 
+            // descriptionDisplay
+            // 
+            resources.ApplyResources(this.descriptionDisplay, "descriptionDisplay");
+            this.descriptionDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.descriptionDisplay.Name = "descriptionDisplay";
+            // 
+            // unitNameDisplay
+            // 
+            resources.ApplyResources(this.unitNameDisplay, "unitNameDisplay");
+            this.unitNameDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.unitNameDisplay.Name = "unitNameDisplay";
+            // 
+            // dmgDisplay
+            // 
+            resources.ApplyResources(this.dmgDisplay, "dmgDisplay");
+            this.dmgDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.dmgDisplay.Name = "dmgDisplay";
+            // 
+            // dmgIcon
+            // 
+            resources.ApplyResources(this.dmgIcon, "dmgIcon");
+            this.dmgIcon.Name = "dmgIcon";
+            this.dmgIcon.TabStop = false;
             // 
             // lifeDisplay
             // 
@@ -92,7 +115,6 @@
             resources.ApplyResources(this.lifeIcon, "lifeIcon");
             this.lifeIcon.Name = "lifeIcon";
             this.lifeIcon.TabStop = false;
-            this.lifeIcon.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // APIcon
             // 
@@ -123,36 +145,18 @@
             resources.ApplyResources(this.PlayerNameDisplay, "PlayerNameDisplay");
             this.PlayerNameDisplay.Name = "PlayerNameDisplay";
             // 
-            // panel1
+            // gameArea
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.gameArea.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            resources.ApplyResources(this.gameArea, "gameArea");
+            this.gameArea.Name = "gameArea";
             // 
-            // panel2
+            // topPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.YellowGreen;
-            this.panel2.Controls.Add(this.PlayerNameDisplay);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // dmgIcon
-            // 
-            resources.ApplyResources(this.dmgIcon, "dmgIcon");
-            this.dmgIcon.Name = "dmgIcon";
-            this.dmgIcon.TabStop = false;
-            // 
-            // dmgDisplay
-            // 
-            resources.ApplyResources(this.dmgDisplay, "dmgDisplay");
-            this.dmgDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.dmgDisplay.Name = "dmgDisplay";
-            // 
-            // unitNameDisplay
-            // 
-            resources.ApplyResources(this.unitNameDisplay, "unitNameDisplay");
-            this.unitNameDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.unitNameDisplay.Name = "unitNameDisplay";
+            this.topPanel.BackColor = System.Drawing.Color.YellowGreen;
+            this.topPanel.Controls.Add(this.PlayerNameDisplay);
+            resources.ApplyResources(this.topPanel, "topPanel");
+            this.topPanel.Name = "topPanel";
             // 
             // infoArea
             // 
@@ -161,12 +165,6 @@
             resources.ApplyResources(this.infoArea, "infoArea");
             this.infoArea.Name = "infoArea";
             // 
-            // descriptionDisplay
-            // 
-            resources.ApplyResources(this.descriptionDisplay, "descriptionDisplay");
-            this.descriptionDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.descriptionDisplay.Name = "descriptionDisplay";
-            // 
             // GameWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -174,18 +172,17 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.CausesValidation = false;
             this.Controls.Add(this.infoArea);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.gameArea);
+            this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GameWindow";
-            this.Load += new System.EventHandler(this.GameWindow_Load);
             this.unitInfo.ResumeLayout(false);
             this.unitInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).EndInit();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.infoArea.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -196,9 +193,9 @@
         private System.Windows.Forms.ProgressBar APbar;
         private System.Windows.Forms.Label PlayerNameDisplay;
         private System.Windows.Forms.Label APdisplay;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel gameArea;
         private System.Windows.Forms.PictureBox APIcon;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox lifeIcon;
         private System.Windows.Forms.Label lifeDisplay;
         private System.Windows.Forms.ProgressBar lifeBar;
