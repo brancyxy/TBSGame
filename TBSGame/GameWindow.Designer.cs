@@ -42,14 +42,26 @@
             this.APbar = new System.Windows.Forms.ProgressBar();
             this.PlayerNameDisplay = new System.Windows.Forms.Label();
             this.gameArea = new System.Windows.Forms.Panel();
+            this.mapSelector = new System.Windows.Forms.Panel();
+            this.Help = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.infoArea = new System.Windows.Forms.Panel();
+            this.tileInfo = new System.Windows.Forms.Panel();
+            this.DEFrate = new System.Windows.Forms.Label();
+            this.APrate = new System.Windows.Forms.Label();
+            this.tileImage = new System.Windows.Forms.PictureBox();
+            this.tileName = new System.Windows.Forms.Label();
             this.unitInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).BeginInit();
+            this.gameArea.SuspendLayout();
+            this.mapSelector.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.infoArea.SuspendLayout();
+            this.tileInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // unitInfo
@@ -148,8 +160,29 @@
             // gameArea
             // 
             this.gameArea.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gameArea.Controls.Add(this.mapSelector);
             resources.ApplyResources(this.gameArea, "gameArea");
             this.gameArea.Name = "gameArea";
+            // 
+            // mapSelector
+            // 
+            this.mapSelector.Controls.Add(this.Help);
+            this.mapSelector.Controls.Add(this.button1);
+            resources.ApplyResources(this.mapSelector, "mapSelector");
+            this.mapSelector.Name = "mapSelector";
+            // 
+            // Help
+            // 
+            resources.ApplyResources(this.Help, "Help");
+            this.Help.Name = "Help";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.SelectMap);
             // 
             // topPanel
             // 
@@ -161,9 +194,41 @@
             // infoArea
             // 
             this.infoArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.infoArea.Controls.Add(this.tileInfo);
             this.infoArea.Controls.Add(this.unitInfo);
             resources.ApplyResources(this.infoArea, "infoArea");
             this.infoArea.Name = "infoArea";
+            // 
+            // tileInfo
+            // 
+            this.tileInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.tileInfo.Controls.Add(this.DEFrate);
+            this.tileInfo.Controls.Add(this.APrate);
+            this.tileInfo.Controls.Add(this.tileImage);
+            this.tileInfo.Controls.Add(this.tileName);
+            resources.ApplyResources(this.tileInfo, "tileInfo");
+            this.tileInfo.Name = "tileInfo";
+            // 
+            // DEFrate
+            // 
+            resources.ApplyResources(this.DEFrate, "DEFrate");
+            this.DEFrate.Name = "DEFrate";
+            // 
+            // APrate
+            // 
+            resources.ApplyResources(this.APrate, "APrate");
+            this.APrate.Name = "APrate";
+            // 
+            // tileImage
+            // 
+            resources.ApplyResources(this.tileImage, "tileImage");
+            this.tileImage.Name = "tileImage";
+            this.tileImage.TabStop = false;
+            // 
+            // tileName
+            // 
+            resources.ApplyResources(this.tileName, "tileName");
+            this.tileName.Name = "tileName";
             // 
             // GameWindow
             // 
@@ -175,15 +240,22 @@
             this.Controls.Add(this.gameArea);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GameWindow";
             this.unitInfo.ResumeLayout(false);
             this.unitInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).EndInit();
+            this.gameArea.ResumeLayout(false);
+            this.mapSelector.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.infoArea.ResumeLayout(false);
+            this.tileInfo.ResumeLayout(false);
+            this.tileInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tileImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -204,6 +276,14 @@
         private System.Windows.Forms.PictureBox dmgIcon;
         private System.Windows.Forms.Label descriptionDisplay;
         private System.Windows.Forms.Panel infoArea;
+        private System.Windows.Forms.Panel tileInfo;
+        private System.Windows.Forms.Label DEFrate;
+        private System.Windows.Forms.Label APrate;
+        private System.Windows.Forms.PictureBox tileImage;
+        private System.Windows.Forms.Label tileName;
+        private System.Windows.Forms.Panel mapSelector;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Help;
     }
 }
 

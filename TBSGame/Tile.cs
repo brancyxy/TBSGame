@@ -10,16 +10,16 @@ namespace TBSGame
 {
     class Tile : System.Windows.Forms.Control
     {
-        int x;
-        public int X
+   
+        public double armorBonus;
+        public int APred;
+
+        public Tile(Image bg, int x, int y, int APred, double armorBonus)
         {
-            get => x;
-            set => x = value;
+            BackgroundImage = bg;
+            Location = new Point(x * 25, y * 25);
+            this.APred = APred;
+            this.armorBonus = armorBonus;
         }
-
-        public Tile(Image background, int x, int y)
-      {
-
-      }
     }
 }
