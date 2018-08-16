@@ -59,6 +59,8 @@
     <Compile Include="Tile.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Town.cs" />
+    <Compile Include="Unit.cs" />
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>

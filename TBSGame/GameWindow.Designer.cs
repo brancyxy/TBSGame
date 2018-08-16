@@ -43,6 +43,10 @@
             this.PlayerNameDisplay = new System.Windows.Forms.Label();
             this.gameArea = new System.Windows.Forms.Panel();
             this.mapSelector = new System.Windows.Forms.Panel();
+            this.p2Label = new System.Windows.Forms.Label();
+            this.p2NameBox = new System.Windows.Forms.TextBox();
+            this.p1Label = new System.Windows.Forms.Label();
+            this.p1NameBox = new System.Windows.Forms.TextBox();
             this.Help = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
@@ -52,6 +56,9 @@
             this.APrate = new System.Windows.Forms.Label();
             this.tileImage = new System.Windows.Forms.PictureBox();
             this.tileName = new System.Windows.Forms.Label();
+            this.tileAPrate = new System.Windows.Forms.Label();
+            this.tileDEFrate = new System.Windows.Forms.Label();
+            this.tileCoords = new System.Windows.Forms.Label();
             this.unitInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
@@ -166,10 +173,34 @@
             // 
             // mapSelector
             // 
+            this.mapSelector.Controls.Add(this.p2Label);
+            this.mapSelector.Controls.Add(this.p2NameBox);
+            this.mapSelector.Controls.Add(this.p1Label);
+            this.mapSelector.Controls.Add(this.p1NameBox);
             this.mapSelector.Controls.Add(this.Help);
             this.mapSelector.Controls.Add(this.button1);
             resources.ApplyResources(this.mapSelector, "mapSelector");
             this.mapSelector.Name = "mapSelector";
+            // 
+            // p2Label
+            // 
+            resources.ApplyResources(this.p2Label, "p2Label");
+            this.p2Label.Name = "p2Label";
+            // 
+            // p2NameBox
+            // 
+            resources.ApplyResources(this.p2NameBox, "p2NameBox");
+            this.p2NameBox.Name = "p2NameBox";
+            // 
+            // p1Label
+            // 
+            resources.ApplyResources(this.p1Label, "p1Label");
+            this.p1Label.Name = "p1Label";
+            // 
+            // p1NameBox
+            // 
+            resources.ApplyResources(this.p1NameBox, "p1NameBox");
+            this.p1NameBox.Name = "p1NameBox";
             // 
             // Help
             // 
@@ -202,6 +233,9 @@
             // tileInfo
             // 
             this.tileInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.tileInfo.Controls.Add(this.tileCoords);
+            this.tileInfo.Controls.Add(this.tileDEFrate);
+            this.tileInfo.Controls.Add(this.tileAPrate);
             this.tileInfo.Controls.Add(this.DEFrate);
             this.tileInfo.Controls.Add(this.APrate);
             this.tileInfo.Controls.Add(this.tileImage);
@@ -230,6 +264,21 @@
             resources.ApplyResources(this.tileName, "tileName");
             this.tileName.Name = "tileName";
             // 
+            // tileAPrate
+            // 
+            resources.ApplyResources(this.tileAPrate, "tileAPrate");
+            this.tileAPrate.Name = "tileAPrate";
+            // 
+            // tileDEFrate
+            // 
+            resources.ApplyResources(this.tileDEFrate, "tileDEFrate");
+            this.tileDEFrate.Name = "tileDEFrate";
+            // 
+            // tileCoords
+            // 
+            resources.ApplyResources(this.tileCoords, "tileCoords");
+            this.tileCoords.Name = "tileCoords";
+            // 
             // GameWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -250,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).EndInit();
             this.gameArea.ResumeLayout(false);
             this.mapSelector.ResumeLayout(false);
+            this.mapSelector.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.infoArea.ResumeLayout(false);
@@ -284,6 +334,13 @@
         private System.Windows.Forms.Panel mapSelector;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label Help;
+        private System.Windows.Forms.TextBox p1NameBox;
+        private System.Windows.Forms.Label p2Label;
+        private System.Windows.Forms.TextBox p2NameBox;
+        private System.Windows.Forms.Label p1Label;
+        private System.Windows.Forms.Label tileDEFrate;
+        private System.Windows.Forms.Label tileAPrate;
+        private System.Windows.Forms.Label tileCoords;
     }
 }
 

@@ -725,13 +725,13 @@
     <value>245, 16</value>
   </data>
   <data name="PlayerNameDisplay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
+    <value>10, 13</value>
   </data>
   <data name="PlayerNameDisplay.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="PlayerNameDisplay.Text" xml:space="preserve">
-    <value>Player name here</value>
+    <value> </value>
   </data>
   <data name="&gt;&gt;PlayerNameDisplay.Name" xml:space="preserve">
     <value>PlayerNameDisplay</value>
@@ -751,66 +751,6 @@
   <metadata name="mapSelector.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="Help.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 175</value>
-  </data>
-  <data name="Help.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 43</value>
-  </data>
-  <data name="Help.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Help.Text" xml:space="preserve">
-    <value>Open a map file. Map files must be named "map.YFY", and all their resources must be in same directory</value>
-  </data>
-  <data name="&gt;&gt;Help.Name" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="&gt;&gt;Help.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Help.Parent" xml:space="preserve">
-    <value>mapSelector</value>
-  </data>
-  <data name="&gt;&gt;Help.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>151, 225</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>mapSelector</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="mapSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 50</value>
-  </data>
-  <data name="mapSelector.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="mapSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 400</value>
-  </data>
-  <data name="mapSelector.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;mapSelector.Name" xml:space="preserve">
     <value>mapSelector</value>
   </data>
@@ -847,6 +787,252 @@
   <data name="&gt;&gt;gameArea.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="mapSelector.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;p2Label.Name" xml:space="preserve">
+    <value>p2Label</value>
+  </data>
+  <data name="&gt;&gt;p2Label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p2Label.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p2Label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Name" xml:space="preserve">
+    <value>p2NameBox</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Name" xml:space="preserve">
+    <value>p1Label</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p1Label.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Name" xml:space="preserve">
+    <value>p1NameBox</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Help.Name" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="&gt;&gt;Help.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Help.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;Help.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="mapSelector.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 50</value>
+  </data>
+  <data name="mapSelector.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="mapSelector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 400</value>
+  </data>
+  <data name="mapSelector.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mapSelector.Name" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;mapSelector.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mapSelector.Parent" xml:space="preserve">
+    <value>gameArea</value>
+  </data>
+  <data name="&gt;&gt;mapSelector.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="p2Label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="p2Label.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="p2Label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 128</value>
+  </data>
+  <data name="p2Label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="p2Label.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="p2Label.Text" xml:space="preserve">
+    <value>Player 2 name:</value>
+  </data>
+  <data name="&gt;&gt;p2Label.Name" xml:space="preserve">
+    <value>p2Label</value>
+  </data>
+  <data name="&gt;&gt;p2Label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p2Label.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p2Label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="p2NameBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 125</value>
+  </data>
+  <data name="p2NameBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="p2NameBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Name" xml:space="preserve">
+    <value>p2NameBox</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p2NameBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="p1Label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="p1Label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 95</value>
+  </data>
+  <data name="p1Label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="p1Label.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="p1Label.Text" xml:space="preserve">
+    <value>Player 1 name:</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Name" xml:space="preserve">
+    <value>p1Label</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p1Label.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p1Label.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="p1NameBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 92</value>
+  </data>
+  <data name="p1NameBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="p1NameBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Name" xml:space="preserve">
+    <value>p1NameBox</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;p1NameBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Help.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 175</value>
+  </data>
+  <data name="Help.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 43</value>
+  </data>
+  <data name="Help.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Help.Text" xml:space="preserve">
+    <value>Open a map file. Map files must be named "map.YFY", and all their resources must be in same directory</value>
+  </data>
+  <data name="&gt;&gt;Help.Name" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="&gt;&gt;Help.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Help.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;Help.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>151, 225</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>mapSelector</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <metadata name="topPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -877,125 +1063,128 @@
   <metadata name="tileInfo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="&gt;&gt;tileInfo.Name" xml:space="preserve">
-    <value>tileInfo</value>
+  <metadata name="tileCoords.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tileCoords.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;tileInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tileCoords.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.5pt</value>
   </data>
-  <data name="&gt;&gt;tileInfo.Parent" xml:space="preserve">
-    <value>infoArea</value>
+  <data name="tileCoords.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 75</value>
   </data>
-  <data name="&gt;&gt;tileInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="tileCoords.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
   </data>
-  <data name="infoArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>550, 0</value>
+  <data name="tileCoords.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
   </data>
-  <data name="infoArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 600</value>
+  <data name="tileCoords.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
   </data>
-  <data name="infoArea.TabIndex" type="System.Int32, mscorlib">
+  <data name="tileCoords.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;infoArea.Name" xml:space="preserve">
-    <value>infoArea</value>
+  <data name="tileCoords.Text" xml:space="preserve">
+    <value>(xx;xx)</value>
   </data>
-  <data name="&gt;&gt;infoArea.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tileCoords.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;infoArea.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;tileCoords.Name" xml:space="preserve">
+    <value>tileCoords</value>
   </data>
-  <data name="&gt;&gt;infoArea.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="tileInfo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DEFrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="APrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tileImage.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tileName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="&gt;&gt;DEFrate.Name" xml:space="preserve">
-    <value>DEFrate</value>
-  </data>
-  <data name="&gt;&gt;DEFrate.Type" xml:space="preserve">
+  <data name="&gt;&gt;tileCoords.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DEFrate.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tileCoords.Parent" xml:space="preserve">
     <value>tileInfo</value>
   </data>
-  <data name="&gt;&gt;DEFrate.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tileCoords.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;APrate.Name" xml:space="preserve">
-    <value>APrate</value>
+  <metadata name="tileDEFrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tileDEFrate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;APrate.Type" xml:space="preserve">
+  <data name="tileDEFrate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="tileDEFrate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 125</value>
+  </data>
+  <data name="tileDEFrate.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
+  </data>
+  <data name="tileDEFrate.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
+  </data>
+  <data name="tileDEFrate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
+  </data>
+  <data name="tileDEFrate.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tileDEFrate.Text" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="tileDEFrate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;tileDEFrate.Name" xml:space="preserve">
+    <value>tileDEFrate</value>
+  </data>
+  <data name="&gt;&gt;tileDEFrate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;APrate.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tileDEFrate.Parent" xml:space="preserve">
     <value>tileInfo</value>
   </data>
-  <data name="&gt;&gt;APrate.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tileDEFrate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tileImage.Name" xml:space="preserve">
-    <value>tileImage</value>
+  <metadata name="tileAPrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tileAPrate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;tileImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tileAPrate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 100</value>
   </data>
-  <data name="&gt;&gt;tileImage.Parent" xml:space="preserve">
-    <value>tileInfo</value>
+  <data name="tileAPrate.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
   </data>
-  <data name="&gt;&gt;tileImage.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="tileAPrate.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
   </data>
-  <data name="&gt;&gt;tileName.Name" xml:space="preserve">
-    <value>tileName</value>
+  <data name="tileAPrate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
   </data>
-  <data name="&gt;&gt;tileName.Type" xml:space="preserve">
+  <data name="tileAPrate.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tileAPrate.Text" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="tileAPrate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;tileAPrate.Name" xml:space="preserve">
+    <value>tileAPrate</value>
+  </data>
+  <data name="&gt;&gt;tileAPrate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tileName.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tileAPrate.Parent" xml:space="preserve">
     <value>tileInfo</value>
   </data>
-  <data name="&gt;&gt;tileName.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tileInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 450</value>
-  </data>
-  <data name="tileInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 150</value>
-  </data>
-  <data name="tileInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tileInfo.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tileInfo.Name" xml:space="preserve">
-    <value>tileInfo</value>
-  </data>
-  <data name="&gt;&gt;tileInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tileInfo.Parent" xml:space="preserve">
-    <value>infoArea</value>
-  </data>
-  <data name="&gt;&gt;tileInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tileAPrate.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="DEFrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1007,19 +1196,22 @@
     <value>30, 125</value>
   </data>
   <data name="DEFrate.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="DEFrate.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="DEFrate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="DEFrate.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="DEFrate.Text" xml:space="preserve">
-    <value>DEF rate: X</value>
+    <value>DEF rate:</value>
+  </data>
+  <data name="DEFrate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;DEFrate.Name" xml:space="preserve">
     <value>DEFrate</value>
@@ -1031,7 +1223,7 @@
     <value>tileInfo</value>
   </data>
   <data name="&gt;&gt;DEFrate.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <metadata name="APrate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1043,19 +1235,22 @@
     <value>30, 100</value>
   </data>
   <data name="APrate.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="APrate.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="APrate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="APrate.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="APrate.Text" xml:space="preserve">
-    <value>AP consumption: X</value>
+    <value>AP consumption:</value>
+  </data>
+  <data name="APrate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;APrate.Name" xml:space="preserve">
     <value>APrate</value>
@@ -1067,7 +1262,7 @@
     <value>tileInfo</value>
   </data>
   <data name="&gt;&gt;APrate.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <metadata name="tileImage.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1094,7 +1289,7 @@
     <value>tileInfo</value>
   </data>
   <data name="&gt;&gt;tileImage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <metadata name="tileName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1133,7 +1328,52 @@
     <value>tileInfo</value>
   </data>
   <data name="&gt;&gt;tileName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tileInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 450</value>
+  </data>
+  <data name="tileInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 150</value>
+  </data>
+  <data name="tileInfo.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="tileInfo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tileInfo.Name" xml:space="preserve">
+    <value>tileInfo</value>
+  </data>
+  <data name="&gt;&gt;tileInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tileInfo.Parent" xml:space="preserve">
+    <value>infoArea</value>
+  </data>
+  <data name="&gt;&gt;tileInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="infoArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 0</value>
+  </data>
+  <data name="infoArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 600</value>
+  </data>
+  <data name="infoArea.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Name" xml:space="preserve">
+    <value>infoArea</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;infoArea.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;infoArea.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
