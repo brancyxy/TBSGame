@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.IO;
 using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TBSGame
 {
     class Map
     {
-        public char[,] charMap = new char[20, 20];
-        private List<Tile> tiles = new List<Tile>();
-        private readonly string mapFolder;
+        public char[,] charMap;
+        public readonly string mapFolder;
+        public Tile[,] tiles;
 
-
-        public List<Tile> AddTiles(List<TileInfo> tileInfo)
+        public void AddTiles(List<TileInfo> tileInfo)
         {
+            { 
+                var town = false;
+                foreach (var t in tileInfo)
+                {
+                    if (t.name.ToLower() == "town") town = true;
+                }
+                if (town == false) throw new Exception("There must be a town in the map");
+            } // town check
+
+            tiles = new Tile[20, 20];
             for (int i = 0; i < 20; i++)
             {
                 for (int j = 0; j < 20; j++)
@@ -25,17 +30,18 @@ namespace TBSGame
                     {
                         if (ti.chr == charMap[i, j])
                         {
-                            tiles.Add(new Tile(Image.FromFile(mapFolder + ti.imgFN), i,j, ti.APred, ti.armorBonus,ti.name));
+                            try { tiles[i, j] = (new Tile(Image.FromFile(mapFolder + ti.imgFN), i, j, ti.APred, ti.armorBonus, ti.name));     }
+                            catch (Exception) {    throw new Exception(string.Format("Resource file error: Tile image not found: {0}", ti.imgFN));     }
                         }
                     }
                 }
             }
-            return tiles;
         }
         public Map(char[,] map, string mapFolder)
         {
+            charMap = new char[20, 20];
             charMap = map;
-            this.mapFolder = mapFolder;
+            this.mapFolder = mapFolder + @"\";
         }
     }
 }

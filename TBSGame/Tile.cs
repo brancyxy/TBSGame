@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TBSGame
@@ -26,6 +21,7 @@ namespace TBSGame
             this.imgFN = imgFN;
         }
     }
+
     class Tile : Control
     {
         public double armorBonus;
@@ -35,7 +31,10 @@ namespace TBSGame
      
         public Tile(Image bg, int x, int y, int APred, double armorBonus, string name)
         {
-            Visible = true;
+            if (bg.Height != 25 || bg.Width != 25) throw new Exception(String.Format("Resource file error at {0}: Tiles need to be 25x25 \n in pixels", name));
+            if ((x < 0 || x > 20) || (y < 0 || y > 20)) throw new Exception("This tile is like, out of bounds. This bug shouldnt happen at all anyway..");
+
+            Visible = true; 
             Width = 25;
             Height = 25;
             BackgroundImage = bg;

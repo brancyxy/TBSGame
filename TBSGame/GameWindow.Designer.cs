@@ -1,4 +1,6 @@
-﻿namespace TBSGame
+﻿using System.Drawing;
+
+namespace TBSGame
 {
     partial class GameWindow
     {
@@ -30,16 +32,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.unitInfo = new System.Windows.Forms.Panel();
-            this.descriptionDisplay = new System.Windows.Forms.Label();
+            this.unitCoords = new System.Windows.Forms.Label();
+            this.moveArea = new System.Windows.Forms.Panel();
+            this.moveY = new System.Windows.Forms.TextBox();
+            this.moveX = new System.Windows.Forms.TextBox();
+            this.moveButton = new System.Windows.Forms.Button();
+            this.unitDescDisplay = new System.Windows.Forms.RichTextBox();
             this.unitNameDisplay = new System.Windows.Forms.Label();
-            this.dmgDisplay = new System.Windows.Forms.Label();
+            this.unitDMGdisplay = new System.Windows.Forms.Label();
             this.dmgIcon = new System.Windows.Forms.PictureBox();
-            this.lifeDisplay = new System.Windows.Forms.Label();
-            this.lifeBar = new System.Windows.Forms.ProgressBar();
+            this.unitHPdisplay = new System.Windows.Forms.Label();
+            this.unitHPbar = new System.Windows.Forms.ProgressBar();
             this.lifeIcon = new System.Windows.Forms.PictureBox();
             this.APIcon = new System.Windows.Forms.PictureBox();
-            this.APdisplay = new System.Windows.Forms.Label();
-            this.APbar = new System.Windows.Forms.ProgressBar();
+            this.unitAPdisplay = new System.Windows.Forms.Label();
+            this.unitAPbar = new System.Windows.Forms.ProgressBar();
             this.PlayerNameDisplay = new System.Windows.Forms.Label();
             this.gameArea = new System.Windows.Forms.Panel();
             this.mapSelector = new System.Windows.Forms.Panel();
@@ -50,16 +57,36 @@
             this.Help = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.endTurnButton = new System.Windows.Forms.Button();
             this.infoArea = new System.Windows.Forms.Panel();
+            this.recruitInfo = new System.Windows.Forms.Panel();
+            this.recruit = new System.Windows.Forms.Button();
+            this.recUnitTime = new System.Windows.Forms.Label();
+            this.recUnitName = new System.Windows.Forms.Label();
+            this.recUnitDMG = new System.Windows.Forms.Label();
+            this.DMG = new System.Windows.Forms.PictureBox();
+            this.recUnitHP = new System.Windows.Forms.Label();
+            this.HP = new System.Windows.Forms.PictureBox();
+            this.AP = new System.Windows.Forms.PictureBox();
+            this.recUnitAP = new System.Windows.Forms.Label();
+            this.townMenu = new System.Windows.Forms.Panel();
+            this.townCoords = new System.Windows.Forms.Label();
+            this.recruitArea = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.townHPdisplay = new System.Windows.Forms.Label();
+            this.townHPbar = new System.Windows.Forms.ProgressBar();
+            this.townHPBox = new System.Windows.Forms.PictureBox();
+            this.logger = new System.Windows.Forms.RichTextBox();
             this.tileInfo = new System.Windows.Forms.Panel();
+            this.tileCoords = new System.Windows.Forms.Label();
+            this.tileDEFrate = new System.Windows.Forms.Label();
+            this.tileAPrate = new System.Windows.Forms.Label();
             this.DEFrate = new System.Windows.Forms.Label();
             this.APrate = new System.Windows.Forms.Label();
             this.tileImage = new System.Windows.Forms.PictureBox();
             this.tileName = new System.Windows.Forms.Label();
-            this.tileAPrate = new System.Windows.Forms.Label();
-            this.tileDEFrate = new System.Windows.Forms.Label();
-            this.tileCoords = new System.Windows.Forms.Label();
             this.unitInfo.SuspendLayout();
+            this.moveArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).BeginInit();
@@ -67,6 +94,12 @@
             this.mapSelector.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.infoArea.SuspendLayout();
+            this.recruitInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DMG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AP)).BeginInit();
+            this.townMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.townHPBox)).BeginInit();
             this.tileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileImage)).BeginInit();
             this.SuspendLayout();
@@ -74,36 +107,73 @@
             // unitInfo
             // 
             this.unitInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.unitInfo.Controls.Add(this.descriptionDisplay);
+            this.unitInfo.Controls.Add(this.unitCoords);
+            this.unitInfo.Controls.Add(this.moveArea);
+            this.unitInfo.Controls.Add(this.unitDescDisplay);
             this.unitInfo.Controls.Add(this.unitNameDisplay);
-            this.unitInfo.Controls.Add(this.dmgDisplay);
+            this.unitInfo.Controls.Add(this.unitDMGdisplay);
             this.unitInfo.Controls.Add(this.dmgIcon);
-            this.unitInfo.Controls.Add(this.lifeDisplay);
-            this.unitInfo.Controls.Add(this.lifeBar);
+            this.unitInfo.Controls.Add(this.unitHPdisplay);
+            this.unitInfo.Controls.Add(this.unitHPbar);
             this.unitInfo.Controls.Add(this.lifeIcon);
             this.unitInfo.Controls.Add(this.APIcon);
-            this.unitInfo.Controls.Add(this.APdisplay);
-            this.unitInfo.Controls.Add(this.APbar);
+            this.unitInfo.Controls.Add(this.unitAPdisplay);
+            this.unitInfo.Controls.Add(this.unitAPbar);
             resources.ApplyResources(this.unitInfo, "unitInfo");
             this.unitInfo.Name = "unitInfo";
             // 
-            // descriptionDisplay
+            // unitCoords
             // 
-            resources.ApplyResources(this.descriptionDisplay, "descriptionDisplay");
-            this.descriptionDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.descriptionDisplay.Name = "descriptionDisplay";
+            resources.ApplyResources(this.unitCoords, "unitCoords");
+            this.unitCoords.Name = "unitCoords";
+            // 
+            // moveArea
+            // 
+            this.moveArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(65)))), ((int)(((byte)(5)))));
+            this.moveArea.Controls.Add(this.moveY);
+            this.moveArea.Controls.Add(this.moveX);
+            this.moveArea.Controls.Add(this.moveButton);
+            resources.ApplyResources(this.moveArea, "moveArea");
+            this.moveArea.Name = "moveArea";
+            // 
+            // moveY
+            // 
+            resources.ApplyResources(this.moveY, "moveY");
+            this.moveY.Name = "moveY";
+            // 
+            // moveX
+            // 
+            resources.ApplyResources(this.moveX, "moveX");
+            this.moveX.Name = "moveX";
+            // 
+            // moveButton
+            // 
+            resources.ApplyResources(this.moveButton, "moveButton");
+            this.moveButton.Name = "moveButton";
+            this.moveButton.UseVisualStyleBackColor = true;
+            this.moveButton.Click += new System.EventHandler(this.Action);
+            // 
+            // unitDescDisplay
+            // 
+            this.unitDescDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(64)))), ((int)(((byte)(5)))));
+            this.unitDescDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.unitDescDisplay, "unitDescDisplay");
+            this.unitDescDisplay.Name = "unitDescDisplay";
+            this.unitDescDisplay.ReadOnly = true;
             // 
             // unitNameDisplay
             // 
             resources.ApplyResources(this.unitNameDisplay, "unitNameDisplay");
             this.unitNameDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.unitNameDisplay.ForeColor = System.Drawing.Color.Black;
             this.unitNameDisplay.Name = "unitNameDisplay";
             // 
-            // dmgDisplay
+            // unitDMGdisplay
             // 
-            resources.ApplyResources(this.dmgDisplay, "dmgDisplay");
-            this.dmgDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.dmgDisplay.Name = "dmgDisplay";
+            resources.ApplyResources(this.unitDMGdisplay, "unitDMGdisplay");
+            this.unitDMGdisplay.BackColor = System.Drawing.Color.Transparent;
+            this.unitDMGdisplay.ForeColor = System.Drawing.Color.Transparent;
+            this.unitDMGdisplay.Name = "unitDMGdisplay";
             // 
             // dmgIcon
             // 
@@ -111,23 +181,23 @@
             this.dmgIcon.Name = "dmgIcon";
             this.dmgIcon.TabStop = false;
             // 
-            // lifeDisplay
+            // unitHPdisplay
             // 
-            resources.ApplyResources(this.lifeDisplay, "lifeDisplay");
-            this.lifeDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lifeDisplay.Name = "lifeDisplay";
+            resources.ApplyResources(this.unitHPdisplay, "unitHPdisplay");
+            this.unitHPdisplay.BackColor = System.Drawing.Color.Transparent;
+            this.unitHPdisplay.Name = "unitHPdisplay";
             // 
-            // lifeBar
+            // unitHPbar
             // 
-            this.lifeBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
-            this.lifeBar.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.lifeBar, "lifeBar");
-            this.lifeBar.MarqueeAnimationSpeed = 0;
-            this.lifeBar.Maximum = 10;
-            this.lifeBar.Name = "lifeBar";
-            this.lifeBar.Step = 1;
-            this.lifeBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.lifeBar.Tag = "";
+            this.unitHPbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
+            this.unitHPbar.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.unitHPbar, "unitHPbar");
+            this.unitHPbar.MarqueeAnimationSpeed = 0;
+            this.unitHPbar.Maximum = 10;
+            this.unitHPbar.Name = "unitHPbar";
+            this.unitHPbar.Step = 1;
+            this.unitHPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.unitHPbar.Tag = "";
             // 
             // lifeIcon
             // 
@@ -141,23 +211,24 @@
             this.APIcon.Name = "APIcon";
             this.APIcon.TabStop = false;
             // 
-            // APdisplay
+            // unitAPdisplay
             // 
-            resources.ApplyResources(this.APdisplay, "APdisplay");
-            this.APdisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.APdisplay.Name = "APdisplay";
+            resources.ApplyResources(this.unitAPdisplay, "unitAPdisplay");
+            this.unitAPdisplay.BackColor = System.Drawing.Color.Transparent;
+            this.unitAPdisplay.ForeColor = System.Drawing.Color.Black;
+            this.unitAPdisplay.Name = "unitAPdisplay";
             // 
-            // APbar
+            // unitAPbar
             // 
-            this.APbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
-            this.APbar.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.APbar, "APbar");
-            this.APbar.MarqueeAnimationSpeed = 0;
-            this.APbar.Maximum = 10;
-            this.APbar.Name = "APbar";
-            this.APbar.Step = 1;
-            this.APbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.APbar.Tag = "";
+            this.unitAPbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
+            this.unitAPbar.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.unitAPbar, "unitAPbar");
+            this.unitAPbar.MarqueeAnimationSpeed = 0;
+            this.unitAPbar.Maximum = 10;
+            this.unitAPbar.Name = "unitAPbar";
+            this.unitAPbar.Step = 1;
+            this.unitAPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.unitAPbar.Tag = "";
             // 
             // PlayerNameDisplay
             // 
@@ -218,17 +289,158 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.YellowGreen;
+            this.topPanel.Controls.Add(this.endTurnButton);
             this.topPanel.Controls.Add(this.PlayerNameDisplay);
             resources.ApplyResources(this.topPanel, "topPanel");
             this.topPanel.Name = "topPanel";
             // 
+            // endTurnButton
+            // 
+            resources.ApplyResources(this.endTurnButton, "endTurnButton");
+            this.endTurnButton.Name = "endTurnButton";
+            this.endTurnButton.UseVisualStyleBackColor = true;
+            // 
             // infoArea
             // 
             this.infoArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.infoArea.Controls.Add(this.recruitInfo);
+            this.infoArea.Controls.Add(this.townMenu);
+            this.infoArea.Controls.Add(this.logger);
             this.infoArea.Controls.Add(this.tileInfo);
             this.infoArea.Controls.Add(this.unitInfo);
             resources.ApplyResources(this.infoArea, "infoArea");
             this.infoArea.Name = "infoArea";
+            // 
+            // recruitInfo
+            // 
+            this.recruitInfo.Controls.Add(this.recruit);
+            this.recruitInfo.Controls.Add(this.recUnitTime);
+            this.recruitInfo.Controls.Add(this.recUnitName);
+            this.recruitInfo.Controls.Add(this.recUnitDMG);
+            this.recruitInfo.Controls.Add(this.DMG);
+            this.recruitInfo.Controls.Add(this.recUnitHP);
+            this.recruitInfo.Controls.Add(this.HP);
+            this.recruitInfo.Controls.Add(this.AP);
+            this.recruitInfo.Controls.Add(this.recUnitAP);
+            resources.ApplyResources(this.recruitInfo, "recruitInfo");
+            this.recruitInfo.Name = "recruitInfo";
+            // 
+            // recruit
+            // 
+            this.recruit.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.recruit, "recruit");
+            this.recruit.Name = "recruit";
+            this.recruit.UseVisualStyleBackColor = false;
+            // 
+            // recUnitTime
+            // 
+            resources.ApplyResources(this.recUnitTime, "recUnitTime");
+            this.recUnitTime.Name = "recUnitTime";
+            // 
+            // recUnitName
+            // 
+            resources.ApplyResources(this.recUnitName, "recUnitName");
+            this.recUnitName.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitName.Name = "recUnitName";
+            // 
+            // recUnitDMG
+            // 
+            resources.ApplyResources(this.recUnitDMG, "recUnitDMG");
+            this.recUnitDMG.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitDMG.ForeColor = System.Drawing.Color.Transparent;
+            this.recUnitDMG.Name = "recUnitDMG";
+            // 
+            // DMG
+            // 
+            resources.ApplyResources(this.DMG, "DMG");
+            this.DMG.Name = "DMG";
+            this.DMG.TabStop = false;
+            // 
+            // recUnitHP
+            // 
+            resources.ApplyResources(this.recUnitHP, "recUnitHP");
+            this.recUnitHP.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitHP.Name = "recUnitHP";
+            // 
+            // HP
+            // 
+            resources.ApplyResources(this.HP, "HP");
+            this.HP.Name = "HP";
+            this.HP.TabStop = false;
+            // 
+            // AP
+            // 
+            resources.ApplyResources(this.AP, "AP");
+            this.AP.Name = "AP";
+            this.AP.TabStop = false;
+            // 
+            // recUnitAP
+            // 
+            resources.ApplyResources(this.recUnitAP, "recUnitAP");
+            this.recUnitAP.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitAP.ForeColor = System.Drawing.Color.Black;
+            this.recUnitAP.Name = "recUnitAP";
+            // 
+            // townMenu
+            // 
+            this.townMenu.Controls.Add(this.townCoords);
+            this.townMenu.Controls.Add(this.recruitArea);
+            this.townMenu.Controls.Add(this.label1);
+            this.townMenu.Controls.Add(this.townHPdisplay);
+            this.townMenu.Controls.Add(this.townHPbar);
+            this.townMenu.Controls.Add(this.townHPBox);
+            resources.ApplyResources(this.townMenu, "townMenu");
+            this.townMenu.Name = "townMenu";
+            // 
+            // townCoords
+            // 
+            resources.ApplyResources(this.townCoords, "townCoords");
+            this.townCoords.Name = "townCoords";
+            // 
+            // recruitArea
+            // 
+            this.recruitArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(64)))), ((int)(((byte)(5)))));
+            resources.ApplyResources(this.recruitArea, "recruitArea");
+            this.recruitArea.Name = "recruitArea";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // townHPdisplay
+            // 
+            resources.ApplyResources(this.townHPdisplay, "townHPdisplay");
+            this.townHPdisplay.BackColor = System.Drawing.Color.Transparent;
+            this.townHPdisplay.Name = "townHPdisplay";
+            // 
+            // townHPbar
+            // 
+            this.townHPbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
+            this.townHPbar.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.townHPbar, "townHPbar");
+            this.townHPbar.MarqueeAnimationSpeed = 0;
+            this.townHPbar.Maximum = 10;
+            this.townHPbar.Name = "townHPbar";
+            this.townHPbar.Step = 1;
+            this.townHPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.townHPbar.Tag = "";
+            // 
+            // townHPBox
+            // 
+            resources.ApplyResources(this.townHPBox, "townHPBox");
+            this.townHPBox.Name = "townHPBox";
+            this.townHPBox.TabStop = false;
+            // 
+            // logger
+            // 
+            this.logger.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.logger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(64)))), ((int)(((byte)(5)))));
+            this.logger.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logger.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.logger, "logger");
+            this.logger.Name = "logger";
+            this.logger.ReadOnly = true;
             // 
             // tileInfo
             // 
@@ -242,6 +454,21 @@
             this.tileInfo.Controls.Add(this.tileName);
             resources.ApplyResources(this.tileInfo, "tileInfo");
             this.tileInfo.Name = "tileInfo";
+            // 
+            // tileCoords
+            // 
+            resources.ApplyResources(this.tileCoords, "tileCoords");
+            this.tileCoords.Name = "tileCoords";
+            // 
+            // tileDEFrate
+            // 
+            resources.ApplyResources(this.tileDEFrate, "tileDEFrate");
+            this.tileDEFrate.Name = "tileDEFrate";
+            // 
+            // tileAPrate
+            // 
+            resources.ApplyResources(this.tileAPrate, "tileAPrate");
+            this.tileAPrate.Name = "tileAPrate";
             // 
             // DEFrate
             // 
@@ -264,21 +491,6 @@
             resources.ApplyResources(this.tileName, "tileName");
             this.tileName.Name = "tileName";
             // 
-            // tileAPrate
-            // 
-            resources.ApplyResources(this.tileAPrate, "tileAPrate");
-            this.tileAPrate.Name = "tileAPrate";
-            // 
-            // tileDEFrate
-            // 
-            resources.ApplyResources(this.tileDEFrate, "tileDEFrate");
-            this.tileDEFrate.Name = "tileDEFrate";
-            // 
-            // tileCoords
-            // 
-            resources.ApplyResources(this.tileCoords, "tileCoords");
-            this.tileCoords.Name = "tileCoords";
-            // 
             // GameWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -288,12 +500,15 @@
             this.Controls.Add(this.infoArea);
             this.Controls.Add(this.gameArea);
             this.Controls.Add(this.topPanel);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameWindow";
             this.unitInfo.ResumeLayout(false);
             this.unitInfo.PerformLayout();
+            this.moveArea.ResumeLayout(false);
+            this.moveArea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.APIcon)).EndInit();
@@ -303,6 +518,14 @@
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.infoArea.ResumeLayout(false);
+            this.recruitInfo.ResumeLayout(false);
+            this.recruitInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DMG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AP)).EndInit();
+            this.townMenu.ResumeLayout(false);
+            this.townMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.townHPBox)).EndInit();
             this.tileInfo.ResumeLayout(false);
             this.tileInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileImage)).EndInit();
@@ -312,20 +535,17 @@
 
         #endregion
         private System.Windows.Forms.Panel unitInfo;
-        private System.Windows.Forms.ProgressBar APbar;
+        private System.Windows.Forms.ProgressBar unitAPbar;
         private System.Windows.Forms.Label PlayerNameDisplay;
-        private System.Windows.Forms.Label APdisplay;
-        private System.Windows.Forms.Panel gameArea;
+        private System.Windows.Forms.Label unitAPdisplay;
         private System.Windows.Forms.PictureBox APIcon;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox lifeIcon;
-        private System.Windows.Forms.Label lifeDisplay;
-        private System.Windows.Forms.ProgressBar lifeBar;
+        private System.Windows.Forms.Label unitHPdisplay;
+        private System.Windows.Forms.ProgressBar unitHPbar;
         private System.Windows.Forms.Label unitNameDisplay;
-        private System.Windows.Forms.Label dmgDisplay;
+        private System.Windows.Forms.Label unitDMGdisplay;
         private System.Windows.Forms.PictureBox dmgIcon;
-        private System.Windows.Forms.Label descriptionDisplay;
-        private System.Windows.Forms.Panel infoArea;
         private System.Windows.Forms.Panel tileInfo;
         private System.Windows.Forms.Label DEFrate;
         private System.Windows.Forms.Label APrate;
@@ -341,6 +561,33 @@
         private System.Windows.Forms.Label tileDEFrate;
         private System.Windows.Forms.Label tileAPrate;
         private System.Windows.Forms.Label tileCoords;
+        private System.Windows.Forms.RichTextBox logger;
+        private System.Windows.Forms.Panel townMenu;
+        private System.Windows.Forms.Panel recruitArea;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label townHPdisplay;
+        private System.Windows.Forms.ProgressBar townHPbar;
+        private System.Windows.Forms.PictureBox townHPBox;
+        private System.Windows.Forms.Label townCoords;
+        private System.Windows.Forms.Button endTurnButton;
+        private System.Windows.Forms.RichTextBox unitDescDisplay;
+        private System.Windows.Forms.Panel moveArea;
+        internal System.Windows.Forms.Panel gameArea;
+        internal System.Windows.Forms.Panel infoArea;
+        private System.Windows.Forms.Panel recruitInfo;
+        private System.Windows.Forms.Button recruit;
+        private System.Windows.Forms.Label recUnitTime;
+        private System.Windows.Forms.Label recUnitName;
+        private System.Windows.Forms.Label recUnitDMG;
+        private System.Windows.Forms.PictureBox DMG;
+        private System.Windows.Forms.Label recUnitHP;
+        private System.Windows.Forms.PictureBox HP;
+        private System.Windows.Forms.PictureBox AP;
+        private System.Windows.Forms.Label recUnitAP;
+        private System.Windows.Forms.TextBox moveY;
+        private System.Windows.Forms.TextBox moveX;
+        private System.Windows.Forms.Button moveButton;
+        private System.Windows.Forms.Label unitCoords;
     }
 }
 

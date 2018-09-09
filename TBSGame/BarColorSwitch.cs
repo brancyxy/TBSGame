@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Runtime.InteropServices;
+using System;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace TBSGame
 {
@@ -13,11 +13,12 @@ namespace TBSGame
             SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero); // 1 = (green); 2 = (red); 3 = (yellow)
         }
 
-        public static void SetBarColor(ref Label label, ref ProgressBar bar)
+        public static void SetBarColor(ref ProgressBar bar)
         {
-            label.Text = Convert.ToString(bar.Value);
-            if (1 > (float)bar.Value/bar.Maximum) SetState(bar, 1);
-            else if (2 / 3 > (float)bar.Value / bar.Maximum) SetState(bar, 3);
+            double v = bar.Value;
+            double m = bar.Maximum;
+            if (v/m>(double)2/3) SetState(bar, 1);
+            else if (v/m>(double)1/3) SetState(bar, 3);
             else SetState(bar, 2);
         }
     }

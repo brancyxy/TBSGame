@@ -54,13 +54,21 @@
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Map.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recruiter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Tile.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Town.cs" />
-    <Compile Include="Unit.cs" />
+    <Compile Include="Town.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>
