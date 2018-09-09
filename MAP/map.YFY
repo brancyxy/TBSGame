@@ -1,0 +1,39 @@
+X---SG00000000000000
+0000lGG0000000000000
+0000E-----S000000000
+0000GGGGGGl000000000
+00000GGGGGl000000000
+000000GGGGl000000000
+0000000GGGl000000000
+00000000GGl000000000
+000000000Gl000000000
+0000000000l000000000
+0000000000l000000000
+0000000000lG00000000
+0000000000lGG0000000
+0000000000lGGG000000
+0000000000lGGGG00000
+0000000000lGGGGG0000
+0000000000lGGGGGG000
+0000000000E-----S000
+00000000000000GGl000
+000000000000000GE--X
+[TILES]
+E;1;0;Road;road-ne.png
+S;1;0;Road;road-ws.png
+-;1;0;Road;road-we.png
+l;1;0;Road;road-ns.png
+0;3;20;Forest;forest.png
+G;2;10;Grass;grass.png
+X;1;50;Town;town.png
+[END]
+[TOWN]
+1;0
+0;0
+19;19
+[UNITS]
+Warrior;2;100;20;30;7;0;warrior.png;He has a sword, which is actually a mace in the texture, and, well, he crusades for the will of God. INKREDIBILIS/10
+Scout;1;50;5;10;15;0;scout.png;He has a horse, which walks pretty fast, but he himself is drunk, because he scouts in a map without FOW.
+Archer;2;50;15;25;10;0;archer.png;He is supposed to, like, attack from far away. But that shouldn't be a problem for now. You know, it's an eternal secret why doesn't it attack from far away.
+Healer;3;50;10;20;8;1;healer.png;Wololo he said, and the red became blue, gates opened, and units were healed. Sadly, the developer only added the last one.
+[END]
