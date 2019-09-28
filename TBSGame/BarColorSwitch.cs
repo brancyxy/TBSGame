@@ -15,10 +15,10 @@ namespace TBSGame
 
         public static void SetBarColor(ref ProgressBar bar)
         {
-            double v = bar.Value;
-            double m = bar.Maximum;
-            if (v/m>(double)2/3) SetState(bar, 1);
-            else if (v/m>(double)1/3) SetState(bar, 3);
+            var v = bar.Value;
+            var m = bar.Maximum;
+            if ((double)v/m>(double)2/3) SetState(bar, 1);
+            else if ((double)v/m>(double)1/3) SetState(bar, 3);
             else SetState(bar, 2);
         }
     }

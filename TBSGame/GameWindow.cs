@@ -9,7 +9,7 @@ namespace TBSGame
     public partial class GameWindow : Form
     {
         Random r;
-        public int p = 0;
+        public int currentPlayer = 0;
         Player[] players = new Player[2];
 
         Map map;
@@ -84,24 +84,24 @@ namespace TBSGame
         private void Recruit(object sender, EventArgs s)
         {
 
-            if (players[p].town.rec) logger.Text += Environment.NewLine + "Already recruiting a unit.";
-            else if (CheckTile(players[p].town.x, players[p].town.y) ==1) logger.Text += Environment.NewLine + "Unit at town, can't recruit";
+            if (players[currentPlayer].town.rec) logger.Text += Environment.NewLine + "Already recruiting a unit.";
+            else if (CheckTile(players[currentPlayer].town.x, players[currentPlayer].town.y) ==1) logger.Text += Environment.NewLine + "Unit at town, can't recruit";
             else
             {
                 logger.Text += string.Format(Environment.NewLine + "Recruiting {0}, process takes {1} turns", selectedRec.name, selectedRec.recTime);
-                players[p].town.rec = true;
-                int x = players[p].town.x;
-                int y = players[p].town.y;
-                players[p].town.recruit = new Unit(selectedRec, x+1, y+1, map.tiles[x,y]);
+                players[currentPlayer].town.rec = true;
+                int x = players[currentPlayer].town.x;
+                int y = players[currentPlayer].town.y;
+                players[currentPlayer].town.recruit = new Unit(selectedRec, x+1, y+1, map.tiles[x,y]);
             }
         }
 
         private void NewTurn()
         {
-            players[p].town.owner = true;
+            players[currentPlayer].town.owner = true;
 
-            PlayerNameDisplay.Text = players[p].name;
-            MessageBox.Show(string.Format("{0}'s turn", players[p].name), "New turn");
+            PlayerNameDisplay.Text = players[currentPlayer].name;
+            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].name), "New turn");
         }
 
         private void NewTurn(object sender, EventArgs s)
@@ -116,19 +116,19 @@ namespace TBSGame
             }
 
             Devisualize();
-            if (players[p].town.rec)
+            if (players[currentPlayer].town.rec)
             {
-                players[p].town.turns++;
-                if (players[p].town.RecruitDone())
+                players[currentPlayer].town.turns++;
+                if (players[currentPlayer].town.RecruitDone())
                 {
-                    Unit u = players[p].town.recruit;
+                    Unit u = players[currentPlayer].town.recruit;
                     u.Click += new EventHandler(ClickUnit);
-                    players[p].ownedUnits.Add(u);
+                    players[currentPlayer].ownedUnits.Add(u);
                     gameArea.Controls.Add(u);
                 }
             }
-            p = (p + 1) % 2;
-            foreach (var u in players[p].ownedUnits)
+            currentPlayer = (currentPlayer + 1) % 2;
+            foreach (var u in players[currentPlayer].ownedUnits)
             {
                 var ui = u.stats;
                 u.owner = true;
@@ -137,19 +137,19 @@ namespace TBSGame
                 u.attacked = false;
             }
 
-            players[p].town.owner = true;
-            if (players[p].town.currHP + players[p].town.reg > players[p].town.maxHP) players[p].town.currHP = players[p].town.maxHP;
-            else players[p].town.currHP += players[p].town.reg;
+            players[currentPlayer].town.owner = true;
+            if (players[currentPlayer].town.currHP + players[currentPlayer].town.reg > players[currentPlayer].town.maxHP) players[currentPlayer].town.currHP = players[currentPlayer].town.maxHP;
+            else players[currentPlayer].town.currHP += players[currentPlayer].town.reg;
 
-            foreach (var u in players[(p + 1) % 2].ownedUnits)
+            foreach (var u in players[(currentPlayer + 1) % 2].ownedUnits)
             {
                 u.owner = false;
                 u.BackColor = Color.Red;
             }
-            players[(p + 1) % 2].town.owner = false;
+            players[(currentPlayer + 1) % 2].town.owner = false;
 
-            PlayerNameDisplay.Text = players[p].name;
-            MessageBox.Show(string.Format("{0}'s turn", players[p].name), "New turn");
+            PlayerNameDisplay.Text = players[currentPlayer].name;
+            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].name), "New turn");
         }
 
         void ClickUnit(object sender, EventArgs s)
@@ -344,7 +344,7 @@ namespace TBSGame
                     case 1:
                         if (ui.type == 1)
                         {
-                            foreach (var u in players[p].ownedUnits)
+                            foreach (var u in players[currentPlayer].ownedUnits)
                             {
                                 UnitInfo sui = u.stats;
                                 if ((u.x == x && u.y == y))
@@ -372,7 +372,7 @@ namespace TBSGame
                             if (selectedUnit.attacked) Log("Unit already attacked this turn");
                             else
                             {
-                                foreach (var u in players[(p + 1) % 2].ownedUnits)
+                                foreach (var u in players[(currentPlayer + 1) % 2].ownedUnits)
                                 {
                                     if (u.x == x && u.y == y)
                                     {
@@ -380,7 +380,7 @@ namespace TBSGame
                                         selectedUnit.attacked = true;
                                         if (u.currHP < 0)
                                         {
-                                            players[(p + 1) % 2].ownedUnits.Remove(u);
+                                            players[(currentPlayer + 1) % 2].ownedUnits.Remove(u);
                                             u.Location = new Point(9999,9999);
                                             u.x = -1;
                                             u.y = -1;
@@ -401,8 +401,8 @@ namespace TBSGame
                             if (selectedUnit.attacked) Log("Unit already attacked this turn");
                             else
                             {
-                                players[(p + 1) % 2].town.currHP -= dmg;
-                                if (players[(p + 1) % 2].town.currHP <= 0) Win();
+                                players[(currentPlayer + 1) % 2].town.currHP -= dmg;
+                                if (players[(currentPlayer + 1) % 2].town.currHP <= 0) Win();
                             }
                         }
                         break;
@@ -414,11 +414,11 @@ namespace TBSGame
                 else logger.Text += Environment.NewLine +ex.Message;
             }
 
-        }
+        } //clean this up, prune units correctly
 
         private void Win()
         {
-            MessageBox.Show(string.Format("{0} wins!", players[p].name), "Congratulations!");
+            MessageBox.Show(string.Format("{0} wins!", players[currentPlayer].name), "Congratulations!");
             map = null;
             players = null;
             Devisualize();
@@ -434,10 +434,10 @@ namespace TBSGame
 
         int CheckTile(int x, int y)
         {
-            foreach (var u in players[p].ownedUnits) if (u.x == x && u.y == y) return 1;
-            foreach (var u in players[(p + 1) % 2].ownedUnits) if (u.x == x && u.y == y) return 2;
-            if (players[p].town.x+1 == x && players[p].town.y+1 == y) return 3;
-            if (players[(p + 1) % 2].town.x+1 == x && players[(p + 1) % 2].town.y+1 == y) return 4;
+            foreach (var u in players[currentPlayer].ownedUnits) if (u.x == x && u.y == y) return 1;
+            foreach (var u in players[(currentPlayer + 1) % 2].ownedUnits) if (u.x == x && u.y == y) return 2;
+            if (players[currentPlayer].town.x+1 == x && players[currentPlayer].town.y+1 == y) return 3;
+            if (players[(currentPlayer + 1) % 2].town.x+1 == x && players[(currentPlayer + 1) % 2].town.y+1 == y) return 4;
             return 0;
         }
     }

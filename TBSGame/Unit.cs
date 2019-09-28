@@ -62,7 +62,6 @@ namespace TBSGame
         public int currHP;
         public int currAP;
         public double dmgRed;
-
         public bool attacked = false;
 
         public Unit(UnitInfo ui, int x, int y,Tile t)

@@ -55,7 +55,7 @@ namespace TBSGame
             this.p1Label = new System.Windows.Forms.Label();
             this.p1NameBox = new System.Windows.Forms.TextBox();
             this.Help = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mapOpener = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.endTurnButton = new System.Windows.Forms.Button();
             this.infoArea = new System.Windows.Forms.Panel();
@@ -249,7 +249,7 @@ namespace TBSGame
             this.mapSelector.Controls.Add(this.p1Label);
             this.mapSelector.Controls.Add(this.p1NameBox);
             this.mapSelector.Controls.Add(this.Help);
-            this.mapSelector.Controls.Add(this.button1);
+            this.mapSelector.Controls.Add(this.mapOpener);
             resources.ApplyResources(this.mapSelector, "mapSelector");
             this.mapSelector.Name = "mapSelector";
             // 
@@ -278,13 +278,13 @@ namespace TBSGame
             resources.ApplyResources(this.Help, "Help");
             this.Help.Name = "Help";
             // 
-            // button1
+            // mapOpener
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.SelectMap);
+            this.mapOpener.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            resources.ApplyResources(this.mapOpener, "mapOpener");
+            this.mapOpener.Name = "mapOpener";
+            this.mapOpener.UseVisualStyleBackColor = false;
+            this.mapOpener.Click += new System.EventHandler(this.SelectMap);
             // 
             // topPanel
             // 
@@ -552,7 +552,7 @@ namespace TBSGame
         private System.Windows.Forms.PictureBox tileImage;
         private System.Windows.Forms.Label tileName;
         private System.Windows.Forms.Panel mapSelector;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button mapOpener;
         private System.Windows.Forms.Label Help;
         private System.Windows.Forms.TextBox p1NameBox;
         private System.Windows.Forms.Label p2Label;
