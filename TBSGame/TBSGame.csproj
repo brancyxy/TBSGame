@@ -45,15 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarColorSwitch.cs" />
-    <Compile Include="File.cs" />
+    <Compile Include="MapSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapSelector.Designer.cs">
+      <DependentUpon>MapSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map.cs" />
     <Compile Include="GameWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GameWindow.Designer.cs">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map.cs" />
+    <Compile Include="TileMap.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +74,12 @@
     <Compile Include="Unit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UnitInfo.cs" />
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapSelector.resx">
+      <DependentUpon>MapSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

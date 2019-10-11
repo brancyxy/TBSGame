@@ -12,41 +12,43 @@ namespace TBSGame
         public int currentPlayer = 0;
         Player[] players = new Player[2];
 
-        Map map;
+        TileMap map;
         UnitInfo selectedRec;
         Unit selectedUnit;
-        public GameWindow()
+
+        FileInfo file;
+        string[] pName;
+        public GameWindow(FileInfo file, string[] pName)
         {
             InitializeComponent();
+            this.file = file;
+            this.pName = pName;
+
+            this.WindowState = FormWindowState.Minimized;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+
+
+            SelectMap();
         }
 
-        void SelectMap(object sender, EventArgs e)
+        void SelectMap()
         {
-            OpenFileDialog ofd = new OpenFileDialog
-            {
-                Filter = "|map.YFY"
-            };
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                string[] pName = new string[2];
-                pName[0] = (p1NameBox.Text != "") ? p1NameBox.Text : "Player 1";
-                pName[1] = (p2NameBox.Text != "") ? p2NameBox.Text : "Player 2";
-                FileInfo file = new FileInfo(ofd.FileName);
 
                 try
                 {
-                    map = new Map(File.ReadMap(file.FullName), file.DirectoryName);
+                    map = new TileMap(Map.ReadMap(file.FullName), file.DirectoryName);
 
-                    List<TileInfo> tileInfos = File.GetTiles();
+                    List<TileInfo> tileInfos = Map.GetTiles();
 
                     map.AddTiles(tileInfos);
 
-                    Town[] towns = File.GetTown();
+                    Town[] towns = Map.GetTown();
                     Image bg = GetTownBG(tileInfos, towns);
 
                     AddTiles(towns, bg);
 
-                    List<UnitInfo> unitInfos = File.GetUnitInfos(map);
+                    List<UnitInfo> unitInfos = Map.GetUnitInfos(map);
                     for (int i = 0; i < players.Length; i++)
                     {
                         towns[i].unitInfos = unitInfos;
@@ -61,12 +63,7 @@ namespace TBSGame
 
                     }
 
-                    {
-                        mapSelector.Dispose();
-                        mapSelector.SendToBack();
-                        mapSelector.Visible = false;
-                        logger.Text = "Map loaded succesfully!";
-                    }  //map selector removal 
+                    logger.Text = "Map loaded succesfully!";
 
                     NewTurn();
                     endTurnButton.Click += new EventHandler(NewTurn);
@@ -79,36 +76,35 @@ namespace TBSGame
                     logger.Text += Environment.NewLine + ex.Message;
                 }
 
-            }
-        }
+                    }
         private void Recruit(object sender, EventArgs s)
         {
 
-            if (players[currentPlayer].town.rec) logger.Text += Environment.NewLine + "Already recruiting a unit.";
-            else if (CheckTile(players[currentPlayer].town.x, players[currentPlayer].town.y) ==1) logger.Text += Environment.NewLine + "Unit at town, can't recruit";
+            if (players[currentPlayer].Town.rec) logger.Text += Environment.NewLine + "Already recruiting a unit.";
+            else if (CheckTile(players[currentPlayer].Town.x, players[currentPlayer].Town.y) ==1) logger.Text += Environment.NewLine + "Unit at town, can't recruit";
             else
             {
                 logger.Text += string.Format(Environment.NewLine + "Recruiting {0}, process takes {1} turns", selectedRec.name, selectedRec.recTime);
-                players[currentPlayer].town.rec = true;
-                int x = players[currentPlayer].town.x;
-                int y = players[currentPlayer].town.y;
-                players[currentPlayer].town.recruit = new Unit(selectedRec, x+1, y+1, map.tiles[x,y]);
+                players[currentPlayer].Town.rec = true;
+                int x = players[currentPlayer].Town.x;
+                int y = players[currentPlayer].Town.y;
+                players[currentPlayer].Town.recruit = new Unit(selectedRec, x+1, y+1, map.tiles[x,y]);
             }
         }
 
         private void NewTurn()
         {
-            players[currentPlayer].town.owner = true;
+            players[currentPlayer].Town.owner = true;
 
-            PlayerNameDisplay.Text = players[currentPlayer].name;
-            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].name), "New turn");
+            PlayerNameDisplay.Text = players[currentPlayer].Name;
+            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].Name), "New turn");
         }
 
         private void NewTurn(object sender, EventArgs s)
         {
             foreach (var p in players)
             {
-                p.town.SendToBack();
+                p.Town.SendToBack();
             }
             foreach (var t in map.tiles)
             {
@@ -116,12 +112,12 @@ namespace TBSGame
             }
 
             Devisualize();
-            if (players[currentPlayer].town.rec)
+            if (players[currentPlayer].Town.rec)
             {
-                players[currentPlayer].town.turns++;
-                if (players[currentPlayer].town.RecruitDone())
+                players[currentPlayer].Town.turns++;
+                if (players[currentPlayer].Town.RecruitDone())
                 {
-                    Unit u = players[currentPlayer].town.recruit;
+                    Unit u = players[currentPlayer].Town.recruit;
                     u.Click += new EventHandler(ClickUnit);
                     players[currentPlayer].ownedUnits.Add(u);
                     gameArea.Controls.Add(u);
@@ -137,19 +133,20 @@ namespace TBSGame
                 u.attacked = false;
             }
 
-            players[currentPlayer].town.owner = true;
-            if (players[currentPlayer].town.currHP + players[currentPlayer].town.reg > players[currentPlayer].town.maxHP) players[currentPlayer].town.currHP = players[currentPlayer].town.maxHP;
-            else players[currentPlayer].town.currHP += players[currentPlayer].town.reg;
+            players[currentPlayer].Town.owner = true;
+            if (players[currentPlayer].Town.currHP + players[currentPlayer].Town.reg > players[currentPlayer].Town.maxHP) 
+                    players[currentPlayer].Town.currHP = players[currentPlayer].Town.maxHP;
+            else players[currentPlayer].Town.currHP += players[currentPlayer].Town.reg;
 
             foreach (var u in players[(currentPlayer + 1) % 2].ownedUnits)
             {
                 u.owner = false;
                 u.BackColor = Color.Red;
             }
-            players[(currentPlayer + 1) % 2].town.owner = false;
+            players[(currentPlayer + 1) % 2].Town.owner = false;
 
-            PlayerNameDisplay.Text = players[currentPlayer].name;
-            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].name), "New turn");
+            PlayerNameDisplay.Text = players[currentPlayer].Name;
+            MessageBox.Show(string.Format("{0}'s turn", players[currentPlayer].Name), "New turn");
         }
 
         void ClickUnit(object sender, EventArgs s)
@@ -216,7 +213,7 @@ namespace TBSGame
             bool town = false;
             foreach (var ti in tileInfos)
             {
-                if ((map.charMap[towns[0].x, towns[0].y] == ti.chr && ti.name.ToLower() == "town") && (map.charMap[towns[1].x, towns[1].y] == ti.chr && ti.name.ToLower() == "town") && !town)
+                if ((map.CharMap[towns[0].x, towns[0].y] == ti.chr && ti.name.ToLower() == "town") && (map.CharMap[towns[1].x, towns[1].y] == ti.chr && ti.name.ToLower() == "town") && !town)
                 {
                     town = true;
                     Image bg = Image.FromFile(map.mapFolder + ti.imgFN);
@@ -261,7 +258,6 @@ namespace TBSGame
                 townHPbar.Maximum = town.maxHP;
                 townHPbar.Value = town.currHP;
                 townCoords.Text = Convert.ToString(town.Location.X / 25 + 1) + ";" + Convert.ToString(town.Location.Y / 25 + 1);
-                BarColorSwitch.SetBarColor(ref townHPbar);
 
                 townMenu.Visible = true;
                 if (town.owner == true)
@@ -380,10 +376,8 @@ namespace TBSGame
                                         selectedUnit.attacked = true;
                                         if (u.currHP < 0)
                                         {
+                                            u.Dispose();
                                             players[(currentPlayer + 1) % 2].ownedUnits.Remove(u);
-                                            u.Location = new Point(9999,9999);
-                                            u.x = -1;
-                                            u.y = -1;
                                         }
                                         Log(string.Format("Hit {0} for {1} damage!", u.Name, (int)(dmg - (dmg * u.dmgRed))));
                                     }
@@ -401,8 +395,8 @@ namespace TBSGame
                             if (selectedUnit.attacked) Log("Unit already attacked this turn");
                             else
                             {
-                                players[(currentPlayer + 1) % 2].town.currHP -= dmg;
-                                if (players[(currentPlayer + 1) % 2].town.currHP <= 0) Win();
+                                players[(currentPlayer + 1) % 2].Town.currHP -= dmg;
+                                if (players[(currentPlayer + 1) % 2].Town.currHP <= 0) Win();
                             }
                         }
                         break;
@@ -414,13 +408,11 @@ namespace TBSGame
                 else logger.Text += Environment.NewLine +ex.Message;
             }
 
-        } //clean this up, prune units correctly
+        } //clean this up
 
         private void Win()
         {
-            MessageBox.Show(string.Format("{0} wins!", players[currentPlayer].name), "Congratulations!");
-            map = null;
-            players = null;
+            MessageBox.Show(string.Format("{0} wins!", players[currentPlayer].Name), "Congratulations!");
             Devisualize();
             gameArea.Visible = false;
             topPanel.Visible = false;
@@ -436,8 +428,8 @@ namespace TBSGame
         {
             foreach (var u in players[currentPlayer].ownedUnits) if (u.x == x && u.y == y) return 1;
             foreach (var u in players[(currentPlayer + 1) % 2].ownedUnits) if (u.x == x && u.y == y) return 2;
-            if (players[currentPlayer].town.x+1 == x && players[currentPlayer].town.y+1 == y) return 3;
-            if (players[(currentPlayer + 1) % 2].town.x+1 == x && players[(currentPlayer + 1) % 2].town.y+1 == y) return 4;
+            if (players[currentPlayer].Town.x+1 == x && players[currentPlayer].Town.y+1 == y) return 3;
+            if (players[(currentPlayer + 1) % 2].Town.x+1 == x && players[(currentPlayer + 1) % 2].Town.y+1 == y) return 4;
             return 0;
         }
     }

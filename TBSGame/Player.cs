@@ -4,15 +4,15 @@ namespace TBSGame
 {
     class Player
     {
-        public string name;
+        public string Name { get; private set; }
 
         public List<Unit> ownedUnits;
-        public Town town;
+        public Town Town { get; private set; }
 
         public Player(string n, Town town)
         {
-            name = n;
-            this.town = town;
+            this.Name = n;
+            this.Town = town;
             ownedUnits = new List<Unit>();
         }
     }

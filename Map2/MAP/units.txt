@@ -1,0 +1,4 @@
+Warrior;2;100;20;30;7;0;warrior.png;He has a sword, which is actually a mace in the texture, but you won't see that in 15x25.
+Scout;1;50;5;10;15;0;scout.png;He has a horse, which walks pretty fast, but he himself is drunk, because he scouts in a map without FOW.
+Archer;2;50;15;25;10;0;archer.png;He is supposed to, like, attack from far away. But that shouldn't be a problem for now. You know, it's an eternal secret why it doesn't attack from far away.
+Healer;3;50;10;20;8;1;healer.png;Wololo he said, and the red became blue, gates opened, and units were healed. Sadly, the developer only added the last one.

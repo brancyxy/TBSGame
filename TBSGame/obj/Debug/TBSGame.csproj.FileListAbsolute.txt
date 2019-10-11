@@ -3,8 +3,8 @@ C:\Users\branc\source\repos\TBSGame\TBSGame\bin\Debug\TBSGame.exe
 C:\Users\branc\source\repos\TBSGame\TBSGame\bin\Debug\TBSGame.pdb
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Properties.Resources.resources
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.csproj.GenerateResource.Cache
-C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.csproj.CoreCompileInputs.cache
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.exe
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.pdb
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.GameWindow.resources
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.csprojAssemblyReference.cache
+C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.MapSelector.resources
