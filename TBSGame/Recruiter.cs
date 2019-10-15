@@ -9,7 +9,7 @@ namespace TBSGame
         public Recruiter(UnitInfo unit,int x, int y)
             {
                 this.unit = unit;
-                BackgroundImage = unit.bg;
+                BackgroundImage = unit.Texture;
                 Location = new Point(20 + (x * 30), 20 + (y * 30));
                 
                 Visible = true;

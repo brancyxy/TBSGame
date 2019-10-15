@@ -39,7 +39,7 @@ namespace TBSGame
         public bool RecruitDone()
         {
             var rt = recruit.stats;
-            if (turns == rt.recTime)
+            if (turns == rt.RecTime)
             {
                 rec = false;
                 turns = 0;

@@ -5,46 +5,38 @@ namespace TBSGame
 {
     struct UnitInfo
     {
-            public string name;
+            public string Name { private set; get; }
 
-            public int recTime;
+            public int RecTime { private set; get; }
 
-            public int maxHP;
+            public int MaxHP { private set; get; }
 
-            public int maxAP;
+            public int MinDMG { private set; get; }
+            public int MaxDMG { private set; get; }
 
-            public int minDMG;
-            public int maxDMG;
+            public int MaxAP { private set; get; }
 
-            public int type;
-            public int range;
+            public int Type { private set; get; }
 
-            public Image bg;
+            // public int Range { private set; get; } -- dont need this atm
 
-            public string description;
+            public Image Texture { private set; get; }
+
+            public string Description { private set; get; }
             public UnitInfo(string name, int recTime, int maxHP, int minDMG, int maxDMG, int maxAP, string type, string imgPath, string description)
             {
-                string[] typeData = type.Split(',');
-                if (typeData.Length == 2 && typeData[0] == "1")
-                {
-                    range = int.Parse(typeData[1]);
-                }
-                else range = 1;
 
                 Image img = Image.FromFile(imgPath);
                 if (img.Width != 15 || img.Height != 25) throw new Exception(string.Format("Unit resource error at {0}: image must be 25x15 in pixels", name));
-
-                {
-                    bg = img;
-                    this.type = int.Parse(typeData[0]);
-                    this.name = name;
-                    this.recTime = recTime;
-                    this.maxHP = maxHP;
-                    this.minDMG = minDMG;
-                    this.maxDMG = maxDMG;
-                    this.maxAP = maxAP;
-                    this.description = description;
-                }
+                Texture = img;
+                this.Type = int.Parse(type);
+                this.Name = name;
+                this.RecTime = recTime;
+                this.MaxHP = maxHP;
+                this.MinDMG = minDMG;
+                this.MaxDMG = maxDMG;
+                this.MaxAP = maxAP;
+                this.Description = description;   
             
         }
     }

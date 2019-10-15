@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.IO;
+using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace TBSGame
 {
@@ -18,35 +20,32 @@ namespace TBSGame
             InitializeComponent();
         }
 
+        public FileInfo SelectedMap { get; private set; }
+
         FileInfo OpenFile()
         {
             OpenFileDialog ofd = new OpenFileDialog
             {
-                Filter = "|map.YFY|zip archives(*.zip) | *.zip"
+                Filter = "zip archives(*.zip) | *.zip"
             };
+
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                FileInfo file = new FileInfo(ofd.FileName);
-
-                this.WindowState = FormWindowState.Minimized;
-                return file;
+                ofd.Dispose();
+                return new FileInfo(ofd.FileName);
             }
+            ofd.Dispose();
             return null;
-        } // remove .YFY after zip
+        }
         private void mapOpener_Click(object sender, EventArgs e)
         {
             try
             {
-                var file = OpenFile();
-                if (file == null) throw new Exception();
+                SelectedMap = OpenFile();
+                if (SelectedMap == null) throw new Exception();
 
-
-                string[] pName = new string[2];
-                pName[0] = (p1NameBox.Text != "") ? p1NameBox.Text : "Player 1";
-                pName[1] = (p2NameBox.Text != "") ? p2NameBox.Text : "Player 2";
-
-
-                var tmp = new GameWindow(file, pName);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch(Exception) { }
 

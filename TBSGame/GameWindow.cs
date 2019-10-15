@@ -34,7 +34,6 @@ namespace TBSGame
 
         void SelectMap()
         {
-
                 try
                 {
                     map = new TileMap(Map.ReadMap(file.FullName), file.DirectoryName);
@@ -76,7 +75,7 @@ namespace TBSGame
                     logger.Text += Environment.NewLine + ex.Message;
                 }
 
-                    }
+        }
         private void Recruit(object sender, EventArgs s)
         {
 
@@ -84,7 +83,7 @@ namespace TBSGame
             else if (CheckTile(players[currentPlayer].Town.x, players[currentPlayer].Town.y) ==1) logger.Text += Environment.NewLine + "Unit at town, can't recruit";
             else
             {
-                logger.Text += string.Format(Environment.NewLine + "Recruiting {0}, process takes {1} turns", selectedRec.name, selectedRec.recTime);
+                logger.Text += string.Format(Environment.NewLine + "Recruiting {0}, process takes {1} turns", selectedRec.Name, selectedRec.RecTime);
                 players[currentPlayer].Town.rec = true;
                 int x = players[currentPlayer].Town.x;
                 int y = players[currentPlayer].Town.y;
@@ -128,7 +127,7 @@ namespace TBSGame
             {
                 var ui = u.stats;
                 u.owner = true;
-                u.currAP = ui.maxAP;
+                u.currAP = ui.MaxAP;
                 u.BackColor = Color.Green;
                 u.attacked = false;
             }
@@ -160,16 +159,16 @@ namespace TBSGame
                 selectedUnit = unit;
                 unitCoords.Text = string.Format("{0};{1}", unit.x, unit.y);
                 unitNameDisplay.Text = unit.Name;
-                unitHPbar.Maximum = st.maxHP;
+                unitHPbar.Maximum = st.MaxHP;
                 unitHPbar.Value = unit.currHP;
-                unitHPdisplay.Text = Convert.ToString(unit.currHP + "/" + st.maxHP);
-                unitDMGdisplay.Text = Convert.ToString(st.minDMG + "-" + st.maxDMG);
+                unitHPdisplay.Text = Convert.ToString(unit.currHP + "/" + st.MaxHP);
+                unitDMGdisplay.Text = Convert.ToString(st.MinDMG + "-" + st.MaxDMG);
                 if (unit.owner)
                 {
 
-                    unitAPbar.Maximum = st.maxAP;
+                    unitAPbar.Maximum = st.MaxAP;
                     unitAPbar.Value = unit.currAP;
-                    unitAPdisplay.Text = Convert.ToString(unit.currAP + "/" + st.maxAP);
+                    unitAPdisplay.Text = Convert.ToString(unit.currAP + "/" + st.MaxAP);
                     unitAPbar.Visible = true;
                     unitAPdisplay.Visible = true;
                     moveArea.Visible = true;
@@ -180,7 +179,7 @@ namespace TBSGame
                     unitAPdisplay.Visible = false;
                     APIcon.Visible = false;
                 }
-                unitDescDisplay.Text = st.description;
+                unitDescDisplay.Text = st.Description;
 
 
 
@@ -198,11 +197,11 @@ namespace TBSGame
                 selectedRec = unit;
 
                 recruitInfo.Visible = false;
-                recUnitName.Text = unit.name;
-                recUnitHP.Text = Convert.ToString(unit.maxHP);
-                recUnitDMG.Text = Convert.ToString(unit.minDMG + " - " + unit.maxDMG);
-                recUnitAP.Text = Convert.ToString(unit.maxAP);
-                recUnitTime.Text = string.Format("Recruit time: {0} turn(s)", unit.recTime);
+                recUnitName.Text = unit.Name;
+                recUnitHP.Text = Convert.ToString(unit.MaxHP);
+                recUnitDMG.Text = Convert.ToString(unit.MinDMG + " - " + unit.MaxDMG);
+                recUnitAP.Text = Convert.ToString(unit.MaxAP);
+                recUnitTime.Text = string.Format("Recruit time: {0} turn(s)", unit.RecTime);
                 recruitInfo.Visible = true;
             }
             else throw new Exception("This is supposed to be a recruit button click");
@@ -311,7 +310,7 @@ namespace TBSGame
                 s = CheckTile(x, y);
 
                 UnitInfo ui = selectedUnit.stats;
-                int dmg = r.Next(ui.minDMG, ui.maxDMG);
+                int dmg = r.Next(ui.MinDMG, ui.MaxDMG);
 
                 switch (s)
                 {
@@ -327,7 +326,7 @@ namespace TBSGame
                             {
                                 Devisualize();
                                 unitCoords.Text = string.Format("{0};{1}", x, y);
-                                unitAPdisplay.Text = Convert.ToString(a + "/" + ui.maxAP);
+                                unitAPdisplay.Text = Convert.ToString(a + "/" + ui.MaxAP);
                                 unitAPbar.Value = a;
                                 unitAPbar.Visible = true;
                                 unitAPdisplay.Visible = true;
@@ -338,20 +337,20 @@ namespace TBSGame
                         else Log("Not enough AP");
                         break;
                     case 1:
-                        if (ui.type == 1)
+                        if (ui.Type == 1)
                         {
                             foreach (var u in players[currentPlayer].ownedUnits)
                             {
                                 UnitInfo sui = u.stats;
                                 if ((u.x == x && u.y == y))
                                 {
-                                    if (u.currHP < sui.maxHP)
+                                    if (u.currHP < sui.MaxHP)
                                     {
                                         if (!selectedUnit.attacked)
                                         {
                                             selectedUnit.attacked = true;
                                             u.currHP += dmg;
-                                            if (u.currHP > sui.maxHP) u.currHP = sui.maxHP;
+                                            if (u.currHP > sui.MaxHP) u.currHP = sui.MaxHP;
                                             Log(string.Format("Healed for {0} health!", dmg));
                                         }
                                         else Log("Unit already healed this turn");
@@ -363,7 +362,7 @@ namespace TBSGame
                         else Log("Not a healer, can't heal");
                         break;
                     case 2:
-                        if (ui.type != 1)
+                        if (ui.Type != 1)
                         {
                             if (selectedUnit.attacked) Log("Unit already attacked this turn");
                             else
@@ -390,7 +389,7 @@ namespace TBSGame
                         Log("Can't return to town.");
                         break;
                     case 4:
-                        if (ui.type != 1)
+                        if (ui.Type != 1)
                         {
                             if (selectedUnit.attacked) Log("Unit already attacked this turn");
                             else

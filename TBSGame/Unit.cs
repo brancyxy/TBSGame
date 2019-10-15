@@ -28,9 +28,9 @@ namespace TBSGame
             Height = 25;
             Visible = true;
 
-            currHP = ui.maxHP;
-            currAP = ui.maxAP;
-            BackgroundImage = ui.bg;
+            currHP = ui.MaxHP;
+            currAP = ui.MaxAP;
+            BackgroundImage = ui.Texture;
             this.x = x;
             this.y = y;
 

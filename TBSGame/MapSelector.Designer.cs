@@ -103,7 +103,7 @@
             this.Controls.Add(this.p2NameBox);
             this.Controls.Add(this.mapOpener);
             this.Controls.Add(this.helpOpen);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MapSelector";
             this.Text = "Map selector";
             this.ResumeLayout(false);
