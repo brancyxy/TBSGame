@@ -8,3 +8,6 @@ C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.pdb
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.GameWindow.resources
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.csprojAssemblyReference.cache
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.MapSelector.resources
+C:\Users\branc\source\repos\TBSGame\TBSGame\bin\Debug\INIFileParser.dll
+C:\Users\branc\source\repos\TBSGame\TBSGame\bin\Debug\INIFileParser.xml
+C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.csproj.CopyComplete

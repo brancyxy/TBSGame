@@ -24,9 +24,6 @@ namespace TBSGame
             this.file = file;
             this.pName = pName;
 
-            this.WindowState = FormWindowState.Minimized;
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
 
 
             SelectMap();

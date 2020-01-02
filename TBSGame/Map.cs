@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.IO;
 
@@ -51,7 +52,11 @@ namespace TBSGame
                     else
                     {
                         string[] line = lines[0].Split(';');
-                        tileInfo.Add(new TileInfo(line[0][0], int.Parse(line[1]), double.Parse(line[2]) / 100, line[3], line[4]));
+                        tileInfo.Add(new TileInfo(line[0][0], 
+                                                    int.Parse(line[1]), 
+                                                    double.Parse(line[2],CultureInfo.InvariantCulture), 
+                                                    line[3], 
+                                                    line[4]));
                         lines.RemoveAt(0);
                     }
                 }
