@@ -52,10 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MapHandler\TileInfo.cs" />
-    <Compile Include="MapSelector.cs">
+    <Compile Include="Menus\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MapSelector.Designer.cs">
+    <Compile Include="Menus\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\MapSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\MapSelector.Designer.cs">
       <DependentUpon>MapSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Map.cs" />
@@ -86,7 +92,7 @@
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MapSelector.resx">
+    <EmbeddedResource Include="Menus\MapSelector.resx">
       <DependentUpon>MapSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

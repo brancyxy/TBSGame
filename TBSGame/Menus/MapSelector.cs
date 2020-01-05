@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace TBSGame
+namespace TBSGame.Menus
 {
     public partial class MapSelector : Form
     {
         const string MAP_FOLDER = @"Maps\";
-        public string SelectedMapFileName {get; private set;}
+        public string SelectedMapFileName { get; private set; }
 
-        public MapSelector()
+        public MapSelector(SizeF scale, bool useFullScreen)
         {
             InitializeComponent();
             Filldgv();
+            if (useFullScreen) WindowState = FormWindowState.Maximized;
+            Scale(scale);
         }
 
         private void Filldgv()
@@ -36,14 +38,14 @@ namespace TBSGame
 
                     tmp = string.Join(" ", tmp)
                                 .Split('-');
-                    string creatorName = tmp[tmp.Length-1];
+                    string creatorName = tmp[tmp.Length - 1];
                     tmp = RemoveCreatorNameFromMapFileName(tmp);
 
 
                     string name = string.Join("-", tmp);
                     dgvMapSelector.Rows.Add(playerCount, name, creatorName, m + ".zip");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     rtbMapDebugLog.Text += $"Error at map file {m}, error description: {ex}" + Environment.NewLine;
                 }
@@ -61,7 +63,7 @@ namespace TBSGame
         private string[] RemoveCreatorNameFromMapFileName(string[] tmp)
         {
             var tmpL = tmp.ToList();
-            tmpL.RemoveAt(tmpL.Count-1);
+            tmpL.RemoveAt(tmpL.Count - 1);
 
             return tmpL.ToArray();
         }
