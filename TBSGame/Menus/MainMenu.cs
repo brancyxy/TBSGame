@@ -29,13 +29,7 @@ namespace TBSGame.Menus
         }
         private void TopField_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown && this.WindowState != FormWindowState.Maximized)
-            {
-                this.Location = new Point(
-                                (this.Location.X - lastLocation.X) + e.X, 
-                                (this.Location.Y - lastLocation.Y) + e.Y);
-                this.Update();
-            }
+
         }
         private void TopField_MouseUp(object sender, MouseEventArgs e)
         {

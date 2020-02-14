@@ -18,6 +18,18 @@ namespace TBSGame.Menus
             Filldgv();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
             Scale(scale);
+            ScaleFontSize(scale.Height);
+        }
+
+        private void ScaleFontSize(float height)
+        {
+            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
+            selectMap.Font = new Font(selectMap.Font.FontFamily, selectMap.Font.Size * height);
+            rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * height);
+            dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily, dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * height);
+            dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily, dgvMapSelector.DefaultCellStyle.Font.Size * height);
+
+
         }
 
         private void Filldgv()
