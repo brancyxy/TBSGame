@@ -35,5 +35,12 @@ namespace TBSGame.Menus
         {
             mouseDown = false;
         }
+
+        //_______________________________________________________________
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
