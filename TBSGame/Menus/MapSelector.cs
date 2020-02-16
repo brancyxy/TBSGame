@@ -9,7 +9,6 @@ namespace TBSGame.Menus
 {
     public partial class MapSelector : Form
     {
-        const string MAP_FOLDER = @"Maps\";
         public string SelectedMapFileName { get; private set; }
 
         public MapSelector(SizeF scale, bool useFullScreen)
@@ -26,16 +25,16 @@ namespace TBSGame.Menus
             lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
             selectMap.Font = new Font(selectMap.Font.FontFamily, selectMap.Font.Size * height);
             rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * height);
-            dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily, dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * height);
-            dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily, dgvMapSelector.DefaultCellStyle.Font.Size * height);
-
-
+            dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily,
+                                                                         dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * height);
+            dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily, 
+                                                            dgvMapSelector.DefaultCellStyle.Font.Size * height);
         }
 
         private void Filldgv()
         {
             var maps = Directory
-                        .EnumerateFiles(MAP_FOLDER, "*.zip")
+                        .EnumerateFiles(Utils.MAP_FOLDER, "*.zip")
                         .Select(Path.GetFileNameWithoutExtension)
                         .ToArray();
 
@@ -45,7 +44,7 @@ namespace TBSGame.Menus
                 {
                     var tmp = m.Split(' ');
 
-                    int playerCount = int.Parse(removeParentheses(tmp[0]));
+                    int playerCount = int.Parse(RemoveParentheses(tmp[0]));
                     tmp = RemovePlayerCountFromMapFileName(tmp);
 
                     tmp = string.Join(" ", tmp)
@@ -67,7 +66,7 @@ namespace TBSGame.Menus
                                     : rtbMapDebugLog.Text += $"No maps found") + Environment.NewLine;
         }
 
-        private string removeParentheses(string v)
+        private string RemoveParentheses(string v)
         {
             return v.TrimStart('(', '[', '{')
                     .TrimEnd(')', ']', '}');
@@ -87,14 +86,14 @@ namespace TBSGame.Menus
             return tmpL.ToArray();
         }
 
-        private void dgvMapSelector_SelectionChanged(object sender, EventArgs e)
+        private void SelectFromList(object sender, EventArgs e)
         {
             SelectedMapFileName = dgvMapSelector[3, dgvMapSelector.SelectedRows[0].Index]
                                                     .Value
                                                     .ToString();
         }
 
-        private void selectMap_Click(object sender, EventArgs e)
+        private void Select(object sender, EventArgs e)
         {
             if (SelectedMapFileName != null)
             {
@@ -113,12 +112,13 @@ namespace TBSGame.Menus
         }
         private void TopField_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown && this.WindowState != FormWindowState.Maximized)
+            if (mouseDown && WindowState != FormWindowState.Maximized)
             {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                Location = new Point(
+                    (Location.X - lastLocation.X) + e.X,
+                    (Location.Y - lastLocation.Y) + e.Y);
 
-                this.Update();
+                Update();
             }
         }
         private void TopField_MouseUp(object sender, MouseEventArgs e)

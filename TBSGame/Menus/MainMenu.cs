@@ -10,13 +10,41 @@ using System.Windows.Forms;
 
 namespace TBSGame.Menus
 {
+    public enum MainMenuAction
+    {
+        START,
+        EDITOR,
+        OPTIONS,
+        EXIT
+    }
     public partial class MainMenu : Form
     {
+        private MainMenuAction _action;
+        public MainMenuAction Action { 
+            get { return _action; }
+            private set
+            {
+                DialogResult = DialogResult.OK;
+                _action = value;
+                Close();
+            }
+        }
         public MainMenu(SizeF scale, bool useFullScreen)
         {
             InitializeComponent();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
             Scale(scale);
+            ScaleFontSize(scale.Height);
+        }
+
+        private void ScaleFontSize(float height)
+        {
+            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
+            lbDisplay.Font = new Font(lbDisplay.Font.FontFamily, lbDisplay.Font.Size * height);
+            btnPlay.Font = new Font(btnPlay.Font.FontFamily, btnPlay.Font.Size * height);
+            btnOptions.Font = new Font(btnOptions.Font.FontFamily, btnOptions.Font.Size * height);
+            btnEditor.Font = new Font(btnEditor.Font.FontFamily, btnEditor.Font.Size * height);
+            btnExit.Font = new Font(btnExit.Font.FontFamily, btnExit.Font.Size * height);
         }
 
         //make the top area move the window if in window mode
@@ -29,7 +57,14 @@ namespace TBSGame.Menus
         }
         private void TopField_MouseMove(object sender, MouseEventArgs e)
         {
+            if (mouseDown && WindowState != FormWindowState.Maximized)
+            {
+                Location = new Point(
+                    (Location.X - lastLocation.X) + e.X, 
+                    (Location.Y - lastLocation.Y) + e.Y);
 
+                Update();
+            }
         }
         private void TopField_MouseUp(object sender, MouseEventArgs e)
         {
@@ -37,10 +72,21 @@ namespace TBSGame.Menus
         }
 
         //_______________________________________________________________
-
-        private void BtnExit_Click(object sender, EventArgs e)
+        private void Exit(object sender, EventArgs e)
         {
-            Application.Exit();
+            Action = MainMenuAction.EXIT;
+        }
+        private void Options(object sender, EventArgs e)
+        {
+            Action = MainMenuAction.OPTIONS;
+        }
+        private void Editor(object sender, EventArgs e)
+        {
+            Action = MainMenuAction.EDITOR;
+        }
+        private void Play(object sender, EventArgs e)
+        {
+            Action = MainMenuAction.START;
         }
     }
 }

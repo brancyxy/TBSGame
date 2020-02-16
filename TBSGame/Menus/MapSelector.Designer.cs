@@ -115,7 +115,7 @@
             this.dgvMapSelector.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMapSelector.Size = new System.Drawing.Size(350, 307);
             this.dgvMapSelector.TabIndex = 7;
-            this.dgvMapSelector.SelectionChanged += new System.EventHandler(this.dgvMapSelector_SelectionChanged);
+            this.dgvMapSelector.SelectionChanged += new System.EventHandler(this.SelectFromList);
             // 
             // mapPlayerCount
             // 
@@ -189,7 +189,7 @@
             this.selectMap.TabIndex = 10;
             this.selectMap.Text = "Select";
             this.selectMap.UseVisualStyleBackColor = false;
-            this.selectMap.Click += new System.EventHandler(this.selectMap_Click);
+            this.selectMap.Click += new System.EventHandler(this.Select);
             // 
             // MapSelector
             // 

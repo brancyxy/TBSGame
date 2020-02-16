@@ -15,13 +15,6 @@ namespace TBSGame
 {
     static class Program
     {
-        const string CACHE_FOLDER_NAME = @"MapCache\",
-                     MAP_FOLDER = @"Maps\",
-                     SETTINGS_FILE = "AppSettings.ini";
-
-        const int BASE_WIDTH = 608,
-                  BASE_HEIGHT = 342;
-
         static SizeF sizeScale;
         static IniData settings;
 
@@ -37,6 +30,16 @@ namespace TBSGame
             sizeScale = DetermineSizeScale();
             Warning();
 
+            switch (StartMenu())
+            {
+                case MainMenuAction.OPTIONS:
+
+                    break;
+                case MainMenuAction.EXIT:
+                    Application.Exit();
+                    break;
+            }
+            /*
             var mapSelector = new MapSelector(sizeScale, useFullScreen);
             string mapFile;
 
@@ -46,18 +49,28 @@ namespace TBSGame
                 mapSelector.Dispose();
                 ZipFile.ExtractToDirectory(Path.Combine(MAP_FOLDER, mapFile), CACHE_FOLDER_NAME);
             }
+            */
+        }
 
+        private static MainMenuAction StartMenu()
+        {
+            MainMenuAction result = MainMenuAction.START;
+            var menu = new Menus.MainMenu(sizeScale, useFullScreen);
+            while (menu.ShowDialog() != DialogResult.OK)
+            {
+                result = menu.Action;
+            }
+            return result;
         }
 
         private static void Warning()
         {
-            bool warn;
-            if (!bool.TryParse(settings["UI"]["aspectRatioWarning"], out warn))
+            if (!bool.TryParse(settings["UI"]["aspectRatioWarning"], out bool warn))
             {
                 warn = true;
                 settings["UI"]["aspectRatioWarning"] = warn.ToString();
                 new FileIniDataParser()
-                    .WriteFile(SETTINGS_FILE, settings, Encoding.UTF8);
+                    .WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
             }
 
             if (warn)
@@ -69,8 +82,8 @@ namespace TBSGame
                         ? Screen.PrimaryScreen.Bounds.Height
                         : resY;
 
-                if (((decimal) x / 16 != (decimal) y / 9) &&
-                    ((decimal) x / 683 != (decimal) y / 384))
+                if ((decimal) x / 16 != (decimal) y / 9 ||
+                    (decimal) x / 683 != (decimal) y / 384)
                         MessageBox.Show("The supported aspect ratio is 16:9, there might be some graphical issues.",
                                         "Warning");
             }
@@ -80,11 +93,11 @@ namespace TBSGame
         {
 
             float ScaleX = (useFullScreen)
-                            ? (float)Screen.PrimaryScreen.Bounds.Width / BASE_WIDTH
-                            : (float)resX / BASE_WIDTH,
+                            ? (float)Screen.PrimaryScreen.Bounds.Width / Utils.BASE_WIDTH
+                            : (float)resX / Utils.BASE_WIDTH,
                   ScaleY = (useFullScreen)
-                            ? (float)Screen.PrimaryScreen.Bounds.Height / BASE_HEIGHT
-                            : (float)resY / BASE_HEIGHT;
+                            ? (float)Screen.PrimaryScreen.Bounds.Height / Utils.BASE_HEIGHT
+                            : (float)resY / Utils.BASE_HEIGHT;
 
             return new SizeF(ScaleX, ScaleY);
         }
@@ -93,12 +106,12 @@ namespace TBSGame
         {
             var parser = new FileIniDataParser();
 
-            if (File.Exists(SETTINGS_FILE))
-                settings = parser.ReadFile(SETTINGS_FILE, Encoding.UTF8);
+            if (File.Exists(Utils.SETTINGS_FILE))
+                settings = parser.ReadFile(Utils.SETTINGS_FILE, Encoding.UTF8);
             else
             {
                 settings = new IniData();
-                File.Create(SETTINGS_FILE);
+                File.Create(Utils.SETTINGS_FILE);
             }
 
             settings.Configuration.AllowCreateSectionsOnFly = true;
@@ -113,16 +126,14 @@ namespace TBSGame
             if(!int.TryParse(settings["UI"]["res-x"], out resX) ||
                !int.TryParse(settings["UI"]["res-y"], out resY))
             {
-                resX = BASE_WIDTH;
-                settings["UI"]["res-x"] = resX.ToString();
-                resY = BASE_HEIGHT;
-                settings["UI"]["res-y"] = resY.ToString();
+                settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();
+                settings["UI"]["res-y"] = Utils.BASE_HEIGHT.ToString();
 
                 MessageBox.Show("Error reading resolution data, game resolution set to default value",
                                 "Warning");
             }
 
-            parser.WriteFile(SETTINGS_FILE, settings, Encoding.UTF8);
+            parser.WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
         }
 
         private static void Initialize()
@@ -130,8 +141,8 @@ namespace TBSGame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Directory.Exists(CACHE_FOLDER_NAME)) Directory.Delete(CACHE_FOLDER_NAME, true);
-            Directory.CreateDirectory(CACHE_FOLDER_NAME);
+            if (Directory.Exists(Utils.CACHE_FOLDER_NAME)) Directory.Delete(Utils.CACHE_FOLDER_NAME, true);
+            Directory.CreateDirectory(Utils.CACHE_FOLDER_NAME);
         }
     }
 }

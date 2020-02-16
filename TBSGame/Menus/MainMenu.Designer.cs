@@ -34,7 +34,7 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnOptions = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbDisplay = new System.Windows.Forms.Label();
             this.TopField.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             this.btnEditor.TabIndex = 11;
             this.btnEditor.Text = "Editor";
             this.btnEditor.UseVisualStyleBackColor = false;
+            this.btnEditor.Click += new System.EventHandler(this.Editor);
             // 
             // btnPlay
             // 
@@ -90,6 +91,7 @@
             this.btnPlay.TabIndex = 12;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.Play);
             // 
             // btnOptions
             // 
@@ -104,6 +106,7 @@
             this.btnOptions.TabIndex = 13;
             this.btnOptions.Text = "Options";
             this.btnOptions.UseVisualStyleBackColor = false;
+            this.btnOptions.Click += new System.EventHandler(this.Options);
             // 
             // btnExit
             // 
@@ -118,17 +121,17 @@
             this.btnExit.TabIndex = 14;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.Exit);
             // 
-            // label2
+            // lbDisplay
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(126, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(348, 86);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "TBSGAME";
+            this.lbDisplay.AutoSize = true;
+            this.lbDisplay.Font = new System.Drawing.Font("Palatino Linotype", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbDisplay.Location = new System.Drawing.Point(126, 47);
+            this.lbDisplay.Name = "lbDisplay";
+            this.lbDisplay.Size = new System.Drawing.Size(348, 86);
+            this.lbDisplay.TabIndex = 16;
+            this.lbDisplay.Text = "TBSGAME";
             // 
             // MainMenu
             // 
@@ -136,7 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 342);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbDisplay);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.btnPlay);
@@ -160,6 +163,6 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDisplay;
     }
 }
