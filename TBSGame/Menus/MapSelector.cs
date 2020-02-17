@@ -19,7 +19,10 @@ namespace TBSGame.Menus
             Scale(scale);
             ScaleFontSize(scale.Height);
         }
-
+        /// <summary>
+        /// Scales the fonts of the texts
+        /// </summary>
+        /// <param name="height">It scales based on the height scale</param>
         private void ScaleFontSize(float height)
         {
             lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
@@ -30,7 +33,9 @@ namespace TBSGame.Menus
             dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily, 
                                                             dgvMapSelector.DefaultCellStyle.Font.Size * height);
         }
-
+        /// <summary>
+        /// Fills the DataGridView of the map selector. Map file names must have a set format
+        /// </summary>
         private void Filldgv()
         {
             var maps = Directory
@@ -46,6 +51,10 @@ namespace TBSGame.Menus
 
                     int playerCount = int.Parse(RemoveParentheses(tmp[0]));
                     tmp = RemovePlayerCountFromMapFileName(tmp);
+
+
+
+
 
                     tmp = string.Join(" ", tmp)
                                 .Split('-');
@@ -65,19 +74,32 @@ namespace TBSGame.Menus
                                     ? rtbMapDebugLog.Text += $"Successfully loaded {dgvMapSelector.RowCount} maps!"
                                     : rtbMapDebugLog.Text += $"No maps found") + Environment.NewLine;
         }
-
+        /// <summary>
+        /// Removes the brackets from the player count number
+        /// </summary>
+        /// <param name="v">The part of the processed string that contains the player count</param>
+        /// <returns></returns>
         private string RemoveParentheses(string v)
         {
             return v.TrimStart('(', '[', '{')
                     .TrimEnd(')', ']', '}');
         }
+        /// <summary>
+        /// Helps determining the data of the map file name format. Removes the creator of the map from the processed string
+        /// </summary>
+        /// <param name="tmp">The name of the file split with space</param>
+        /// <returns>Returns a temporary value for further processing</returns>
         private string[] RemoveCreatorNameFromMapFileName(string[] tmp)
         {
             var tmpL = tmp.ToList();
             tmpL.RemoveAt(tmpL.Count - 1);
-
             return tmpL.ToArray();
         }
+        /// <summary>
+        /// Helps determining the data of the map file name format. Removes the player count from the processed string
+        /// </summary>
+        /// <param name="tmp">The name of the file split with space</param>
+        /// <returns>Returns a temporary value for further processing</returns>
         private string[] RemovePlayerCountFromMapFileName(string[] tmp)
         {
             var tmpL = tmp.ToList();
@@ -86,6 +108,11 @@ namespace TBSGame.Menus
             return tmpL.ToArray();
         }
 
+        /// <summary>
+        /// Runs whenever the user selects a map from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectFromList(object sender, EventArgs e)
         {
             SelectedMapFileName = dgvMapSelector[3, dgvMapSelector.SelectedRows[0].Index]
@@ -93,6 +120,12 @@ namespace TBSGame.Menus
                                                     .ToString();
         }
 
+
+        /// <summary>
+        /// Runs when the select button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Select(object sender, EventArgs e)
         {
             if (SelectedMapFileName != null)

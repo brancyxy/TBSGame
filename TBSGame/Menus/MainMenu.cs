@@ -36,7 +36,10 @@ namespace TBSGame.Menus
             Scale(scale);
             ScaleFontSize(scale.Height);
         }
-
+        /// <summary>
+        /// Scales the fonts of the texts
+        /// </summary>
+        /// <param name="height">It scales based on the height scale</param>
         private void ScaleFontSize(float height)
         {
             lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);

@@ -50,19 +50,25 @@ namespace TBSGame
                 ZipFile.ExtractToDirectory(Path.Combine(MAP_FOLDER, mapFile), CACHE_FOLDER_NAME);
             }
             */
+
         }
 
-        private static MainMenuAction StartMenu()
+        /// <summary>
+        /// Starts the main menu.
+        /// </summary>
+        /// <returns>Returns an enumerated value based on the button pressed</returns>
+        private static MainMenuAction StartMenu() 
         {
             MainMenuAction result = MainMenuAction.START;
             var menu = new Menus.MainMenu(sizeScale, useFullScreen);
             while (menu.ShowDialog() != DialogResult.OK)
-            {
                 result = menu.Action;
-            }
             return result;
         }
 
+        /// <summary>
+        /// Warns the user if the set resolution is unsupported.
+        /// </summary>
         private static void Warning()
         {
             if (!bool.TryParse(settings["UI"]["aspectRatioWarning"], out bool warn))
@@ -88,20 +94,28 @@ namespace TBSGame
                                         "Warning");
             }
         }
-
+        /// <summary>
+        /// Determines the rate of the set resolution and the base resolution
+        /// </summary>
+        /// <returns>Return value will scale up the rest of the windows accordingly</returns>
         private static SizeF DetermineSizeScale()
         {
 
             float ScaleX = (useFullScreen)
-                            ? (float)Screen.PrimaryScreen.Bounds.Width / Utils.BASE_WIDTH
-                            : (float)resX / Utils.BASE_WIDTH,
+                            ? Screen.PrimaryScreen.Bounds.Width / (float)Utils.BASE_WIDTH
+                            : resX / (float)Utils.BASE_WIDTH,
                   ScaleY = (useFullScreen)
-                            ? (float)Screen.PrimaryScreen.Bounds.Height / Utils.BASE_HEIGHT
-                            : (float)resY / Utils.BASE_HEIGHT;
+                            ? Screen.PrimaryScreen.Bounds.Height / (float)Utils.BASE_HEIGHT
+                            : resY / (float)Utils.BASE_HEIGHT;
 
             return new SizeF(ScaleX, ScaleY);
         }
 
+
+        /// <summary>
+        /// Reads the settings file and sets the values.
+        /// In case of missing file or an error, it sets the settings to the default values
+        /// </summary>
         private static void ReadSettings()
         {
             var parser = new FileIniDataParser();
@@ -111,7 +125,7 @@ namespace TBSGame
             else
             {
                 settings = new IniData();
-                File.Create(Utils.SETTINGS_FILE);
+                File.Create(Utils.SETTINGS_FILE).Close();
             }
 
             settings.Configuration.AllowCreateSectionsOnFly = true;
@@ -127,7 +141,9 @@ namespace TBSGame
                !int.TryParse(settings["UI"]["res-y"], out resY))
             {
                 settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();
+                resX = Utils.BASE_WIDTH;
                 settings["UI"]["res-y"] = Utils.BASE_HEIGHT.ToString();
+                resY = Utils.BASE_HEIGHT;
 
                 MessageBox.Show("Error reading resolution data, game resolution set to default value",
                                 "Warning");
@@ -136,6 +152,10 @@ namespace TBSGame
             parser.WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
         }
 
+        /// <summary>
+        /// Deletes the leftover cache files in case the game closed with a crash.
+        /// Also sets meta settings for the program
+        /// </summary>
         private static void Initialize()
         {
             Application.EnableVisualStyles();
