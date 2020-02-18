@@ -14,6 +14,9 @@ namespace TBSGame.Menus
 {
     public partial class OptionsMenu : Form
     {
+        const string RESET_TEXT = "This will reset the options to the base values. Proceed?",
+                     CHANGE_TEXT = "The settings will change, a restart is required. Proceed?",
+                     BOX_TITLE = "Change Settings";
         public OptionsMenu()
         {
             InitializeComponent();
@@ -21,10 +24,7 @@ namespace TBSGame.Menus
             cbFullscreen.Checked = bool.Parse(Utils.settings["UI"]["fullscreen"]);
 
             FillCb();
-
-
         }
-
 
         /// <summary>
         /// Fills the combobox with resolution values ranging to depending on the screen size
@@ -42,6 +42,7 @@ namespace TBSGame.Menus
 
             Highlight();
         }
+
         /// <summary>
         /// Highlights the selected resolution for the combobox. If set to custom, adds a "Custom" option.
         /// </summary>
@@ -60,6 +61,7 @@ namespace TBSGame.Menus
                     cbResolution.SelectedItem = res;
                 }
             }
+
             if (!found)
             {
                 cbResolution.Items.Add($"Custom ({resX}x{resY})");
@@ -79,7 +81,7 @@ namespace TBSGame.Menus
         }
 
         /// <summary>
-        /// Makes the window unmovable
+        /// Makes the window immovable
         /// </summary>
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
@@ -106,6 +108,29 @@ namespace TBSGame.Menus
         }
 
         /// <summary>
+        /// Saves the settings and restarts the game.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Save(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(CHANGE_TEXT, BOX_TITLE, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Utils.settings["UI"]["fullscreen"] = cbFullscreen.Checked.ToString();
+                if (!cbResolution.SelectedItem.ToString().StartsWith("Custom"))
+                {
+                    var tmp = cbResolution.SelectedItem.ToString().Split('x');
+                    Utils.settings["UI"]["res-x"] = tmp[0];
+                    Utils.settings["UI"]["res-y"] = tmp[1];
+                }
+
+                new FileIniDataParser().WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
+
+                Application.Restart();
+            }
+        }
+
+        /// <summary>
         /// Closes the window
         /// </summary>
         /// <param name="sender"></param>
@@ -113,6 +138,25 @@ namespace TBSGame.Menus
         private void Cancel(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// Resets the settings and restarts the game.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Reset(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(RESET_TEXT, BOX_TITLE, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Utils.settings["UI"]["fullscreen"] = "False";
+                Utils.settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();
+                Utils.settings["UI"]["res-y"] = Utils.BASE_HEIGHT.ToString();
+
+                new FileIniDataParser().WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
+
+                Application.Restart();
+            }
         }
     }
 }

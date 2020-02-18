@@ -16,7 +16,6 @@ namespace TBSGame
     static class Program
     {
         static SizeF sizeScale;
-        static IniData settings;
 
         static int resX, resY;
 
@@ -58,9 +57,13 @@ namespace TBSGame
         {
             MainMenuAction result = MainMenuAction.START;
             var menu = new Menus.MainMenu(sizeScale, useFullScreen);
-            while (menu.ShowDialog() != DialogResult.OK)
-                result = menu.Action;
-            return result;
+            try
+            {
+                while (menu.ShowDialog() != DialogResult.OK)
+                    result = menu.Action;
+                return result;
+            }
+            catch (Exception) { return MainMenuAction.EXIT; }
         }
 
         /// <summary>
@@ -68,12 +71,12 @@ namespace TBSGame
         /// </summary>
         private static void Warning()
         {
-            if (!bool.TryParse(settings["UI"]["aspectRatioWarning"], out bool warn))
+            if (!bool.TryParse(Utils.settings["UI"]["aspectRatioWarning"], out bool warn))
             {
                 warn = true;
-                settings["UI"]["aspectRatioWarning"] = warn.ToString();
+                Utils.settings["UI"]["aspectRatioWarning"] = warn.ToString();
                 new FileIniDataParser()
-                    .WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
+                    .WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
             }
 
             if (warn)
@@ -120,37 +123,35 @@ namespace TBSGame
             var parser = new FileIniDataParser();
 
             if (File.Exists(Utils.SETTINGS_FILE))
-                settings = parser.ReadFile(Utils.SETTINGS_FILE, Encoding.UTF8);
+                Utils.settings = parser.ReadFile(Utils.SETTINGS_FILE, Encoding.UTF8);
             else
             {
-                settings = new IniData();
+                Utils.settings = new IniData();
                 File.Create(Utils.SETTINGS_FILE).Close();
             }
 
-            settings.Configuration.AllowCreateSectionsOnFly = true;
+            Utils.settings.Configuration.AllowCreateSectionsOnFly = true;
 
             
-            if(!bool.TryParse(settings["UI"]["fullscreen"], out useFullScreen))
+            if(!bool.TryParse(Utils.settings["UI"]["fullscreen"], out useFullScreen))
             {
                 useFullScreen = false;
-                settings["UI"]["fullscreen"] = useFullScreen.ToString();
+                Utils.settings["UI"]["fullscreen"] = useFullScreen.ToString();
             }
 
-            if(!int.TryParse(settings["UI"]["res-x"], out resX) ||
-               !int.TryParse(settings["UI"]["res-y"], out resY))
+            if(!int.TryParse(Utils.settings["UI"]["res-x"], out resX) ||
+               !int.TryParse(Utils.settings["UI"]["res-y"], out resY))
             {
-                settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();
+                Utils.settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();
                 resX = Utils.BASE_WIDTH;
-                settings["UI"]["res-y"] = Utils.BASE_HEIGHT.ToString();
+                Utils.settings["UI"]["res-y"] = Utils.BASE_HEIGHT.ToString();
                 resY = Utils.BASE_HEIGHT;
 
                 MessageBox.Show("Error reading resolution data, game resolution set to default value",
                                 "Warning");
             }
 
-            parser.WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
-
-            Utils.settings = settings;
+            parser.WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
         }
 
         /// <summary>

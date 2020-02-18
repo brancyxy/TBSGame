@@ -47,6 +47,7 @@
             // 
             // cbResolution
             // 
+            this.cbResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbResolution.FormattingEnabled = true;
             this.cbResolution.Location = new System.Drawing.Point(114, 45);
             this.cbResolution.Name = "cbResolution";
@@ -76,6 +77,7 @@
             this.btnDefault.TabIndex = 14;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = false;
+            this.btnDefault.Click += new System.EventHandler(this.Reset);
             // 
             // btnOk
             // 
@@ -89,6 +91,7 @@
             this.btnOk.TabIndex = 15;
             this.btnOk.Text = "Save";
             this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.Save);
             // 
             // btnCancel
             // 
