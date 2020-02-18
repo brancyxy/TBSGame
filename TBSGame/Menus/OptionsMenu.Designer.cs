@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbRes = new System.Windows.Forms.Label();
             this.cbResolution = new System.Windows.Forms.ComboBox();
             this.cbFullscreen = new System.Windows.Forms.CheckBox();
             this.btnDefault = new System.Windows.Forms.Button();
@@ -36,14 +36,14 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbRes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Resolution";
+            this.lbRes.AutoSize = true;
+            this.lbRes.Location = new System.Drawing.Point(51, 48);
+            this.lbRes.Name = "lbRes";
+            this.lbRes.Size = new System.Drawing.Size(57, 13);
+            this.lbRes.TabIndex = 0;
+            this.lbRes.Text = "Resolution";
             // 
             // cbResolution
             // 
@@ -118,8 +118,10 @@
             this.Controls.Add(this.btnDefault);
             this.Controls.Add(this.cbFullscreen);
             this.Controls.Add(this.cbResolution);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.lbRes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "OptionsMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";
@@ -130,7 +132,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbRes;
         private System.Windows.Forms.ComboBox cbResolution;
         private System.Windows.Forms.CheckBox cbFullscreen;
         private System.Windows.Forms.Button btnDefault;

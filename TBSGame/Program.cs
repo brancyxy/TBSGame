@@ -15,7 +15,6 @@ namespace TBSGame
 {
     static class Program
     {
-        static SizeF sizeScale;
 
         static int resX, resY;
 
@@ -26,26 +25,26 @@ namespace TBSGame
         {
             Initialize();
             ReadSettings();
-            sizeScale = DetermineSizeScale();
+            Utils.scale = DetermineSizeScale();
 
             switch (StartMenu())
             {
-
                 case MainMenuAction.EXIT:
                     Application.Exit();
                     break;
-            }
-            /*
-            var mapSelector = new MapSelector(sizeScale, useFullScreen);
-            string mapFile;
+                case MainMenuAction.START:
+                    var mapSelector = new MapSelector(useFullScreen);
+                    string mapFile;
 
-            if (mapSelector.ShowDialog() == DialogResult.OK)
-            {
-                mapFile = mapSelector.SelectedMapFileName;
-                mapSelector.Dispose();
-                ZipFile.ExtractToDirectory(Path.Combine(MAP_FOLDER, mapFile), CACHE_FOLDER_NAME);
+                    if (mapSelector.ShowDialog() == DialogResult.OK)
+                    {
+                        mapFile = mapSelector.SelectedMapFileName;
+                        mapSelector.Dispose();
+                        ZipFile.ExtractToDirectory(Path.Combine(Utils.MAP_FOLDER, mapFile), Utils.CACHE_FOLDER_NAME);
+                    }
+                    break;
             }
-            */
+            
         }
         
 
@@ -56,14 +55,19 @@ namespace TBSGame
         private static MainMenuAction StartMenu() 
         {
             MainMenuAction result = MainMenuAction.START;
-            var menu = new Menus.MainMenu(sizeScale, useFullScreen);
+            var menu = new Menus.MainMenu(useFullScreen);
             try
             {
                 while (menu.ShowDialog() != DialogResult.OK)
-                    result = menu.Action;
+                result = menu.Action;
+                menu.Dispose();
                 return result;
             }
-            catch (Exception) { return MainMenuAction.EXIT; }
+            catch (Exception)
+            {
+                menu.Dispose();
+                return MainMenuAction.EXIT;
+            }
         }
 
         /// <summary>
@@ -164,6 +168,7 @@ namespace TBSGame
             Application.SetCompatibleTextRenderingDefault(false);
 
             if (Directory.Exists(Utils.CACHE_FOLDER_NAME)) Directory.Delete(Utils.CACHE_FOLDER_NAME, true);
+            if (!Directory.Exists(Utils.MAP_FOLDER)) Directory.CreateDirectory(Utils.MAP_FOLDER);
             Directory.CreateDirectory(Utils.CACHE_FOLDER_NAME);
         }
     }

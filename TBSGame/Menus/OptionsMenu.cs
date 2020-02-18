@@ -20,10 +20,25 @@ namespace TBSGame.Menus
         public OptionsMenu()
         {
             InitializeComponent();
-
             cbFullscreen.Checked = bool.Parse(Utils.settings["UI"]["fullscreen"]);
-
             FillCb();
+
+            Scale(Utils.scale);
+
+            ScaleFontSize(Utils.scale.Height);
+        }
+        /// <summary>
+        /// Scales the fonts of the texts
+        /// </summary>
+        /// <param name="height">It scales based on the height scale</param>
+        private void ScaleFontSize(float height)
+        {
+            lbRes.Font = new Font(lbRes.Font.FontFamily, lbRes.Font.Size * height);
+            cbFullscreen.Font = new Font(cbFullscreen.Font.FontFamily, cbFullscreen.Font.Size * height);
+            btnCancel.Font = new Font(btnCancel.Font.FontFamily, btnCancel.Font.Size * height);
+            btnDefault.Font = new Font(btnDefault.Font.FontFamily, btnDefault.Font.Size * height);
+            btnOk.Font = new Font(btnOk.Font.FontFamily, btnOk.Font.Size * height);
+            cbResolution.Font = new Font(cbResolution.Font.FontFamily, cbResolution.Font.Size * height);
         }
 
         /// <summary>

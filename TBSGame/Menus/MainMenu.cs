@@ -32,12 +32,13 @@ namespace TBSGame.Menus
                 Close();
             }
         }
-        public MainMenu(SizeF scale, bool useFullScreen)
+        public MainMenu(bool useFullScreen)
         {
+            this.Focus();
             InitializeComponent();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
-            Scale(scale);
-            ScaleFontSize(scale.Height);
+            Scale(Utils.scale);
+            ScaleFontSize(Utils.scale.Height);
         }
         /// <summary>
         /// Scales the fonts of the texts
@@ -84,7 +85,10 @@ namespace TBSGame.Menus
         }
         private void Options(object sender, EventArgs e)
         {
-            new OptionsMenu().ShowDialog();
+            var opts = new OptionsMenu();
+            opts.ShowDialog();
+            opts.Dispose();
+
         }
         private void Editor(object sender, EventArgs e)
         {

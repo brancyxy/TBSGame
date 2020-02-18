@@ -21,5 +21,7 @@ namespace TBSGame
                          BASE_HEIGHT = 342;
 
         public static IniData settings;
+
+        public static SizeF scale;
     }
 }

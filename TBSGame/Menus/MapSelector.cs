@@ -11,13 +11,13 @@ namespace TBSGame.Menus
     {
         public string SelectedMapFileName { get; private set; }
 
-        public MapSelector(SizeF scale, bool useFullScreen)
+        public MapSelector(bool useFullScreen)
         {
             InitializeComponent();
             Filldgv();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
-            Scale(scale);
-            ScaleFontSize(scale.Height);
+            Scale(Utils.scale);
+            ScaleFontSize(Utils.scale.Height);
         }
         /// <summary>
         /// Scales the fonts of the texts
@@ -38,6 +38,8 @@ namespace TBSGame.Menus
         /// </summary>
         private void Filldgv()
         {
+
+
             var maps = Directory
                         .EnumerateFiles(Utils.MAP_FOLDER, "*.zip")
                         .Select(Path.GetFileNameWithoutExtension)
