@@ -14,12 +14,15 @@ namespace TBSGame.Menus
     {
         START,
         EDITOR,
-        OPTIONS,
         EXIT
     }
     public partial class MainMenu : Form
     {
         private MainMenuAction _action;
+
+        /// <summary>
+        /// Property value of the pressed button
+        /// </summary>
         public MainMenuAction Action { 
             get { return _action; }
             private set
@@ -81,7 +84,7 @@ namespace TBSGame.Menus
         }
         private void Options(object sender, EventArgs e)
         {
-            Action = MainMenuAction.OPTIONS;
+            new OptionsMenu().ShowDialog();
         }
         private void Editor(object sender, EventArgs e)
         {

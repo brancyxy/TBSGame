@@ -28,13 +28,10 @@ namespace TBSGame
             Initialize();
             ReadSettings();
             sizeScale = DetermineSizeScale();
-            Warning();
 
             switch (StartMenu())
             {
-                case MainMenuAction.OPTIONS:
 
-                    break;
                 case MainMenuAction.EXIT:
                     Application.Exit();
                     break;
@@ -50,8 +47,8 @@ namespace TBSGame
                 ZipFile.ExtractToDirectory(Path.Combine(MAP_FOLDER, mapFile), CACHE_FOLDER_NAME);
             }
             */
-
         }
+        
 
         /// <summary>
         /// Starts the main menu.
@@ -88,7 +85,7 @@ namespace TBSGame
                         ? Screen.PrimaryScreen.Bounds.Height
                         : resY;
 
-                if ((decimal) x / 16 != (decimal) y / 9 ||
+                if ((decimal) x / 16 != (decimal) y / 9 &&
                     (decimal) x / 683 != (decimal) y / 384)
                         MessageBox.Show("The supported aspect ratio is 16:9, there might be some graphical issues.",
                                         "Warning");
@@ -107,6 +104,8 @@ namespace TBSGame
                   ScaleY = (useFullScreen)
                             ? Screen.PrimaryScreen.Bounds.Height / (float)Utils.BASE_HEIGHT
                             : resY / (float)Utils.BASE_HEIGHT;
+
+            Warning();
 
             return new SizeF(ScaleX, ScaleY);
         }
@@ -150,11 +149,13 @@ namespace TBSGame
             }
 
             parser.WriteFile(Utils.SETTINGS_FILE, settings, Encoding.UTF8);
+
+            Utils.settings = settings;
         }
 
         /// <summary>
-        /// Deletes the leftover cache files in case the game closed with a crash.
-        /// Also sets meta settings for the program
+        /// Deletes leftover cache files in case the game closed with a crash.
+        /// Also sets meta settings for the application
         /// </summary>
         private static void Initialize()
         {
