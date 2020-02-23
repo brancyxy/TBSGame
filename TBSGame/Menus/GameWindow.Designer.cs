@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace TBSGame
+namespace TBSGame.Menus
 {
     partial class GameWindow
     {
@@ -697,7 +697,7 @@ namespace TBSGame
             this.Controls.Add(this.gameArea);
             this.Controls.Add(this.topPanel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameWindow";

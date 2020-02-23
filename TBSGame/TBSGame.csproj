@@ -65,10 +65,10 @@
       <DependentUpon>MapSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Map.cs" />
-    <Compile Include="GameWindow.cs">
+    <Compile Include="Menus\GameWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameWindow.Designer.cs">
+    <Compile Include="Menus\GameWindow.Designer.cs">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\OptionsMenu.cs">
@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="MapHandler\UnitInfo.cs" />
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="GameWindow.resx">
+    <EmbeddedResource Include="Menus\GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\MainMenu.resx">
@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Units\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace TBSGame
+
+namespace TBSGame.Menus
 {
     public partial class GameWindow : Form
     {
@@ -16,63 +17,22 @@ namespace TBSGame
         UnitInfo selectedRec;
         Unit selectedUnit;
 
-        FileInfo file;
-        string[] pName;
-        public GameWindow(FileInfo file, string[] pName)
+        public GameWindow(bool useFullScreen)
         {
             InitializeComponent();
-            this.file = file;
-            this.pName = pName;
-
-
-
-            SelectMap();
+            if (useFullScreen) WindowState = FormWindowState.Maximized;
+            Scale(Utils.scale);
+            ScaleFontSize(Utils.scale.Height);
         }
-
-        void SelectMap()
+        /// <summary>
+        /// Scales the fonts of the texts
+        /// </summary>
+        /// <param name="height">It scales based on the height scale</param>
+        private void ScaleFontSize(float height)
         {
-                try
-                {
-                    map = new TileMap(Map.ReadMap(file.FullName), file.DirectoryName);
-
-                    List<TileInfo> tileInfos = Map.GetTiles();
-
-                    map.AddTiles(tileInfos);
-
-                    Town[] towns = Map.GetTown();
-                    Image bg = GetTownBG(tileInfos, towns);
-
-                    AddTiles(towns, bg);
-
-                    List<UnitInfo> unitInfos = Map.GetUnitInfos(map);
-                    for (int i = 0; i < players.Length; i++)
-                    {
-                        towns[i].unitInfos = unitInfos;
-                        players[i] = new Player(pName[i], towns[i]);
-                    }
-
-                    for (int i = 0; i < unitInfos.Count; i++)
-                    {
-                        var rec = new Recruiter(unitInfos[i], i % 6, i / 6);
-                        rec.Click += new EventHandler(ClickRecruiter);
-                        recruitArea.Controls.Add(rec);
-
-                    }
-
-                    logger.Text = "Map loaded succesfully!";
-
-                    NewTurn();
-                    endTurnButton.Click += new EventHandler(NewTurn);
-                    endTurnButton.Visible = true;
-                    recruit.Click += new EventHandler(Recruit);
-
-                }
-                catch (Exception ex)
-                {
-                    logger.Text += Environment.NewLine + ex.Message;
-                }
-
+             
         }
+
         private void Recruit(object sender, EventArgs s)
         {
 

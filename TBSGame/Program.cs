@@ -15,7 +15,6 @@ namespace TBSGame
 {
     static class Program
     {
-
         static int resX, resY;
 
         static bool useFullScreen;
@@ -23,30 +22,50 @@ namespace TBSGame
         [STAThread]
         static void Main()
         {
+            bool play = false;
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
 
             switch (StartMenu())
             {
-                case MainMenuAction.EXIT:
-                    Application.Exit();
-                    break;
                 case MainMenuAction.START:
-                    var mapSelector = new MapSelector(useFullScreen);
-                    string mapFile;
-
-                    if (mapSelector.ShowDialog() == DialogResult.OK)
-                    {
-                        mapFile = mapSelector.SelectedMapFileName;
-                        mapSelector.Dispose();
-                        ZipFile.ExtractToDirectory(Path.Combine(Utils.MAP_FOLDER, mapFile), Utils.CACHE_FOLDER_NAME);
-                    }
+                    play = OpenMapSelector();
                     break;
+                case MainMenuAction.EXIT:
+                    {
+                        Application.Exit();
+                        break;
+                    }
+
             }
-            
+
+            if (play)
+            {
+                
+            }
         }
-        
+
+        /// <summary>
+        /// Opens the map selector window. Returns true if the map selection is successful.
+        /// </summary>
+        /// <returns>True if the map selection is successful</returns>
+        private static bool OpenMapSelector()
+        {
+            var mapSelector = new MapSelector(useFullScreen);
+
+            bool result = mapSelector.ShowDialog() == DialogResult.OK;
+
+            if (result)
+            {
+                string mapFile = mapSelector.SelectedMapFileName;
+                mapSelector.Dispose();
+                ZipFile.ExtractToDirectory(Path.Combine(Utils.MAP_FOLDER, mapFile), Utils.CACHE_FOLDER_NAME);
+            }
+
+            return result;
+        }
+
 
         /// <summary>
         /// Starts the main menu.
@@ -54,14 +73,12 @@ namespace TBSGame
         /// <returns>Returns an enumerated value based on the button pressed</returns>
         private static MainMenuAction StartMenu() 
         {
-            MainMenuAction result = MainMenuAction.START;
             var menu = new Menus.MainMenu(useFullScreen);
             try
             {
                 while (menu.ShowDialog() != DialogResult.OK)
-                result = menu.Action;
                 menu.Dispose();
-                return result;
+                return menu.Action;
             }
             catch (Exception)
             {
@@ -98,6 +115,7 @@ namespace TBSGame
                                         "Warning");
             }
         }
+
         /// <summary>
         /// Determines the rate of the set resolution and the base resolution
         /// </summary>
@@ -116,7 +134,6 @@ namespace TBSGame
 
             return new SizeF(ScaleX, ScaleY);
         }
-
 
         /// <summary>
         /// Reads the settings file and sets the values.

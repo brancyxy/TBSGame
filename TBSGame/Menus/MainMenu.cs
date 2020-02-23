@@ -18,7 +18,7 @@ namespace TBSGame.Menus
     }
     public partial class MainMenu : Form
     {
-        private MainMenuAction _action;
+        private MainMenuAction _action = new MainMenuAction();
 
         /// <summary>
         /// Property value of the pressed button
@@ -88,7 +88,6 @@ namespace TBSGame.Menus
             var opts = new OptionsMenu();
             opts.ShowDialog();
             opts.Dispose();
-
         }
         private void Editor(object sender, EventArgs e)
         {
