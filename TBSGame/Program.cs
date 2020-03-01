@@ -22,7 +22,6 @@ namespace TBSGame
         [STAThread]
         static void Main()
         {
-            bool play = false;
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
@@ -30,7 +29,10 @@ namespace TBSGame
             switch (StartMenu())
             {
                 case MainMenuAction.START:
-                    play = OpenMapSelector();
+                    if (OpenMapSelector())
+                    {
+                        PlayGame();
+                    }
                     break;
                 case MainMenuAction.EXIT:
                     {
@@ -39,11 +41,14 @@ namespace TBSGame
                     }
 
             }
+        }
 
-            if (play)
-            {
-                
-            }
+        /// <summary>
+        /// Brings up the game window
+        /// </summary>
+        private static void PlayGame()
+        {
+            var gw = new GameWindow(useFullScreen);
         }
 
         /// <summary>

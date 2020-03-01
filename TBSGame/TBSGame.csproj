@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapDecoder.cs" />
     <Compile Include="MapHandler\TileInfo.cs" />
     <Compile Include="Menus\MainMenu.cs">
       <SubType>Form</SubType>
@@ -77,20 +78,26 @@
     <Compile Include="Menus\OptionsMenu.Designer.cs">
       <DependentUpon>OptionsMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="TileMap.cs" />
+    <Compile Include="MapHandler\TileMap.cs" />
+    <Compile Include="Misc\IconPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\UnitInfoPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recruiter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Tile.cs">
+    <Compile Include="Units\Tile.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Town.cs">
+    <Compile Include="Units\Town.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Unit.cs">
+    <Compile Include="Units\Unit.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MapHandler\UnitInfo.cs" />
@@ -131,9 +138,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Units\" />
+    <None Include="Resources\sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\energy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

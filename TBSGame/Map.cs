@@ -6,7 +6,7 @@ using System.IO;
 
 
 namespace TBSGame
-{
+{/*
     abstract class Map
     {
         private static List<string> lines;
@@ -116,4 +116,5 @@ namespace TBSGame
             catch (Exception) { throw new Exception("Map file error: Unit descriptions are invalid."); }
         }
     }
+*/
 }

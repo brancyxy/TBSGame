@@ -18,7 +18,9 @@ namespace TBSGame
                             MAP_FOLDER = @"Maps\";
 
         public const int BASE_WIDTH = 608,
-                         BASE_HEIGHT = 342;
+                         BASE_HEIGHT = 342,
+                         BASE_TILE_HEIGHT = 25,
+                         BASE_TILE_WIDTH = 25;
 
         public static IniData settings;
 

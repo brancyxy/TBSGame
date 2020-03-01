@@ -2,11 +2,11 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TBSGame
+namespace TBSGame.Units
 {
     class Town:Control
     {
-        public List<UnitInfo> unitInfos;
+        public List<MapHandler.UnitInfo> unitInfos;
 
         public bool rec = false;
         public int turns = 0;
@@ -39,7 +39,7 @@ namespace TBSGame
         public bool RecruitDone()
         {
             var rt = recruit.stats;
-            if (turns == rt.RecTime)
+            if (turns == rt.RecruitTime)
             {
                 rec = false;
                 turns = 0;

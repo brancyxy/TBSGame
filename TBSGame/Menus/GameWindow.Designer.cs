@@ -31,37 +31,11 @@ namespace TBSGame.Menus
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
-            this.unitInfo = new System.Windows.Forms.Panel();
-            this.unitCoords = new System.Windows.Forms.Label();
-            this.moveArea = new System.Windows.Forms.Panel();
-            this.moveY = new System.Windows.Forms.TextBox();
-            this.moveX = new System.Windows.Forms.TextBox();
-            this.moveButton = new System.Windows.Forms.Button();
-            this.unitDescDisplay = new System.Windows.Forms.RichTextBox();
-            this.unitNameDisplay = new System.Windows.Forms.Label();
-            this.unitDMGdisplay = new System.Windows.Forms.Label();
-            this.dmgIcon = new System.Windows.Forms.PictureBox();
-            this.unitHPdisplay = new System.Windows.Forms.Label();
-            this.unitHPbar = new System.Windows.Forms.ProgressBar();
-            this.lifeIcon = new System.Windows.Forms.PictureBox();
-            this.APIcon = new System.Windows.Forms.PictureBox();
-            this.unitAPdisplay = new System.Windows.Forms.Label();
-            this.unitAPbar = new System.Windows.Forms.ProgressBar();
             this.PlayerNameDisplay = new System.Windows.Forms.Label();
             this.gameArea = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.endTurnButton = new System.Windows.Forms.Button();
             this.infoArea = new System.Windows.Forms.Panel();
-            this.recruitInfo = new System.Windows.Forms.Panel();
-            this.recruit = new System.Windows.Forms.Button();
-            this.recUnitTime = new System.Windows.Forms.Label();
-            this.recUnitName = new System.Windows.Forms.Label();
-            this.recUnitDMG = new System.Windows.Forms.Label();
-            this.DMG = new System.Windows.Forms.PictureBox();
-            this.recUnitHP = new System.Windows.Forms.Label();
-            this.HP = new System.Windows.Forms.PictureBox();
-            this.AP = new System.Windows.Forms.PictureBox();
-            this.recUnitAP = new System.Windows.Forms.Label();
             this.townMenu = new System.Windows.Forms.Panel();
             this.townCoords = new System.Windows.Forms.Label();
             this.recruitArea = new System.Windows.Forms.Panel();
@@ -78,237 +52,33 @@ namespace TBSGame.Menus
             this.APrate = new System.Windows.Forms.Label();
             this.tileImage = new System.Windows.Forms.PictureBox();
             this.tileName = new System.Windows.Forms.Label();
-            this.unitInfo.SuspendLayout();
-            this.moveArea.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.APIcon)).BeginInit();
+            this.recruitInfo = new System.Windows.Forms.Panel();
+            this.recruit = new System.Windows.Forms.Button();
+            this.recUnitTime = new System.Windows.Forms.Label();
+            this.recUnitName = new System.Windows.Forms.Label();
+            this.recUnitDMG = new System.Windows.Forms.Label();
+            this.DMG = new System.Windows.Forms.PictureBox();
+            this.recUnitHP = new System.Windows.Forms.Label();
+            this.HP = new System.Windows.Forms.PictureBox();
+            this.AP = new System.Windows.Forms.PictureBox();
+            this.recUnitAP = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.infoArea.SuspendLayout();
-            this.recruitInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DMG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AP)).BeginInit();
             this.townMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.townHPBox)).BeginInit();
             this.tileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileImage)).BeginInit();
+            this.recruitInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DMG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AP)).BeginInit();
             this.SuspendLayout();
-            // 
-            // unitInfo
-            // 
-            this.unitInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.unitInfo.Controls.Add(this.unitCoords);
-            this.unitInfo.Controls.Add(this.moveArea);
-            this.unitInfo.Controls.Add(this.unitDescDisplay);
-            this.unitInfo.Controls.Add(this.unitNameDisplay);
-            this.unitInfo.Controls.Add(this.unitDMGdisplay);
-            this.unitInfo.Controls.Add(this.dmgIcon);
-            this.unitInfo.Controls.Add(this.unitHPdisplay);
-            this.unitInfo.Controls.Add(this.unitHPbar);
-            this.unitInfo.Controls.Add(this.lifeIcon);
-            this.unitInfo.Controls.Add(this.APIcon);
-            this.unitInfo.Controls.Add(this.unitAPdisplay);
-            this.unitInfo.Controls.Add(this.unitAPbar);
-            this.unitInfo.Location = new System.Drawing.Point(0, 150);
-            this.unitInfo.Name = "unitInfo";
-            this.unitInfo.Size = new System.Drawing.Size(250, 450);
-            this.unitInfo.TabIndex = 2;
-            this.unitInfo.Visible = false;
-            // 
-            // unitCoords
-            // 
-            this.unitCoords.AutoSize = true;
-            this.unitCoords.Location = new System.Drawing.Point(35, 33);
-            this.unitCoords.Margin = new System.Windows.Forms.Padding(0);
-            this.unitCoords.MaximumSize = new System.Drawing.Size(150, 13);
-            this.unitCoords.MinimumSize = new System.Drawing.Size(150, 13);
-            this.unitCoords.Name = "unitCoords";
-            this.unitCoords.Size = new System.Drawing.Size(150, 13);
-            this.unitCoords.TabIndex = 15;
-            this.unitCoords.Text = "(;)";
-            this.unitCoords.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // moveArea
-            // 
-            this.moveArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(65)))), ((int)(((byte)(5)))));
-            this.moveArea.Controls.Add(this.moveY);
-            this.moveArea.Controls.Add(this.moveX);
-            this.moveArea.Controls.Add(this.moveButton);
-            this.moveArea.Location = new System.Drawing.Point(70, 350);
-            this.moveArea.Name = "moveArea";
-            this.moveArea.Size = new System.Drawing.Size(90, 60);
-            this.moveArea.TabIndex = 14;
-            // 
-            // moveY
-            // 
-            this.moveY.Location = new System.Drawing.Point(47, 5);
-            this.moveY.MaximumSize = new System.Drawing.Size(40, 20);
-            this.moveY.Name = "moveY";
-            this.moveY.Size = new System.Drawing.Size(40, 20);
-            this.moveY.TabIndex = 2;
-            // 
-            // moveX
-            // 
-            this.moveX.Location = new System.Drawing.Point(3, 5);
-            this.moveX.MaximumSize = new System.Drawing.Size(40, 20);
-            this.moveX.Name = "moveX";
-            this.moveX.Size = new System.Drawing.Size(40, 20);
-            this.moveX.TabIndex = 1;
-            // 
-            // moveButton
-            // 
-            this.moveButton.Location = new System.Drawing.Point(9, 31);
-            this.moveButton.Name = "moveButton";
-            this.moveButton.Size = new System.Drawing.Size(75, 23);
-            this.moveButton.TabIndex = 0;
-            this.moveButton.Text = "Move";
-            this.moveButton.UseVisualStyleBackColor = true;
-            this.moveButton.Click += new System.EventHandler(this.Action);
-            // 
-            // unitDescDisplay
-            // 
-            this.unitDescDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(64)))), ((int)(((byte)(5)))));
-            this.unitDescDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.unitDescDisplay.Location = new System.Drawing.Point(10, 200);
-            this.unitDescDisplay.Name = "unitDescDisplay";
-            this.unitDescDisplay.ReadOnly = true;
-            this.unitDescDisplay.Size = new System.Drawing.Size(230, 120);
-            this.unitDescDisplay.TabIndex = 13;
-            this.unitDescDisplay.Text = "";
-            // 
-            // unitNameDisplay
-            // 
-            this.unitNameDisplay.AutoSize = true;
-            this.unitNameDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.unitNameDisplay.ForeColor = System.Drawing.Color.Black;
-            this.unitNameDisplay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitNameDisplay.Location = new System.Drawing.Point(35, 20);
-            this.unitNameDisplay.Margin = new System.Windows.Forms.Padding(0);
-            this.unitNameDisplay.MaximumSize = new System.Drawing.Size(180, 0);
-            this.unitNameDisplay.MinimumSize = new System.Drawing.Size(180, 0);
-            this.unitNameDisplay.Name = "unitNameDisplay";
-            this.unitNameDisplay.Size = new System.Drawing.Size(180, 13);
-            this.unitNameDisplay.TabIndex = 12;
-            this.unitNameDisplay.Text = "Unit name";
-            this.unitNameDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // unitDMGdisplay
-            // 
-            this.unitDMGdisplay.AutoSize = true;
-            this.unitDMGdisplay.BackColor = System.Drawing.Color.Transparent;
-            this.unitDMGdisplay.ForeColor = System.Drawing.Color.Transparent;
-            this.unitDMGdisplay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitDMGdisplay.Location = new System.Drawing.Point(35, 100);
-            this.unitDMGdisplay.Margin = new System.Windows.Forms.Padding(0);
-            this.unitDMGdisplay.MaximumSize = new System.Drawing.Size(180, 0);
-            this.unitDMGdisplay.MinimumSize = new System.Drawing.Size(180, 0);
-            this.unitDMGdisplay.Name = "unitDMGdisplay";
-            this.unitDMGdisplay.Size = new System.Drawing.Size(180, 13);
-            this.unitDMGdisplay.TabIndex = 11;
-            this.unitDMGdisplay.Text = "0";
-            this.unitDMGdisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dmgIcon
-            // 
-            this.dmgIcon.Image = ((System.Drawing.Image)(resources.GetObject("dmgIcon.Image")));
-            this.dmgIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dmgIcon.Location = new System.Drawing.Point(15, 100);
-            this.dmgIcon.Name = "dmgIcon";
-            this.dmgIcon.Size = new System.Drawing.Size(15, 15);
-            this.dmgIcon.TabIndex = 10;
-            this.dmgIcon.TabStop = false;
-            // 
-            // unitHPdisplay
-            // 
-            this.unitHPdisplay.AutoSize = true;
-            this.unitHPdisplay.BackColor = System.Drawing.Color.Transparent;
-            this.unitHPdisplay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitHPdisplay.Location = new System.Drawing.Point(35, 63);
-            this.unitHPdisplay.Margin = new System.Windows.Forms.Padding(0);
-            this.unitHPdisplay.MaximumSize = new System.Drawing.Size(180, 0);
-            this.unitHPdisplay.MinimumSize = new System.Drawing.Size(180, 0);
-            this.unitHPdisplay.Name = "unitHPdisplay";
-            this.unitHPdisplay.Size = new System.Drawing.Size(180, 13);
-            this.unitHPdisplay.TabIndex = 9;
-            this.unitHPdisplay.Text = "0/0";
-            this.unitHPdisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // unitHPbar
-            // 
-            this.unitHPbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
-            this.unitHPbar.ForeColor = System.Drawing.Color.Black;
-            this.unitHPbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitHPbar.Location = new System.Drawing.Point(35, 50);
-            this.unitHPbar.Margin = new System.Windows.Forms.Padding(0);
-            this.unitHPbar.MarqueeAnimationSpeed = 0;
-            this.unitHPbar.Maximum = 10;
-            this.unitHPbar.MaximumSize = new System.Drawing.Size(180, 13);
-            this.unitHPbar.Name = "unitHPbar";
-            this.unitHPbar.Size = new System.Drawing.Size(180, 13);
-            this.unitHPbar.Step = 1;
-            this.unitHPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.unitHPbar.TabIndex = 8;
-            this.unitHPbar.Tag = "";
-            // 
-            // lifeIcon
-            // 
-            this.lifeIcon.Image = ((System.Drawing.Image)(resources.GetObject("lifeIcon.Image")));
-            this.lifeIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lifeIcon.Location = new System.Drawing.Point(15, 50);
-            this.lifeIcon.Name = "lifeIcon";
-            this.lifeIcon.Size = new System.Drawing.Size(15, 15);
-            this.lifeIcon.TabIndex = 7;
-            this.lifeIcon.TabStop = false;
-            // 
-            // APIcon
-            // 
-            this.APIcon.Image = ((System.Drawing.Image)(resources.GetObject("APIcon.Image")));
-            this.APIcon.Location = new System.Drawing.Point(15, 150);
-            this.APIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.APIcon.Name = "APIcon";
-            this.APIcon.Size = new System.Drawing.Size(15, 15);
-            this.APIcon.TabIndex = 6;
-            this.APIcon.TabStop = false;
-            // 
-            // unitAPdisplay
-            // 
-            this.unitAPdisplay.AutoSize = true;
-            this.unitAPdisplay.BackColor = System.Drawing.Color.Transparent;
-            this.unitAPdisplay.ForeColor = System.Drawing.Color.Black;
-            this.unitAPdisplay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitAPdisplay.Location = new System.Drawing.Point(35, 163);
-            this.unitAPdisplay.Margin = new System.Windows.Forms.Padding(0);
-            this.unitAPdisplay.MaximumSize = new System.Drawing.Size(180, 0);
-            this.unitAPdisplay.MinimumSize = new System.Drawing.Size(180, 0);
-            this.unitAPdisplay.Name = "unitAPdisplay";
-            this.unitAPdisplay.Size = new System.Drawing.Size(180, 13);
-            this.unitAPdisplay.TabIndex = 5;
-            this.unitAPdisplay.Text = "0/0";
-            this.unitAPdisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // unitAPbar
-            // 
-            this.unitAPbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(123)))), ((int)(((byte)(11)))));
-            this.unitAPbar.ForeColor = System.Drawing.Color.Black;
-            this.unitAPbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unitAPbar.Location = new System.Drawing.Point(35, 150);
-            this.unitAPbar.Margin = new System.Windows.Forms.Padding(0);
-            this.unitAPbar.MarqueeAnimationSpeed = 0;
-            this.unitAPbar.Maximum = 10;
-            this.unitAPbar.MaximumSize = new System.Drawing.Size(180, 13);
-            this.unitAPbar.Name = "unitAPbar";
-            this.unitAPbar.Size = new System.Drawing.Size(180, 13);
-            this.unitAPbar.Step = 1;
-            this.unitAPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.unitAPbar.TabIndex = 1;
-            this.unitAPbar.Tag = "";
             // 
             // PlayerNameDisplay
             // 
             this.PlayerNameDisplay.AutoSize = true;
             this.PlayerNameDisplay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PlayerNameDisplay.Location = new System.Drawing.Point(245, 16);
+            this.PlayerNameDisplay.Location = new System.Drawing.Point(186, 12);
             this.PlayerNameDisplay.Name = "PlayerNameDisplay";
             this.PlayerNameDisplay.Size = new System.Drawing.Size(10, 13);
             this.PlayerNameDisplay.TabIndex = 0;
@@ -317,10 +87,10 @@ namespace TBSGame.Menus
             // gameArea
             // 
             this.gameArea.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gameArea.Location = new System.Drawing.Point(25, 75);
+            this.gameArea.Location = new System.Drawing.Point(19, 57);
             this.gameArea.Margin = new System.Windows.Forms.Padding(0);
             this.gameArea.Name = "gameArea";
-            this.gameArea.Size = new System.Drawing.Size(500, 500);
+            this.gameArea.Size = new System.Drawing.Size(380, 380);
             this.gameArea.TabIndex = 4;
             // 
             // topPanel
@@ -330,14 +100,15 @@ namespace TBSGame.Menus
             this.topPanel.Controls.Add(this.PlayerNameDisplay);
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(550, 50);
+            this.topPanel.Size = new System.Drawing.Size(418, 38);
             this.topPanel.TabIndex = 5;
             // 
             // endTurnButton
             // 
-            this.endTurnButton.Location = new System.Drawing.Point(460, 12);
+            this.endTurnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.endTurnButton.Location = new System.Drawing.Point(350, 8);
             this.endTurnButton.Name = "endTurnButton";
-            this.endTurnButton.Size = new System.Drawing.Size(75, 23);
+            this.endTurnButton.Size = new System.Drawing.Size(57, 24);
             this.endTurnButton.TabIndex = 1;
             this.endTurnButton.Text = "End Turn";
             this.endTurnButton.UseVisualStyleBackColor = true;
@@ -346,147 +117,13 @@ namespace TBSGame.Menus
             // infoArea
             // 
             this.infoArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.infoArea.Controls.Add(this.recruitInfo);
             this.infoArea.Controls.Add(this.townMenu);
             this.infoArea.Controls.Add(this.logger);
             this.infoArea.Controls.Add(this.tileInfo);
-            this.infoArea.Controls.Add(this.unitInfo);
-            this.infoArea.Location = new System.Drawing.Point(550, 0);
+            this.infoArea.Location = new System.Drawing.Point(418, 0);
             this.infoArea.Name = "infoArea";
             this.infoArea.Size = new System.Drawing.Size(250, 600);
             this.infoArea.TabIndex = 6;
-            // 
-            // recruitInfo
-            // 
-            this.recruitInfo.Controls.Add(this.recruit);
-            this.recruitInfo.Controls.Add(this.recUnitTime);
-            this.recruitInfo.Controls.Add(this.recUnitName);
-            this.recruitInfo.Controls.Add(this.recUnitDMG);
-            this.recruitInfo.Controls.Add(this.DMG);
-            this.recruitInfo.Controls.Add(this.recUnitHP);
-            this.recruitInfo.Controls.Add(this.HP);
-            this.recruitInfo.Controls.Add(this.AP);
-            this.recruitInfo.Controls.Add(this.recUnitAP);
-            this.recruitInfo.Location = new System.Drawing.Point(0, 125);
-            this.recruitInfo.Name = "recruitInfo";
-            this.recruitInfo.Size = new System.Drawing.Size(250, 227);
-            this.recruitInfo.TabIndex = 6;
-            this.recruitInfo.Visible = false;
-            // 
-            // recruit
-            // 
-            this.recruit.BackColor = System.Drawing.Color.Transparent;
-            this.recruit.Font = new System.Drawing.Font("Bookman Old Style", 15F);
-            this.recruit.Location = new System.Drawing.Point(25, 161);
-            this.recruit.Name = "recruit";
-            this.recruit.Size = new System.Drawing.Size(213, 40);
-            this.recruit.TabIndex = 23;
-            this.recruit.Text = "Recruit";
-            this.recruit.UseVisualStyleBackColor = false;
-            // 
-            // recUnitTime
-            // 
-            this.recUnitTime.AutoSize = true;
-            this.recUnitTime.Location = new System.Drawing.Point(25, 132);
-            this.recUnitTime.MaximumSize = new System.Drawing.Size(200, 0);
-            this.recUnitTime.MinimumSize = new System.Drawing.Size(200, 0);
-            this.recUnitTime.Name = "recUnitTime";
-            this.recUnitTime.Size = new System.Drawing.Size(200, 13);
-            this.recUnitTime.TabIndex = 22;
-            this.recUnitTime.Text = "Time: X turns";
-            // 
-            // recUnitName
-            // 
-            this.recUnitName.AutoSize = true;
-            this.recUnitName.BackColor = System.Drawing.Color.Transparent;
-            this.recUnitName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.recUnitName.Location = new System.Drawing.Point(45, 35);
-            this.recUnitName.Margin = new System.Windows.Forms.Padding(0);
-            this.recUnitName.MaximumSize = new System.Drawing.Size(180, 0);
-            this.recUnitName.MinimumSize = new System.Drawing.Size(180, 0);
-            this.recUnitName.Name = "recUnitName";
-            this.recUnitName.Size = new System.Drawing.Size(180, 13);
-            this.recUnitName.TabIndex = 21;
-            this.recUnitName.Text = "Unit name";
-            this.recUnitName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // recUnitDMG
-            // 
-            this.recUnitDMG.AutoSize = true;
-            this.recUnitDMG.BackColor = System.Drawing.Color.Transparent;
-            this.recUnitDMG.ForeColor = System.Drawing.Color.Transparent;
-            this.recUnitDMG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.recUnitDMG.Location = new System.Drawing.Point(45, 85);
-            this.recUnitDMG.Margin = new System.Windows.Forms.Padding(0);
-            this.recUnitDMG.MaximumSize = new System.Drawing.Size(180, 0);
-            this.recUnitDMG.MinimumSize = new System.Drawing.Size(180, 0);
-            this.recUnitDMG.Name = "recUnitDMG";
-            this.recUnitDMG.Size = new System.Drawing.Size(180, 13);
-            this.recUnitDMG.TabIndex = 20;
-            this.recUnitDMG.Text = "0";
-            this.recUnitDMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DMG
-            // 
-            this.DMG.Image = ((System.Drawing.Image)(resources.GetObject("DMG.Image")));
-            this.DMG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DMG.Location = new System.Drawing.Point(25, 85);
-            this.DMG.Name = "DMG";
-            this.DMG.Size = new System.Drawing.Size(15, 15);
-            this.DMG.TabIndex = 19;
-            this.DMG.TabStop = false;
-            // 
-            // recUnitHP
-            // 
-            this.recUnitHP.AutoSize = true;
-            this.recUnitHP.BackColor = System.Drawing.Color.Transparent;
-            this.recUnitHP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.recUnitHP.Location = new System.Drawing.Point(45, 65);
-            this.recUnitHP.Margin = new System.Windows.Forms.Padding(0);
-            this.recUnitHP.MaximumSize = new System.Drawing.Size(180, 0);
-            this.recUnitHP.MinimumSize = new System.Drawing.Size(180, 0);
-            this.recUnitHP.Name = "recUnitHP";
-            this.recUnitHP.Size = new System.Drawing.Size(180, 13);
-            this.recUnitHP.TabIndex = 18;
-            this.recUnitHP.Text = "0";
-            this.recUnitHP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HP
-            // 
-            this.HP.Image = ((System.Drawing.Image)(resources.GetObject("HP.Image")));
-            this.HP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.HP.Location = new System.Drawing.Point(25, 65);
-            this.HP.Name = "HP";
-            this.HP.Size = new System.Drawing.Size(15, 15);
-            this.HP.TabIndex = 16;
-            this.HP.TabStop = false;
-            // 
-            // AP
-            // 
-            this.AP.Image = ((System.Drawing.Image)(resources.GetObject("AP.Image")));
-            this.AP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AP.Location = new System.Drawing.Point(25, 105);
-            this.AP.Margin = new System.Windows.Forms.Padding(0);
-            this.AP.Name = "AP";
-            this.AP.Size = new System.Drawing.Size(15, 15);
-            this.AP.TabIndex = 15;
-            this.AP.TabStop = false;
-            // 
-            // recUnitAP
-            // 
-            this.recUnitAP.AutoSize = true;
-            this.recUnitAP.BackColor = System.Drawing.Color.Transparent;
-            this.recUnitAP.ForeColor = System.Drawing.Color.Black;
-            this.recUnitAP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.recUnitAP.Location = new System.Drawing.Point(45, 105);
-            this.recUnitAP.Margin = new System.Windows.Forms.Padding(0);
-            this.recUnitAP.MaximumSize = new System.Drawing.Size(180, 0);
-            this.recUnitAP.MinimumSize = new System.Drawing.Size(180, 0);
-            this.recUnitAP.Name = "recUnitAP";
-            this.recUnitAP.Size = new System.Drawing.Size(180, 13);
-            this.recUnitAP.TabIndex = 14;
-            this.recUnitAP.Text = "0";
-            this.recUnitAP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // townMenu
             // 
@@ -579,11 +216,12 @@ namespace TBSGame.Menus
             this.logger.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.logger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(64)))), ((int)(((byte)(5)))));
             this.logger.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logger.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
             this.logger.ForeColor = System.Drawing.Color.White;
-            this.logger.Location = new System.Drawing.Point(10, 10);
+            this.logger.Location = new System.Drawing.Point(8, 8);
             this.logger.Name = "logger";
             this.logger.ReadOnly = true;
-            this.logger.Size = new System.Drawing.Size(230, 100);
+            this.logger.Size = new System.Drawing.Size(175, 58);
             this.logger.TabIndex = 4;
             this.logger.Text = "";
             // 
@@ -686,6 +324,143 @@ namespace TBSGame.Menus
             this.tileName.Text = "Tile Name";
             this.tileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // recruitInfo
+            // 
+            this.recruitInfo.Controls.Add(this.recruit);
+            this.recruitInfo.Controls.Add(this.recUnitTime);
+            this.recruitInfo.Controls.Add(this.recUnitName);
+            this.recruitInfo.Controls.Add(this.recUnitDMG);
+            this.recruitInfo.Controls.Add(this.DMG);
+            this.recruitInfo.Controls.Add(this.recUnitHP);
+            this.recruitInfo.Controls.Add(this.HP);
+            this.recruitInfo.Controls.Add(this.AP);
+            this.recruitInfo.Controls.Add(this.recUnitAP);
+            this.recruitInfo.Location = new System.Drawing.Point(674, 55);
+            this.recruitInfo.Name = "recruitInfo";
+            this.recruitInfo.Size = new System.Drawing.Size(190, 171);
+            this.recruitInfo.TabIndex = 6;
+            this.recruitInfo.Tag = "0; 72";
+            this.recruitInfo.Visible = false;
+            // 
+            // recruit
+            // 
+            this.recruit.BackColor = System.Drawing.Color.Transparent;
+            this.recruit.Font = new System.Drawing.Font("Bookman Old Style", 11.4F);
+            this.recruit.Location = new System.Drawing.Point(19, 122);
+            this.recruit.Name = "recruit";
+            this.recruit.Size = new System.Drawing.Size(162, 30);
+            this.recruit.TabIndex = 23;
+            this.recruit.Text = "Recruit";
+            this.recruit.UseVisualStyleBackColor = false;
+            // 
+            // recUnitTime
+            // 
+            this.recUnitTime.AutoSize = true;
+            this.recUnitTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.recUnitTime.Location = new System.Drawing.Point(19, 100);
+            this.recUnitTime.MaximumSize = new System.Drawing.Size(200, 0);
+            this.recUnitTime.MinimumSize = new System.Drawing.Size(200, 0);
+            this.recUnitTime.Name = "recUnitTime";
+            this.recUnitTime.Size = new System.Drawing.Size(200, 12);
+            this.recUnitTime.TabIndex = 22;
+            this.recUnitTime.Text = "Time: X turns";
+            // 
+            // recUnitName
+            // 
+            this.recUnitName.AutoSize = true;
+            this.recUnitName.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.recUnitName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.recUnitName.Location = new System.Drawing.Point(34, 27);
+            this.recUnitName.Margin = new System.Windows.Forms.Padding(0);
+            this.recUnitName.MinimumSize = new System.Drawing.Size(137, 0);
+            this.recUnitName.Name = "recUnitName";
+            this.recUnitName.Size = new System.Drawing.Size(137, 12);
+            this.recUnitName.TabIndex = 21;
+            this.recUnitName.Text = "Unit name";
+            this.recUnitName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // recUnitDMG
+            // 
+            this.recUnitDMG.AutoSize = true;
+            this.recUnitDMG.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitDMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.recUnitDMG.ForeColor = System.Drawing.Color.Transparent;
+            this.recUnitDMG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.recUnitDMG.Location = new System.Drawing.Point(34, 65);
+            this.recUnitDMG.Margin = new System.Windows.Forms.Padding(0);
+            this.recUnitDMG.MinimumSize = new System.Drawing.Size(137, 0);
+            this.recUnitDMG.Name = "recUnitDMG";
+            this.recUnitDMG.Size = new System.Drawing.Size(137, 12);
+            this.recUnitDMG.TabIndex = 20;
+            this.recUnitDMG.Text = "0";
+            this.recUnitDMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DMG
+            // 
+            this.DMG.Image = ((System.Drawing.Image)(resources.GetObject("DMG.Image")));
+            this.DMG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DMG.Location = new System.Drawing.Point(19, 65);
+            this.DMG.Name = "DMG";
+            this.DMG.Size = new System.Drawing.Size(11, 11);
+            this.DMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DMG.TabIndex = 19;
+            this.DMG.TabStop = false;
+            // 
+            // recUnitHP
+            // 
+            this.recUnitHP.AutoSize = true;
+            this.recUnitHP.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.recUnitHP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.recUnitHP.Location = new System.Drawing.Point(34, 49);
+            this.recUnitHP.Margin = new System.Windows.Forms.Padding(0);
+            this.recUnitHP.MinimumSize = new System.Drawing.Size(137, 0);
+            this.recUnitHP.Name = "recUnitHP";
+            this.recUnitHP.Size = new System.Drawing.Size(137, 12);
+            this.recUnitHP.TabIndex = 18;
+            this.recUnitHP.Text = "0";
+            this.recUnitHP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HP
+            // 
+            this.HP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.HP.Image = ((System.Drawing.Image)(resources.GetObject("HP.Image")));
+            this.HP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.HP.Location = new System.Drawing.Point(19, 49);
+            this.HP.Name = "HP";
+            this.HP.Size = new System.Drawing.Size(11, 11);
+            this.HP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.HP.TabIndex = 16;
+            this.HP.TabStop = false;
+            // 
+            // AP
+            // 
+            this.AP.Image = ((System.Drawing.Image)(resources.GetObject("AP.Image")));
+            this.AP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AP.Location = new System.Drawing.Point(19, 80);
+            this.AP.Margin = new System.Windows.Forms.Padding(0);
+            this.AP.Name = "AP";
+            this.AP.Size = new System.Drawing.Size(11, 11);
+            this.AP.TabIndex = 15;
+            this.AP.TabStop = false;
+            // 
+            // recUnitAP
+            // 
+            this.recUnitAP.AutoSize = true;
+            this.recUnitAP.BackColor = System.Drawing.Color.Transparent;
+            this.recUnitAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.27F);
+            this.recUnitAP.ForeColor = System.Drawing.Color.Black;
+            this.recUnitAP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.recUnitAP.Location = new System.Drawing.Point(34, 80);
+            this.recUnitAP.Margin = new System.Windows.Forms.Padding(0);
+            this.recUnitAP.MinimumSize = new System.Drawing.Size(137, 0);
+            this.recUnitAP.Name = "recUnitAP";
+            this.recUnitAP.Size = new System.Drawing.Size(137, 12);
+            this.recUnitAP.TabIndex = 14;
+            this.recUnitAP.Text = "0";
+            this.recUnitAP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,6 +468,7 @@ namespace TBSGame.Menus
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.recruitInfo);
             this.Controls.Add(this.infoArea);
             this.Controls.Add(this.gameArea);
             this.Controls.Add(this.topPanel);
@@ -702,44 +478,27 @@ namespace TBSGame.Menus
             this.MinimizeBox = false;
             this.Name = "GameWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.unitInfo.ResumeLayout(false);
-            this.unitInfo.PerformLayout();
-            this.moveArea.ResumeLayout(false);
-            this.moveArea.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dmgIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.APIcon)).EndInit();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.infoArea.ResumeLayout(false);
-            this.recruitInfo.ResumeLayout(false);
-            this.recruitInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DMG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AP)).EndInit();
             this.townMenu.ResumeLayout(false);
             this.townMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.townHPBox)).EndInit();
             this.tileInfo.ResumeLayout(false);
             this.tileInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileImage)).EndInit();
+            this.recruitInfo.ResumeLayout(false);
+            this.recruitInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DMG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AP)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel unitInfo;
-        private System.Windows.Forms.ProgressBar unitAPbar;
         private System.Windows.Forms.Label PlayerNameDisplay;
-        private System.Windows.Forms.Label unitAPdisplay;
-        private System.Windows.Forms.PictureBox APIcon;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.PictureBox lifeIcon;
-        private System.Windows.Forms.Label unitHPdisplay;
-        private System.Windows.Forms.ProgressBar unitHPbar;
-        private System.Windows.Forms.Label unitNameDisplay;
-        private System.Windows.Forms.Label unitDMGdisplay;
-        private System.Windows.Forms.PictureBox dmgIcon;
         private System.Windows.Forms.Panel tileInfo;
         private System.Windows.Forms.Label DEFrate;
         private System.Windows.Forms.Label APrate;
@@ -757,8 +516,6 @@ namespace TBSGame.Menus
         private System.Windows.Forms.PictureBox townHPBox;
         private System.Windows.Forms.Label townCoords;
         private System.Windows.Forms.Button endTurnButton;
-        private System.Windows.Forms.RichTextBox unitDescDisplay;
-        private System.Windows.Forms.Panel moveArea;
         internal System.Windows.Forms.Panel gameArea;
         internal System.Windows.Forms.Panel infoArea;
         private System.Windows.Forms.Panel recruitInfo;
@@ -771,10 +528,6 @@ namespace TBSGame.Menus
         private System.Windows.Forms.PictureBox HP;
         private System.Windows.Forms.PictureBox AP;
         private System.Windows.Forms.Label recUnitAP;
-        private System.Windows.Forms.TextBox moveY;
-        private System.Windows.Forms.TextBox moveX;
-        private System.Windows.Forms.Button moveButton;
-        private System.Windows.Forms.Label unitCoords;
     }
 }
 

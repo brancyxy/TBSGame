@@ -6,14 +6,14 @@ namespace TBSGame
     {
         public string Name { get; private set; }
 
-        public List<Unit> ownedUnits;
-        public Town Town { get; private set; }
+        public List<Units.Unit> ownedUnits;
+        public Units.Town Town { get; private set; }
 
-        public Player(string n, Town town)
+        public Player(string n, Units.Town town)
         {
             this.Name = n;
             this.Town = town;
-            ownedUnits = new List<Unit>();
+            ownedUnits = new List<Units.Unit>();
         }
     }
 }

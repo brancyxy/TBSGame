@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TBSGame
+namespace TBSGame.Units
 {
     class Unit : Control
     {
-        public UnitInfo stats;
+        public MapHandler.UnitInfo stats;
         public int x;
         public int y;
         public bool owner = false;
@@ -19,17 +19,17 @@ namespace TBSGame
         public double dmgRed;
         public bool attacked = false;
 
-        public Unit(UnitInfo ui, int x, int y,Tile t)
+        public Unit(MapHandler.UnitInfo ui, int x, int y,Tile t)
         {
-            dmgRed = t.armorBonus;
+            dmgRed = t.ArmorBonus;
             stats = ui;
 
             Width = 15;
             Height = 25;
             Visible = true;
 
-            currHP = ui.MaxHP;
-            currAP = ui.MaxAP;
+            currHP = ui.Health;
+            currAP = ui.ActionPoints;
             BackgroundImage = ui.Texture;
             this.x = x;
             this.y = y;

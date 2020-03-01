@@ -5,8 +5,8 @@ namespace TBSGame
 {
     class Recruiter : Control
     {
-        public UnitInfo unit;
-        public Recruiter(UnitInfo unit,int x, int y)
+        public MapHandler.UnitInfo unit;
+        public Recruiter(MapHandler.UnitInfo unit,int x, int y)
             {
                 this.unit = unit;
                 BackgroundImage = unit.Texture;
