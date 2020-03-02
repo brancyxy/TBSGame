@@ -18,6 +18,7 @@ namespace TBSGame.Menus
         Units.Unit selectedUnit;
 
         UnitInfoPanel unitInfo;
+        TownPanel townArea;
         public GameWindow(bool useFullScreen)
         {
             InitializeComponent();
@@ -26,6 +27,9 @@ namespace TBSGame.Menus
             ScaleFontSize(Utils.scale.Height);
 
             unitInfo = new UnitInfoPanel();
+            infoArea.Controls.Add(unitInfo);
+
+            townArea = new TownPanel();
             infoArea.Controls.Add(unitInfo);
         }
         /// <summary>

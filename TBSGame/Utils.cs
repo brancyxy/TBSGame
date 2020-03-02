@@ -19,8 +19,8 @@ namespace TBSGame
 
         public const int BASE_WIDTH = 608,
                          BASE_HEIGHT = 342,
-                         BASE_TILE_HEIGHT = 25,
-                         BASE_TILE_WIDTH = 25;
+                         BASE_TILE_HEIGHT = 19,
+                         BASE_TILE_WIDTH = 19;
 
         public static IniData settings;
 

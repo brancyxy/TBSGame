@@ -10,7 +10,7 @@ namespace TBSGame.Misc
             Image = icon;
             ImeMode = ImeMode.NoControl;
             Location = location;
-            Size = new Size(11, 11);
+            Size = new Size(15, 15);
             SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
