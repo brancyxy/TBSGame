@@ -16,14 +16,14 @@ namespace TBSGame.Units
 
         public Tile(byte x, byte y, TileInfo ti)
         {
-            if ((x <= 0 || x > 20) || 
+            if ((x <= 0 || x > 20) ||
                 (y <= 0 || y > 20)) throw new Exception(ERROR_MESSAGE);
 
             Width = (int)Math.Floor(Utils.BASE_TILE_WIDTH * Utils.scale.Width);
             Height = (int)Math.Floor(Utils.BASE_TILE_HEIGHT * Utils.scale.Height);
             BackgroundImage = ti.Background;
             BackgroundImageLayout = ImageLayout.Stretch;
-            Location = new Point((x - 1) * Width, 
+            Location = new Point((x - 1) * Width,
                                  (y - 1) * Height);
             ActionPointReduction = ti.APred;
             ArmorBonus = ti.ArmorBonus;

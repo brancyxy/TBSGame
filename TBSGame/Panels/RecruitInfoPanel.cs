@@ -97,7 +97,7 @@ namespace TBSGame.Panels
         {
             RecruitingUnit = unit;
             unitName.Text = unit.Name;
-            unitHealth.Text = unit.Health +"";
+            unitHealth.Text = unit.Health + "";
             unitDamage.Text = $"{unit.MinDamage}-{unit.MaxDamage}";
             unitActionPoints.Text = unit.ActionPoints + "";
             unitRecruitTime.Text = unit.RecruitTime + "";

@@ -30,7 +30,7 @@ namespace TBSGame.MapHandler
                     var x = Convert.ToByte(column + 1);
                     var y = Convert.ToByte(line + 1);
 
-                    if(ti is TownInfo) Tiles[line, column] = new Town(x, y, ti as TownInfo);
+                    if (ti is TownInfo) Tiles[line, column] = new Town(x, y, ti as TownInfo);
                     else Tiles[line, column] = new Tile(x, y, ti);
                 }
 

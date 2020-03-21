@@ -13,7 +13,7 @@ namespace TBSGame.Panels
         public DataGridView dgvSelect;
         public TownInfoPanel townInfo;
         public RecruitInfoPanel recruitInfo;
-        private List<UnitInfo> units;
+        private readonly List<UnitInfo> units;
 
         public TownPanel(List<UnitInfo> units)
         {
@@ -61,7 +61,7 @@ namespace TBSGame.Panels
                 ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
                 ColumnHeadersVisible = false,
                 ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-                Location = new Point(190,148),
+                Location = new Point(190, 148),
                 MultiSelect = false,
                 ReadOnly = true,
                 RowHeadersVisible = false,

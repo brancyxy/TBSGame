@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TBSGame.MapHandler;
 
@@ -11,7 +7,7 @@ namespace TBSGame.Units
 {
     class Unit : Control
     {
-        private Random random;
+        private readonly Random random;
 
         private const int BASE_HEIGHT = 15,
                           BASE_WIDTH = 10;
@@ -39,7 +35,8 @@ namespace TBSGame.Units
         public readonly byte ownerPlayer;
 
         private Coordinate _coords;
-        public Coordinate Coords { 
+        public Coordinate Coords
+        {
             get { return _coords; }
             set
             {

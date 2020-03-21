@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TBSGame.MapHandler;
@@ -12,7 +10,7 @@ namespace TBSGame.Menus
 {
     public partial class GameWindow : Form
     {
-        private Map map;
+        private readonly Map map;
         private TileInfoPanel tileInfo;
         private TownPanel townArea;
         private UnitInfoPanel unitInfo;
@@ -20,7 +18,7 @@ namespace TBSGame.Menus
         private ActionButton[] actionButtons;
 
         private byte currentPlayer;
-        Player[] players;
+        private Player[] players;
 
         private Town selectedTown;
         private Unit selectedUnit;
@@ -62,6 +60,9 @@ namespace TBSGame.Menus
 
         }
 
+        /// <summary>
+        /// Centers the action buttons and refreshes their actions to the neighbouring tiles.
+        /// </summary>
         private void CenterActionButtonsAroundSelectedUnit()
         {
             for (int direction = 0; direction < actionButtons.Length; direction++)
@@ -80,21 +81,21 @@ namespace TBSGame.Menus
         /// <returns></returns>
         private TileStatus CheckTile(Coordinate coords)
         {
-            if (players[currentPlayer].OwnedUnits.Exists(x => x.Coords == coords)) 
+            if (players[currentPlayer].OwnedUnits.Exists(x => x.Coords == coords))
                 return TileStatus.ALLY;
 
             for (int player = 0; player < players.Length; player++)
                 if (player != currentPlayer)
                     for (int unit = 0; unit < players[player].OwnedUnits.Count; unit++)
                         if (players[player].OwnedUnits[unit].Coords == coords)
-                            return TileStatus.ENEMY; 
+                            return TileStatus.ENEMY;
 
 
             for (byte line = 0; line < map.TileMap.Tiles.GetLength(0); line++)
                 for (byte column = 0; column < map.TileMap.Tiles.GetLength(1); column++)
                     if (map.TileMap.Tiles[line, column] is Town && map.TileMap.Tiles[line, column].Coords == coords)
                     {
-                        if ((map.TileMap.Tiles[line, column] as Town).ownerPlayer == currentPlayer) 
+                        if ((map.TileMap.Tiles[line, column] as Town).ownerPlayer == currentPlayer)
                             return TileStatus.TOWN_ALLY;
                         else return TileStatus.TOWN_ENEMY;
                     }
@@ -173,7 +174,7 @@ namespace TBSGame.Menus
                 Log("Already Recruiting here");
                 return;
             }
-            if(players[currentPlayer].OwnedUnits.Exists(x => x.Coords == selectedTown.Coords))
+            if (players[currentPlayer].OwnedUnits.Exists(x => x.Coords == selectedTown.Coords))
             {
                 Log("Can't recruit unit while there's one in town.");
                 return;
@@ -181,7 +182,7 @@ namespace TBSGame.Menus
             selectedTown.Recruit(townArea.recruitInfo.RecruitingUnit, currentPlayer);
             Log($"Started recruiting {selectedTown.recruitingUnit.UnitName}, " +
                 $"process takes {townArea.recruitInfo.RecruitingUnit.RecruitTime} turns.");
-            
+
         }
 
         /// <summary>
@@ -192,13 +193,13 @@ namespace TBSGame.Menus
             ClearMenuView();
             currentPlayer++;
 
+            if (currentPlayer == players.Length) NewTurn();
+
             if (!players[currentPlayer].InGame)
             {
-                NextPlayer(sender,s);
+                NextPlayer(sender, s);
                 return;
             }
-
-            if (currentPlayer == players.Length) NewTurn();
 
             foreach (var p in players)
                 foreach (var u in p.OwnedUnits)
@@ -219,7 +220,7 @@ namespace TBSGame.Menus
 
             for (byte line = 0; line < map.TileMap.Tiles.GetLength(0); line++)
                 for (byte column = 0; column < map.TileMap.Tiles.GetLength(1); column++)
-                    if (map.TileMap.Tiles[line, column] is Town && 
+                    if (map.TileMap.Tiles[line, column] is Town &&
                        (map.TileMap.Tiles[line, column] as Town).ElapsedTurn())
                     {
                         var newUnit = (map.TileMap.Tiles[line, column] as Town).recruitingUnit;
@@ -231,7 +232,7 @@ namespace TBSGame.Menus
                             .OwnedUnits
                             .Add(newUnit);
 
-                        
+
                         gameArea.Controls.Add(newUnit);
                     }
 
@@ -252,6 +253,9 @@ namespace TBSGame.Menus
         {
             Coordinate actionLocation = (sender as ActionButton).Coords;
 
+            byte tileColumn = (byte)(actionLocation.X - 1);
+            byte tileRow = (byte)(actionLocation.Y - 1);
+
             switch ((sender as ActionButton).TileStatus)
             {
                 case TileStatus.TOWN_ALLY:
@@ -261,7 +265,7 @@ namespace TBSGame.Menus
                     }
                 case TileStatus.ALLY:
                     {
-                        if(selectedUnit.Type == 1)
+                        if (selectedUnit.Type == 1)
                             if (!selectedUnit.Attacked)
                             {
                                 selectedUnit.Attacked = true;
@@ -276,8 +280,6 @@ namespace TBSGame.Menus
                     }
                 case TileStatus.EMPTY:
                     {
-                        byte tileColumn = (byte)(actionLocation.X - 1);
-                        byte tileRow = (byte)(actionLocation.Y - 1);
                         int ActionPointReduction = map.TileMap.Tiles[tileRow, tileColumn].ActionPointReduction;
 
                         if (selectedUnit.CurrentActionPoints >= ActionPointReduction)
@@ -301,12 +303,13 @@ namespace TBSGame.Menus
                                 int damage = selectedUnit.GenerateDamage();
 
                                 for (int player = 0; player < players.Length; player++)
-                                    if(player != currentPlayer)
+                                    if (player != currentPlayer)
                                         for (int unit = 0; unit < players[player].OwnedUnits.Count; unit++)
-                                            if(players[player].OwnedUnits[unit].Coords == actionLocation)
+                                            if (players[player].OwnedUnits[unit].Coords == actionLocation)
                                             {
-                                                Log($"Hit for {damage}");
-                                                if (players[player].OwnedUnits[unit].Damage(damage))
+                                                int reducedDamage = (int)(damage * (1 - map.TileMap.Tiles[tileRow, tileColumn].ArmorBonus));
+                                                Log($"Hit for {reducedDamage}");
+                                                if (players[player].OwnedUnits[unit].Damage(reducedDamage))
                                                 {
                                                     Log($"Unit killed");
                                                     players[player].OwnedUnits[unit].Dispose();
@@ -325,8 +328,6 @@ namespace TBSGame.Menus
                         if (selectedUnit.Type != 1)
                             if (!selectedUnit.Attacked)
                             {
-                                byte tileColumn = (byte)(actionLocation.X - 1);
-                                byte tileRow = (byte)(actionLocation.Y - 1);
                                 if ((map.TileMap.Tiles[tileRow, tileColumn] as Town).Alive)
                                 {
                                     selectedUnit.Attacked = true;
@@ -366,6 +367,38 @@ namespace TBSGame.Menus
                 }
             players[playerIndex].InGame = false;
             Log($"Player {playerIndex + 1} has been eliminated");
+
+
+            for (int unit = 0; unit < players[playerIndex].OwnedUnits.Count;)
+            {
+                players[playerIndex].OwnedUnits[unit].Dispose();
+                gameArea.Controls.Remove(players[playerIndex].OwnedUnits[unit]);
+                players[playerIndex].OwnedUnits.RemoveAt(unit);
+            }
+
+            CheckForWinCondition();
+        }
+
+        /// <summary>
+        /// Checks if other players are still alive, if not, prompts victory for the current player.
+        /// </summary>
+        private void CheckForWinCondition()
+        {
+            for (int player = 0; player < players.Length; player++)
+                if (player != currentPlayer)
+                    if (players[player].InGame)
+                        return;
+
+
+            string VictoryTitle = $"Player {currentPlayer + 1} has won!";
+            const string VictoryQuestion = "Do you want to continue playing in freeplay mode?";
+
+            DialogResult answer = MessageBox.Show(VictoryQuestion, VictoryTitle, MessageBoxButtons.YesNo);
+
+
+            if (answer == DialogResult.No || answer == DialogResult.None)
+                Application.Exit();
+
         }
 
         /// <summary>

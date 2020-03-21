@@ -1,13 +1,7 @@
 ﻿using IniParser;
-using IniParser.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TBSGame.Menus
@@ -50,7 +44,7 @@ namespace TBSGame.Menus
 
             while (Fits(scaleDouble))
             {
-                cbResolution.Items.Add($"{Utils.BASE_WIDTH * scaleDouble / 2.0f}x"+
+                cbResolution.Items.Add($"{Utils.BASE_WIDTH * scaleDouble / 2.0f}x" +
                                        $"{Utils.BASE_HEIGHT * scaleDouble / 2.0f}");
                 scaleDouble++;
             }
@@ -69,7 +63,7 @@ namespace TBSGame.Menus
             foreach (var res in cbResolution.Items)
             {
                 var tmp = res.ToString().Split('x');
-                if(resX.ToString() == tmp[0] &&
+                if (resX.ToString() == tmp[0] &&
                    resY.ToString() == tmp[1])
                 {
                     found = true;
@@ -92,7 +86,7 @@ namespace TBSGame.Menus
         private bool Fits(byte scaleDouble)
         {
             return !(Utils.BASE_HEIGHT * scaleDouble / 2.0f > Screen.PrimaryScreen.Bounds.Height ||
-                     Utils.BASE_WIDTH* scaleDouble / 2.0f > Screen.PrimaryScreen.Bounds.Width);
+                     Utils.BASE_WIDTH * scaleDouble / 2.0f > Screen.PrimaryScreen.Bounds.Width);
         }
 
         /// <summary>
@@ -106,8 +100,8 @@ namespace TBSGame.Menus
 
             if (m.Msg == WM_SYSCOMMAND)
             {
-                    if ((m.WParam.ToInt32() & 0xfff0) == SC_MOVE)
-                        return;
+                if ((m.WParam.ToInt32() & 0xfff0) == SC_MOVE)
+                    return;
             }
             base.WndProc(ref m);
         }

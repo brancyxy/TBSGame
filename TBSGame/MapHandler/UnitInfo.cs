@@ -22,7 +22,7 @@ namespace TBSGame.MapHandler
         public Image Texture { private set; get; }
 
         public string Description { private set; get; }
-            
+
         public UnitInfo(string line)
         {
             var tmp = line.Split(';');
@@ -51,6 +51,6 @@ namespace TBSGame.MapHandler
             Description = tmp[8];
 
         }
-            
+
     }
 }

@@ -30,7 +30,7 @@ namespace TBSGame.Menus
             rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * height);
             dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily,
                                                                          dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * height);
-            dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily, 
+            dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily,
                                                             dgvMapSelector.DefaultCellStyle.Font.Size * height);
         }
         /// <summary>

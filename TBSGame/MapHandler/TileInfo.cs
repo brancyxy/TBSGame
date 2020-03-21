@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Globalization;
-namespace TBSGame.MapHandler 
+namespace TBSGame.MapHandler
 {
     class TileInfo
     {
@@ -15,7 +15,7 @@ namespace TBSGame.MapHandler
         public TileInfo(string line)
         {
             var tmp = line.Split(';');
-            if (tmp.Length != 5 && 
+            if (tmp.Length != 5 &&
                 tmp.Length != 8) throw new Exception(ERROR_MESSAGE);
 
             Character = tmp[0][0];
@@ -24,7 +24,7 @@ namespace TBSGame.MapHandler
             if (int.TryParse(tmp[1], out tmpAPred)) APred = tmpAPred;
             else throw new Exception(ERROR_MESSAGE);
 
-            
+
             double tmpArmorBonus;
             if (double.TryParse(tmp[2], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out tmpArmorBonus)) ArmorBonus = tmpArmorBonus;
             else throw new Exception(ERROR_MESSAGE);

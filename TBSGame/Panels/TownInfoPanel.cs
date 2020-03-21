@@ -74,7 +74,7 @@ namespace TBSGame.Panels
             townHealthDisplay = new DisplayLabel(new Point(30, 97));
             Controls.Add(townHealthDisplay);
         }
-        
+
 
     }
 }

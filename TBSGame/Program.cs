@@ -2,8 +2,6 @@
 using IniParser.Model;
 using System;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
@@ -22,7 +20,7 @@ namespace TBSGame
         [STAThread]
         static void Main()
         {
-            
+
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
@@ -78,13 +76,13 @@ namespace TBSGame
         /// Starts the main menu.
         /// </summary>
         /// <returns>Returns an enumerated value based on the button pressed</returns>
-        private static MainMenuAction StartMenu() 
+        private static MainMenuAction StartMenu()
         {
             var menu = new Menus.MainMenu(useFullScreen);
             try
             {
                 while (menu.ShowDialog() != DialogResult.OK)
-                menu.Dispose();
+                    menu.Dispose();
                 return menu.Action;
             }
             catch (Exception)
@@ -116,10 +114,10 @@ namespace TBSGame
                         ? Screen.PrimaryScreen.Bounds.Height
                         : resY;
 
-                if ((decimal) x / 16 != (decimal) y / 9 &&
-                    (decimal) x / 683 != (decimal) y / 384)
-                        MessageBox.Show("The supported aspect ratio is 16:9, there might be some graphical issues.",
-                                        "Warning");
+                if ((decimal)x / 16 != (decimal)y / 9 &&
+                    (decimal)x / 683 != (decimal)y / 384)
+                    MessageBox.Show("The supported aspect ratio is 16:9, there might be some graphical issues.",
+                                    "Warning");
             }
         }
 
@@ -160,14 +158,14 @@ namespace TBSGame
 
             Utils.settings.Configuration.AllowCreateSectionsOnFly = true;
 
-            
-            if(!bool.TryParse(Utils.settings["UI"]["fullscreen"], out useFullScreen))
+
+            if (!bool.TryParse(Utils.settings["UI"]["fullscreen"], out useFullScreen))
             {
                 useFullScreen = false;
                 Utils.settings["UI"]["fullscreen"] = useFullScreen.ToString();
             }
 
-            if(!int.TryParse(Utils.settings["UI"]["res-x"], out resX) ||
+            if (!int.TryParse(Utils.settings["UI"]["res-x"], out resX) ||
                !int.TryParse(Utils.settings["UI"]["res-y"], out resY))
             {
                 Utils.settings["UI"]["res-x"] = Utils.BASE_WIDTH.ToString();

@@ -42,12 +42,12 @@ namespace TBSGame.Units
         public bool ElapsedTurn()
         {
             if (!Alive) return false;
-                
+
             CurrentHealth = Math.Min(CurrentHealth + Regeneration, MaxHealth);
 
             if (Recruiting)
             {
-                turnsToRecruit--;            
+                turnsToRecruit--;
                 if (turnsToRecruit <= 0)
                 {
                     Recruiting = false;

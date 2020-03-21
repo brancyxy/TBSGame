@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coordinate.cs" />
-    <Compile Include="MapDecoder.cs" />
     <Compile Include="MapHandler\TileInfo.cs" />
     <Compile Include="MapHandler\TownInfo.cs" />
     <Compile Include="Menus\MainMenu.cs">

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TBSGame
+﻿namespace TBSGame
 {
     /// <summary>
     /// 0 is upwards, goes clockwise.
@@ -27,10 +21,10 @@ namespace TBSGame
             this.Y = Y;
         }
 
-        public static bool operator == (Coordinate a, Coordinate b)
+        public static bool operator ==(Coordinate a, Coordinate b)
             => (a.X == b.X) && (a.Y == b.Y);
         public static bool operator !=(Coordinate a, Coordinate b)
-            => !(a==b);
+            => !(a == b);
 
     }
 }

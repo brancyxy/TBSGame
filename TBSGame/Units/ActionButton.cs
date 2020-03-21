@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace TBSGame.Units
@@ -24,14 +19,14 @@ namespace TBSGame.Units
         private readonly CoordinateDirection direction;
 
         private Coordinate _coords;
-        public Coordinate Coords 
-        { 
+        public Coordinate Coords
+        {
             get { return _coords; }
             private set
             {
-                Location = new Point((int)((Utils.BASE_TILE_WIDTH - BASE_WIDTH) * (Utils.scale.Width / 2)) + 
+                Location = new Point((int)((Utils.BASE_TILE_WIDTH - BASE_WIDTH) * (Utils.scale.Width / 2)) +
                                         (int)(Utils.BASE_TILE_WIDTH * Utils.scale.Width) * (value.X - 1),
-                                     (int)((Utils.BASE_TILE_HEIGHT - BASE_HEIGHT) * (Utils.scale.Height / 2)) + 
+                                     (int)((Utils.BASE_TILE_HEIGHT - BASE_HEIGHT) * (Utils.scale.Height / 2)) +
                                         (int)(Utils.BASE_TILE_HEIGHT * Utils.scale.Height) * (value.Y - 1));
                 _coords = value;
             }

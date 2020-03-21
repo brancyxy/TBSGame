@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TBSGame.Menus
@@ -23,7 +17,8 @@ namespace TBSGame.Menus
         /// <summary>
         /// Property value of the pressed button
         /// </summary>
-        public MainMenuAction Action { 
+        public MainMenuAction Action
+        {
             get { return _action; }
             private set
             {
@@ -67,7 +62,7 @@ namespace TBSGame.Menus
             if (mouseDown && WindowState != FormWindowState.Maximized)
             {
                 Location = new Point(
-                    (Location.X - lastLocation.X) + e.X, 
+                    (Location.X - lastLocation.X) + e.X,
                     (Location.Y - lastLocation.Y) + e.Y);
 
                 Update();
