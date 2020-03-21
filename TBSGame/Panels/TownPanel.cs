@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TBSGame.MapHandler;
+using TBSGame.Units;
 
 namespace TBSGame.Panels
 {
@@ -13,27 +13,35 @@ namespace TBSGame.Panels
         public DataGridView dgvSelect;
         public TownInfoPanel townInfo;
         public RecruitInfoPanel recruitInfo;
-        private DataGridViewColumn Unit;
+        private List<UnitInfo> units;
 
-        public TownPanel()
+        public TownPanel(List<UnitInfo> units)
         {
             Location = new Point(0, 57);
             Size = new Size(308, 285);
-
-            Init();
+            this.units = units;
 
             Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            Init();
+
+            FillDgv();
+        }
+
+        private void FillDgv()
+        {
+            foreach (var unitName in units.Select(x => x.Name))
+                dgvSelect.Rows.Add(unitName);
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Scales the fonts of the DataGriidView texts, also scales its size
         /// </summary>
         /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        private void ScaleDgv()
         {
             dgvSelect.DefaultCellStyle.Font = new Font(dgvSelect.DefaultCellStyle.Font.FontFamily,
-                                                       dgvSelect.DefaultCellStyle.Font.Size * height);
+                                                       dgvSelect.DefaultCellStyle.Font.Size * Utils.scale.Height);
+            dgvSelect.Scale(Utils.scale);
         }
 
         /// <summary>
@@ -51,7 +59,7 @@ namespace TBSGame.Panels
                 BackgroundColor = Color.FromArgb(141, 64, 5),
                 ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable,
                 ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-                //ColumnHeadersVisible = false,
+                ColumnHeadersVisible = false,
                 ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
                 Location = new Point(190,148),
                 MultiSelect = false,
@@ -60,13 +68,15 @@ namespace TBSGame.Panels
                 SelectionMode = DataGridViewSelectionMode.FullRowSelect,
                 Size = new Size(118, 135),
             };
-            Unit = new DataGridViewColumn()
+            dgvSelect.SelectionChanged += new EventHandler(SelectUnitFromList);
+            dgvSelect.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 HeaderText = "Unit",
                 Name = "Unit",
                 ReadOnly = true
-            };
-            dgvSelect.Columns.Add(Unit);
+            });
+            ScaleDgv();
+
             Controls.Add(dgvSelect);
 
             townInfo = new TownInfoPanel();
@@ -74,6 +84,38 @@ namespace TBSGame.Panels
 
             recruitInfo = new RecruitInfoPanel();
             Controls.Add(recruitInfo);
+        }
+
+        /// <summary>
+        /// Sets the stats in the TownInfoPanel. If also the owner of the town, opens up the recruit menu.
+        /// </summary>
+        /// <param name="t">The town.</param>
+        public void TownClick(Town t, bool isOwner)
+        {
+            townInfo.TownClick(t);
+            recruitInfo.Visible = (isOwner && !t.Recruiting && t.Alive);
+            dgvSelect.Visible = (isOwner && !t.Recruiting && t.Alive);
+        }
+
+        /// <summary>
+        /// Determines the selected units and enables the recruit info button.
+        /// </summary>
+        /// <param name="selectedName">Selected unit name</param>
+        private void EnableRecruit(string selectedName)
+        {
+            recruitInfo.Visible = true;
+            recruitInfo.RecruiterClick(units.Single(x => x.Name == selectedName));
+        }
+
+        /// <summary>
+        /// Runs when an unit is selected from the list of recruitable units.
+        /// </summary>
+        private void SelectUnitFromList(object sender, EventArgs s)
+        {
+            EnableRecruit(dgvSelect.SelectedRows[0]
+                                   .Cells[0]
+                                   .Value
+                                   .ToString());
         }
     }
 }

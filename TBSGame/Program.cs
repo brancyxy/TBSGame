@@ -22,18 +22,19 @@ namespace TBSGame
         [STAThread]
         static void Main()
         {
+            
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
-
             switch (StartMenu())
             {
                 case MainMenuAction.START:
-                    if (OpenMapSelector())
                     {
-                        PlayGame();
+                        if (OpenMapSelector())
+                            PlayGame();
+                        break;
                     }
-                    break;
+
                 case MainMenuAction.EXIT:
                     {
                         Application.Exit();
@@ -49,6 +50,7 @@ namespace TBSGame
         private static void PlayGame()
         {
             var gw = new GameWindow(useFullScreen);
+            gw.ShowDialog();
         }
 
         /// <summary>

@@ -1,19 +1,24 @@
 ﻿using System.Collections.Generic;
+using TBSGame.Units;
 
 namespace TBSGame
 {
     class Player
     {
-        public string Name { get; private set; }
+        /// <summary>
+        /// A list of the units owned by the player
+        /// </summary>
+        public List<Unit> OwnedUnits { get; set; }
 
-        public List<Units.Unit> ownedUnits;
-        public Units.Town Town { get; private set; }
+        /// <summary>
+        /// Determines if the player is still alive
+        /// </summary>
+        public bool InGame { get; set; }
 
-        public Player(string n, Units.Town town)
+        public Player()
         {
-            this.Name = n;
-            this.Town = town;
-            ownedUnits = new List<Units.Unit>();
+            OwnedUnits = new List<Unit>();
+            InGame = true;
         }
     }
 }

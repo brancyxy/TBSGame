@@ -38,8 +38,6 @@ namespace TBSGame.Menus
         /// </summary>
         private void Filldgv()
         {
-
-
             var maps = Directory
                         .EnumerateFiles(Utils.MAP_FOLDER, "*.zip")
                         .Select(Path.GetFileNameWithoutExtension)
@@ -53,9 +51,6 @@ namespace TBSGame.Menus
 
                     int playerCount = int.Parse(RemoveParentheses(tmp[0]));
                     tmp = RemovePlayerCountFromMapFileName(tmp);
-
-
-
 
 
                     tmp = string.Join(" ", tmp)
@@ -113,8 +108,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Runs whenever the user selects a map from the list
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SelectFromList(object sender, EventArgs e)
         {
             SelectedMapFileName = dgvMapSelector[3, dgvMapSelector.SelectedRows[0].Index]
@@ -126,8 +119,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Runs when the select button is clicked
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Select(object sender, EventArgs e)
         {
             if (SelectedMapFileName != null)

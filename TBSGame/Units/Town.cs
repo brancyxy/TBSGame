@@ -1,51 +1,84 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System;
+using TBSGame.MapHandler;
 
 namespace TBSGame.Units
 {
-    class Town:Control
+    class Town : Tile
     {
-        public List<MapHandler.UnitInfo> unitInfos;
 
-        public bool rec = false;
-        public int turns = 0;
+        public bool Recruiting { get; private set; }
 
-        public readonly int maxHP;
+        private int turnsToRecruit;
+        public Unit recruitingUnit;
 
-        public int currHP;
+        public int MaxHealth { get; private set; }
 
-        public int reg;
+        public int CurrentHealth { get; private set; }
 
-        public int x, y;
+        public int Regeneration { get; private set; }
 
-        public Unit recruit;
-        public bool owner = false;
-        public Town(int maxHP, int reg, int x,int y)
+        public readonly byte ownerPlayer;
+
+        public bool Alive { get; set; }
+
+        public Town(byte x, byte y, TownInfo ti) : base(x, y, ti)
         {
-            Visible = true;
-            Height = 25;
-            Width = 25;
+            Recruiting = false;
 
-            this.maxHP = maxHP;
-            currHP = maxHP;
-            this.reg = reg;
-            this.x = x;
-            this.y = y;
+            MaxHealth = ti.MaxHealth;
+            CurrentHealth = MaxHealth;
 
-            Location = new Point(x * 25, y * 25);
+            Regeneration = ti.Regeneration;
+
+            ownerPlayer = ti.OwnerPlayer;
+
+            Alive = true;
         }
 
-        public bool RecruitDone()
+        /// <summary>
+        /// Adds the regeneration and the unit recruit progress
+        /// </summary>
+        /// <returns>True if there was a recruit in progress and the unit is just finished recruiting</returns>
+        public bool ElapsedTurn()
         {
-            var rt = recruit.stats;
-            if (turns == rt.RecruitTime)
+            if (!Alive) return false;
+                
+            CurrentHealth = Math.Min(CurrentHealth + Regeneration, MaxHealth);
+
+            if (Recruiting)
             {
-                rec = false;
-                turns = 0;
-                return true;
+                turnsToRecruit--;            
+                if (turnsToRecruit <= 0)
+                {
+                    Recruiting = false;
+                    return true;
+                }
             }
-            else return false;
+            return false;
+        }
+
+        /// <summary>
+        /// Begins the recruiting process
+        /// </summary>
+        /// <param name="ui">The given unit</param>
+        public void Recruit(UnitInfo ui, byte currentPlayer)
+        {
+            Recruiting = true;
+            turnsToRecruit = ui.RecruitTime;
+
+            recruitingUnit = new Unit(ui, Coords, currentPlayer);
+        }
+
+        /// <summary>
+        /// Processes damage to the town
+        /// </summary>
+        /// <param name="damage">ammount</param>
+        /// <returns>True if the town is destroyed</returns>
+        public bool Damage(int damage)
+        {
+            CurrentHealth = Math.Max(CurrentHealth - damage, 0);
+
+            return (CurrentHealth == 0);
         }
     }
 }

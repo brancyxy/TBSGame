@@ -12,9 +12,9 @@ namespace TBSGame.Menus
 {
     public enum MainMenuAction
     {
+        EXIT,
         START,
-        EDITOR,
-        EXIT
+        EDITOR
     }
     public partial class MainMenu : Form
     {

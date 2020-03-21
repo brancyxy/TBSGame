@@ -1,12 +1,5 @@
 ﻿using IniParser.Model;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
 namespace TBSGame
@@ -19,8 +12,9 @@ namespace TBSGame
 
         public const int BASE_WIDTH = 608,
                          BASE_HEIGHT = 342,
-                         BASE_TILE_HEIGHT = 19,
-                         BASE_TILE_WIDTH = 19;
+                         BASE_TILE_HEIGHT = 15,
+                         BASE_TILE_WIDTH = 15;
+
 
         public static IniData settings;
 

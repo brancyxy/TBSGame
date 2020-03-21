@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TBSGame.Misc;
 using TBSGame.Properties;
+using TBSGame.Units;
 
 namespace TBSGame.Panels
 {
@@ -22,8 +23,8 @@ namespace TBSGame.Panels
 
         public UnitInfoPanel()
         {
-            Size = new Size(190, 188);
-            Location = new Point(0, 86);
+            Size = new Size(308, 216);
+            Location = new Point(0, 126);
             BackColor = Color.FromArgb(128, 64, 0);
 
             Init();
@@ -63,16 +64,16 @@ namespace TBSGame.Panels
         /// </summary>
         private void Init()
         {
-            unitNameDisplay = new DisplayLabel(new Point(27, 12));
+            unitNameDisplay = new DisplayLabel(new Point(100, 12));
             Controls.Add(unitNameDisplay);
 
-            unitCoords = new DisplayLabel(new Point(27, 25));
+            unitCoords = new DisplayLabel(new Point(100, 25));
             Controls.Add(unitCoords);
 
-            unitHealthDisplay = new DisplayLabel(new Point(27, 36));
+            unitHealthDisplay = new DisplayLabel(new Point(100, 44));
             Controls.Add(unitHealthDisplay);
 
-            unitHealthBar = new ResourceBar(new Point(27, 29));
+            unitHealthBar = new ResourceBar(new Point(100, 38));
             Controls.Add(unitHealthBar);
 
             unitDescDisplay = new RichTextBox()
@@ -80,25 +81,47 @@ namespace TBSGame.Panels
                 BackColor = Color.FromArgb(141, 64, 5),
                 BorderStyle = BorderStyle.None,
                 Font = new Font("Microsoft Sans Serif", 6.27F),
-                Location = new Point(8, 152),
+                Location = new Point(8, 142),
                 ReadOnly = true,
-                Size = new Size(175, 91),
+                Size = new Size(292, 71),
                 Text = ""
             };
             Controls.Add(unitDescDisplay);
 
-            unitDamageDisplay = new DisplayLabel(new Point(27, 57));
+            unitDamageDisplay = new DisplayLabel(new Point(100, 76));
             Controls.Add(unitDamageDisplay);
 
-            unitActionPointDisplay = new DisplayLabel(new Point(27, 93));
+            unitActionPointDisplay = new DisplayLabel(new Point(100, 110));
             Controls.Add(unitActionPointDisplay);
 
-            unitActionPointBar = new ResourceBar(new Point(27, 86));
+            unitActionPointBar = new ResourceBar(new Point(100, 104));
             Controls.Add(unitActionPointBar);
 
-            Controls.Add(new IconPictureBox(Resources.heart, new Point(11, 38)));
-            Controls.Add(new IconPictureBox(Resources.sword, new Point(11, 76)));
-            Controls.Add(new IconPictureBox(Resources.energy, new Point(11, 114)));
+            Controls.Add(new IconPictureBox(Resources.heart, new Point(75, 38)));
+            Controls.Add(new IconPictureBox(Resources.sword, new Point(75, 76)));
+            Controls.Add(new IconPictureBox(Resources.energy, new Point(75, 104)));
+        }
+
+        /// <summary>
+        /// Sets the values of the labels to the clicked unit
+        /// </summary>
+        public void UnitClick(Unit u)
+        {
+            unitNameDisplay.Text = u.UnitName;
+
+            unitCoords.Text = $"{u.Coords.X}:{u.Coords.Y}";
+
+            unitHealthDisplay.Text = $"{u.CurrentHealth}/{u.MaxHealth}";
+            unitHealthBar.Maximum = u.MaxHealth;
+            unitHealthBar.Value = u.CurrentHealth;
+
+            unitDamageDisplay.Text = $"{u.MinDamage}-{u.MaxDamage}";
+
+            unitActionPointDisplay.Text = $"{u.CurrentActionPoints}/{u.MaxActionPoints}";
+            unitActionPointBar.Maximum = u.MaxActionPoints;
+            unitActionPointBar.Value = u.CurrentActionPoints;
+
+            unitDescDisplay.Text = u.Description;
         }
     }
 }

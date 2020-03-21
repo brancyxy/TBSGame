@@ -2,15 +2,17 @@
 using System.Windows.Forms;
 using TBSGame.Misc;
 using TBSGame.Properties;
+using TBSGame.Units;
 
 namespace TBSGame.Panels
 {
     class TownInfoPanel : Panel
     {
-        private DisplayLabel townCoords;
+        private DisplayLabel townCoords,
+                             townHealthDisplay,
+                             townText;
 
         private ResourceBar townHealthBar;
-        private DisplayLabel townHealthDisplay;
         public TownInfoPanel()
         {
             Location = new Point(0, 148);
@@ -18,8 +20,20 @@ namespace TBSGame.Panels
 
             Init();
 
+
             Scale(Utils.scale);
             ScaleFontSize(Utils.scale.Height);
+        }
+        /// <summary>
+        /// Sets the display texts for the stats of the town.
+        /// </summary>
+        /// <param name="t">The town</param>
+        public void TownClick(Town t)
+        {
+            townCoords.Text = $"{t.Coords.X};{t.Coords.Y}";
+            townHealthBar.Maximum = t.MaxHealth;
+            townHealthBar.Value = t.CurrentHealth;
+            townHealthDisplay.Text = $"{t.CurrentHealth}/{t.MaxHealth}";
         }
 
         /// <summary>
@@ -33,6 +47,9 @@ namespace TBSGame.Panels
 
             townHealthDisplay.Font = new Font(townHealthDisplay.Font.FontFamily,
                                               townHealthDisplay.Font.Size * height);
+
+            townText.Font = new Font(townText.Font.FontFamily,
+                                              townText.Font.Size * height);
         }
 
         /// <summary>
@@ -40,10 +57,11 @@ namespace TBSGame.Panels
         /// </summary>
         private void Init()
         {
-            Controls.Add(new DisplayLabel(new Point(27, 42))
-                        {
-                            Text = "Town"
-                        });
+            townText = new DisplayLabel(new Point(27, 42))
+            {
+                Text = "Town"
+            };
+            Controls.Add(townText);
 
             townCoords = new DisplayLabel(new Point(27, 57));
             Controls.Add(townCoords);
@@ -56,5 +74,7 @@ namespace TBSGame.Panels
             townHealthDisplay = new DisplayLabel(new Point(30, 97));
             Controls.Add(townHealthDisplay);
         }
+        
+
     }
 }

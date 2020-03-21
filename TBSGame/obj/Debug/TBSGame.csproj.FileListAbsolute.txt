@@ -29,7 +29,6 @@ F:\TBSGame\TBSGame\bin\Debug\TBSGame.pdb
 F:\TBSGame\TBSGame\bin\Debug\INIFileParser.dll
 F:\TBSGame\TBSGame\bin\Debug\INIFileParser.xml
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.csprojAssemblyReference.cache
-F:\TBSGame\TBSGame\obj\Debug\TBSGame.GameWindow.resources
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.MapSelector.resources
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.Properties.Resources.resources
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.csproj.GenerateResource.cache
@@ -57,3 +56,6 @@ C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.MainMenu.res
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.OptionsMenu.resources
 C:\Users\szabo.martin\Source\Repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.OptionsMenu.resources
 C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.GameWindow.resources
+F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.GameWindow.resources
+F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.MainMenu.resources
+F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.OptionsMenu.resources

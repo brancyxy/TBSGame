@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using TBSGame.MapHandler;
 using TBSGame.Misc;
 using TBSGame.Properties;
 
@@ -14,6 +15,8 @@ namespace TBSGame.Panels
                              unitRecruitTime;
 
         public Button recruit;
+
+        public UnitInfo RecruitingUnit { get; private set; }
 
         public RecruitInfoPanel()
         {
@@ -86,6 +89,18 @@ namespace TBSGame.Panels
             Controls.Add(new IconPictureBox(Resources.sword, new Point(150, 30)));
             Controls.Add(new IconPictureBox(Resources.energy, new Point(0, 60)));
             Controls.Add(new IconPictureBox(Resources.time, new Point(150, 60)));
+        }
+        /// <summary>
+        /// Sets the labels to display the stats of the recruiting unit.
+        /// </summary>
+        public void RecruiterClick(UnitInfo unit)
+        {
+            RecruitingUnit = unit;
+            unitName.Text = unit.Name;
+            unitHealth.Text = unit.Health +"";
+            unitDamage.Text = $"{unit.MinDamage}-{unit.MaxDamage}";
+            unitActionPoints.Text = unit.ActionPoints + "";
+            unitRecruitTime.Text = unit.RecruitTime + "";
         }
     }
 }
