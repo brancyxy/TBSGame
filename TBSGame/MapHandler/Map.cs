@@ -25,7 +25,7 @@ namespace TBSGame.MapHandler
             SaveTileMap();
 
             ZipFile.CreateFromDirectory(Utils.EDITOR_CACHE,
-                                        Utils.MAP_FOLDER + $"[{PlayerCount}] {mapName}-{mapCreator}");
+                                        Utils.MAP_FOLDER + $"[{PlayerCount}] {mapName}-{mapCreator}.zip");
             Directory.Delete(Utils.EDITOR_CACHE, true);
         }
 
@@ -41,9 +41,9 @@ namespace TBSGame.MapHandler
                 string currentLine = "";
 
                 for (byte column = 0; column < tileChars.GetLength(1); column++)
-                    currentLine += tileChars[line, column];
+                    currentLine += tileChars[column, line];
 
-                sw.Write(currentLine);
+                sw.WriteLine(currentLine);
             }
             sw.Close();
         }
@@ -78,7 +78,7 @@ namespace TBSGame.MapHandler
             foreach (var u in Units)
             {
                 sw.WriteLine(u.ToCSV());
-                u.Texture.Save(Utils.EDITOR_CACHE + u.Name + Utils.EDITOR_TILE_IMAGE_POSTFIX, ImageFormat.Png);
+                u.Texture.Save(Utils.EDITOR_CACHE + u.Name + Utils.EDITOR_UNIT_IMAGE_POSTFIX, ImageFormat.Png);
             }
             sw.Close();
         }
@@ -151,8 +151,6 @@ namespace TBSGame.MapHandler
             GetUnitInfos();
             GetTileMap();
             GetPlayerCount();
-
-            Directory.Delete(Utils.MAP_CACHE, true);
         }
         public Map(List<UnitInfo> units, List<TileInfo> tiles, char[,] tileMap,
                    byte playerCount, string mapName, string mapCreator)

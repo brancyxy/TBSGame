@@ -185,12 +185,11 @@ namespace TBSGame.Menus
             foreach (var unit in units)
                 if (unit.Name == tbUnitName.Text) return;
 
-            if (tbUnitName.Text != "" &&
-                !tbUnitName.Text.Contains(';') &&
-                unitMinDamage.Value <= unitMaxDamage.Value &&
-                pbUnitImage.Image != null &&
-                unitDescription.Text != "" &&
-                !unitDescription.Text.Contains(';'))
+            if (tbUnitName.Text == "" || tbUnitName.Text.Contains(';') ||
+                unitDescription.Text == "" || unitDescription.Text.Contains(';')) return;
+
+            if (unitMinDamage.Value <= unitMaxDamage.Value &&
+                pbUnitImage.Image != null)
             {
                 string unitName = tbUnitName.Text;
                 int recruitTime = (int)unitTurnsToRecruit.Value;
@@ -589,6 +588,8 @@ namespace TBSGame.Menus
                                              x.Character,
                                              IsDefined = false})
                                          .ToDictionary(x => x.Character, x => x.IsDefined);
+
+            if (allTownCharacters.Count == 0) return false;
 
             for (byte line = 0; line < tileLayout.GetLength(0); line++)
                 for (byte column = 0; column < tileLayout.GetLength(1); column++)

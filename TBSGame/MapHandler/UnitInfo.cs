@@ -68,8 +68,7 @@ namespace TBSGame.MapHandler
         }
         public string ToCSV()
         {
-            string filePath = Utils.EDITOR_CACHE + Name + Utils.EDITOR_UNIT_IMAGE_POSTFIX;
-            Texture.Save(filePath, ImageFormat.Png);
+            string filePath = Name + Utils.EDITOR_UNIT_IMAGE_POSTFIX;
 
             return  $"{Name};{RecruitTime};{Health};{MinDamage};{MaxDamage};{ActionPoints};" +
                     $"{Type};{filePath};{Description}";

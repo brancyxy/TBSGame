@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopField = new System.Windows.Forms.Panel();
             this.exit = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.layerSelectorPanel = new System.Windows.Forms.Panel();
+            this.mapLayerMenuPanel = new System.Windows.Forms.Panel();
+            this.btnSaveMap = new System.Windows.Forms.Button();
+            this.btnResetTileMap = new System.Windows.Forms.Button();
             this.layerSelector = new System.Windows.Forms.ComboBox();
             this.layerSelectorText = new System.Windows.Forms.Label();
             this.tileMapContainer = new System.Windows.Forms.Panel();
@@ -107,11 +110,9 @@
             this.nudPlayerCount = new System.Windows.Forms.NumericUpDown();
             this.newmaptext = new System.Windows.Forms.Label();
             this.editorScreenContainer = new System.Windows.Forms.Panel();
-            this.mapLayerMenuPanel = new System.Windows.Forms.Panel();
-            this.btnResetTileMap = new System.Windows.Forms.Button();
-            this.btnSaveMap = new System.Windows.Forms.Button();
             this.TopField.SuspendLayout();
             this.layerSelectorPanel.SuspendLayout();
+            this.mapLayerMenuPanel.SuspendLayout();
             this.tileMapContainer.SuspendLayout();
             this.editorContainer.SuspendLayout();
             this.mapLayer.SuspendLayout();
@@ -136,7 +137,6 @@
             this.newMapScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPlayerCount)).BeginInit();
             this.editorScreenContainer.SuspendLayout();
-            this.mapLayerMenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopField
@@ -185,6 +185,35 @@
             this.layerSelectorPanel.Name = "layerSelectorPanel";
             this.layerSelectorPanel.Size = new System.Drawing.Size(125, 300);
             this.layerSelectorPanel.TabIndex = 9;
+            // 
+            // mapLayerMenuPanel
+            // 
+            this.mapLayerMenuPanel.Controls.Add(this.btnSaveMap);
+            this.mapLayerMenuPanel.Controls.Add(this.btnResetTileMap);
+            this.mapLayerMenuPanel.Location = new System.Drawing.Point(0, 80);
+            this.mapLayerMenuPanel.Name = "mapLayerMenuPanel";
+            this.mapLayerMenuPanel.Size = new System.Drawing.Size(125, 220);
+            this.mapLayerMenuPanel.TabIndex = 2;
+            // 
+            // btnSaveMap
+            // 
+            this.btnSaveMap.Location = new System.Drawing.Point(17, 146);
+            this.btnSaveMap.Name = "btnSaveMap";
+            this.btnSaveMap.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveMap.TabIndex = 1;
+            this.btnSaveMap.Text = "Save";
+            this.btnSaveMap.UseVisualStyleBackColor = true;
+            this.btnSaveMap.Click += new System.EventHandler(this.SaveMap);
+            // 
+            // btnResetTileMap
+            // 
+            this.btnResetTileMap.Location = new System.Drawing.Point(17, 53);
+            this.btnResetTileMap.Name = "btnResetTileMap";
+            this.btnResetTileMap.Size = new System.Drawing.Size(75, 23);
+            this.btnResetTileMap.TabIndex = 0;
+            this.btnResetTileMap.Text = "Reset";
+            this.btnResetTileMap.UseVisualStyleBackColor = true;
+            this.btnResetTileMap.Click += new System.EventHandler(this.ClearTileMap);
             // 
             // layerSelector
             // 
@@ -278,14 +307,14 @@
             this.tileMapTownSelector.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tileMapTownSelector.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.tileMapTownSelector.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tileMapTownSelector.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tileMapTownSelector.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tileMapTownSelector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tileMapTownSelector.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3});
@@ -314,14 +343,14 @@
             this.tileMapTileSelector.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tileMapTileSelector.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.tileMapTileSelector.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tileMapTileSelector.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tileMapTileSelector.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tileMapTileSelector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tileMapTileSelector.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
@@ -489,10 +518,20 @@
             0,
             0,
             0});
+            this.townHealth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.townHealth.Name = "townHealth";
             this.townHealth.Size = new System.Drawing.Size(143, 20);
             this.townHealth.TabIndex = 12;
             this.townHealth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.townHealth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // townHealthText
             // 
@@ -583,14 +622,14 @@
             this.dgvTileList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvTileList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvTileList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTileList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTileList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTileList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTileList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
@@ -754,7 +793,7 @@
             // 
             this.unitMaxDamage.Location = new System.Drawing.Point(327, 115);
             this.unitMaxDamage.Maximum = new decimal(new int[] {
-            2147483647,
+            2147483646,
             0,
             0,
             0});
@@ -786,7 +825,7 @@
             // 
             this.unitMinDamage.Location = new System.Drawing.Point(327, 89);
             this.unitMinDamage.Maximum = new decimal(new int[] {
-            2147483647,
+            2147483646,
             0,
             0,
             0});
@@ -936,14 +975,14 @@
             this.dgvUnitList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvUnitList.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvUnitList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUnitList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUnitList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvUnitList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUnitList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UnitName});
@@ -1073,43 +1112,14 @@
             this.editorScreenContainer.Size = new System.Drawing.Size(608, 342);
             this.editorScreenContainer.TabIndex = 8;
             // 
-            // mapLayerMenuPanel
-            // 
-            this.mapLayerMenuPanel.Controls.Add(this.btnSaveMap);
-            this.mapLayerMenuPanel.Controls.Add(this.btnResetTileMap);
-            this.mapLayerMenuPanel.Location = new System.Drawing.Point(0, 80);
-            this.mapLayerMenuPanel.Name = "mapLayerMenuPanel";
-            this.mapLayerMenuPanel.Size = new System.Drawing.Size(125, 220);
-            this.mapLayerMenuPanel.TabIndex = 2;
-            // 
-            // btnResetTileMap
-            // 
-            this.btnResetTileMap.Location = new System.Drawing.Point(17, 53);
-            this.btnResetTileMap.Name = "btnResetTileMap";
-            this.btnResetTileMap.Size = new System.Drawing.Size(75, 23);
-            this.btnResetTileMap.TabIndex = 0;
-            this.btnResetTileMap.Text = "Reset";
-            this.btnResetTileMap.UseVisualStyleBackColor = true;
-            this.btnResetTileMap.Click += new System.EventHandler(this.ClearTileMap);
-            // 
-            // btnSaveMap
-            // 
-            this.btnSaveMap.Location = new System.Drawing.Point(17, 146);
-            this.btnSaveMap.Name = "btnSaveMap";
-            this.btnSaveMap.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveMap.TabIndex = 1;
-            this.btnSaveMap.Text = "Save";
-            this.btnSaveMap.UseVisualStyleBackColor = true;
-            this.btnSaveMap.Click += new System.EventHandler(this.SaveMap);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 342);
-            this.Controls.Add(this.editorScreenContainer);
             this.Controls.Add(this.newMapScreen);
+            this.Controls.Add(this.editorScreenContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Editor";
             this.Text = "Map Editor";
@@ -1117,6 +1127,7 @@
             this.TopField.PerformLayout();
             this.layerSelectorPanel.ResumeLayout(false);
             this.layerSelectorPanel.PerformLayout();
+            this.mapLayerMenuPanel.ResumeLayout(false);
             this.tileMapContainer.ResumeLayout(false);
             this.editorContainer.ResumeLayout(false);
             this.mapLayer.ResumeLayout(false);
@@ -1146,7 +1157,6 @@
             this.newMapScreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPlayerCount)).EndInit();
             this.editorScreenContainer.ResumeLayout(false);
-            this.mapLayerMenuPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -24,7 +24,7 @@ namespace TBSGame.MapHandler
             if (int.TryParse(tmp[1], out int tmpAPred)) APred = tmpAPred;
             else throw new Exception(ERROR_MESSAGE);
 
-            if (double.TryParse(tmp[2], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double tmpArmorBonus)) ArmorBonus = tmpArmorBonus;
+            if (double.TryParse(tmp[2], NumberStyles.Any, CultureInfo.InvariantCulture, out double tmpArmorBonus)) ArmorBonus = tmpArmorBonus;
             else throw new Exception(ERROR_MESSAGE);
 
             Name = tmp[3];
@@ -43,8 +43,7 @@ namespace TBSGame.MapHandler
 
         public virtual string ToCSV()
         {
-            string filePath = Utils.EDITOR_CACHE + Name + Utils.EDITOR_TILE_IMAGE_POSTFIX;
-            Texture.Save(filePath, ImageFormat.Png);
+            string filePath = Name + Utils.EDITOR_TILE_IMAGE_POSTFIX;
 
             return $"{Character};{APred};{ArmorBonus};{Name};{filePath}";
         }
