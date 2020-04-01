@@ -18,21 +18,20 @@ namespace TBSGame.Menus
             FillCb();
 
             Scale(Utils.scale);
-
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
+
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            lbRes.Font = new Font(lbRes.Font.FontFamily, lbRes.Font.Size * height);
-            cbFullscreen.Font = new Font(cbFullscreen.Font.FontFamily, cbFullscreen.Font.Size * height);
-            btnCancel.Font = new Font(btnCancel.Font.FontFamily, btnCancel.Font.Size * height);
-            btnDefault.Font = new Font(btnDefault.Font.FontFamily, btnDefault.Font.Size * height);
-            btnOk.Font = new Font(btnOk.Font.FontFamily, btnOk.Font.Size * height);
-            cbResolution.Font = new Font(cbResolution.Font.FontFamily, cbResolution.Font.Size * height);
+            lbRes.Font = new Font(lbRes.Font.FontFamily, lbRes.Font.Size * scale.Height);
+            cbFullscreen.Font = new Font(cbFullscreen.Font.FontFamily, cbFullscreen.Font.Size * scale.Height);
+            btnCancel.Font = new Font(btnCancel.Font.FontFamily, btnCancel.Font.Size * scale.Height);
+            btnDefault.Font = new Font(btnDefault.Font.FontFamily, btnDefault.Font.Size * scale.Height);
+            btnOk.Font = new Font(btnOk.Font.FontFamily, btnOk.Font.Size * scale.Height);
+            cbResolution.Font = new Font(cbResolution.Font.FontFamily, cbResolution.Font.Size * scale.Height);
         }
 
         /// <summary>

@@ -20,9 +20,7 @@ namespace TBSGame.Panels
 
             Init();
 
-
-            Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
         /// <summary>
         /// Sets the display texts for the stats of the town.
@@ -37,19 +35,15 @@ namespace TBSGame.Panels
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            townCoords.Font = new Font(townCoords.Font.FontFamily,
-                                       townCoords.Font.Size * height);
+            Font scaledFont = DisplayLabel.ScaledFont(scale.Height);
 
-            townHealthDisplay.Font = new Font(townHealthDisplay.Font.FontFamily,
-                                              townHealthDisplay.Font.Size * height);
-
-            townText.Font = new Font(townText.Font.FontFamily,
-                                              townText.Font.Size * height);
+            townCoords.Font = scaledFont;
+            townHealthDisplay.Font = scaledFont;
+            townText.Font = scaledFont;
         }
 
         /// <summary>

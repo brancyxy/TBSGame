@@ -6,7 +6,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Windows.Forms;
-
 using TBSGame.Menus;
 
 namespace TBSGame
@@ -24,6 +23,7 @@ namespace TBSGame
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
+
             switch (StartMenu())
             {
                 case MainMenuAction.START:
@@ -38,8 +38,21 @@ namespace TBSGame
                         Application.Exit();
                         break;
                     }
-
+                case MainMenuAction.EDITOR:
+                    {
+                        ShowEditor();
+                        break;
+                    }
             }
+        }
+
+        /// <summary>
+        /// Jumps to the map editor
+        /// </summary>
+        private static void ShowEditor()
+        {
+            var editor = new Editor(useFullScreen);
+            editor.ShowDialog();
         }
 
         /// <summary>
@@ -65,12 +78,11 @@ namespace TBSGame
             {
                 string mapFile = mapSelector.SelectedMapFileName;
                 mapSelector.Dispose();
-                ZipFile.ExtractToDirectory(Path.Combine(Utils.MAP_FOLDER, mapFile), Utils.CACHE_FOLDER_NAME);
+                ZipFile.ExtractToDirectory(Path.Combine(Utils.MAP_FOLDER, mapFile), Utils.MAP_CACHE);
             }
 
             return result;
         }
-
 
         /// <summary>
         /// Starts the main menu.
@@ -189,9 +201,13 @@ namespace TBSGame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Directory.Exists(Utils.CACHE_FOLDER_NAME)) Directory.Delete(Utils.CACHE_FOLDER_NAME, true);
+            if (Directory.Exists(Utils.MAP_CACHE)) Directory.Delete(Utils.MAP_CACHE, true);
+            Directory.CreateDirectory(Utils.MAP_CACHE);
+
+            if (Directory.Exists(Utils.EDITOR_CACHE)) Directory.Delete(Utils.EDITOR_CACHE, true);
+            Directory.CreateDirectory(Utils.EDITOR_CACHE);
+
             if (!Directory.Exists(Utils.MAP_FOLDER)) Directory.CreateDirectory(Utils.MAP_FOLDER);
-            Directory.CreateDirectory(Utils.CACHE_FOLDER_NAME);
         }
     }
 }

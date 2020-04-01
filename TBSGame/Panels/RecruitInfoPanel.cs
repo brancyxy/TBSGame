@@ -26,33 +26,24 @@ namespace TBSGame.Panels
 
             Init();
 
-            Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            unitName.Font = new Font(unitName.Font.FontFamily,
-                                     unitName.Font.Size * height);
+            Font scaledFont = DisplayLabel.ScaledFont(scale.Height);
 
-            unitHealth.Font = new Font(unitHealth.Font.FontFamily,
-                                       unitHealth.Font.Size * height);
-
-            unitDamage.Font = new Font(unitDamage.Font.FontFamily,
-                                       unitDamage.Font.Size * height);
-
-            unitActionPoints.Font = new Font(unitActionPoints.Font.FontFamily,
-                                             unitActionPoints.Font.Size * height);
-
-            unitRecruitTime.Font = new Font(unitRecruitTime.Font.FontFamily,
-                                            unitRecruitTime.Font.Size * height);
+            unitName.Font = scaledFont;
+            unitHealth.Font = scaledFont;
+            unitDamage.Font = scaledFont; 
+            unitActionPoints.Font = scaledFont;
+            unitRecruitTime.Font = scaledFont;
 
             recruit.Font = new Font(recruit.Font.FontFamily,
-                                    recruit.Font.Size * height);
+                                    recruit.Font.Size * scale.Height);
         }
 
         /// <summary>

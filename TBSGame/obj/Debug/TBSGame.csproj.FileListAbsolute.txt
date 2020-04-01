@@ -59,3 +59,4 @@ C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.GameWindow.r
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.GameWindow.resources
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.MainMenu.resources
 F:\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.OptionsMenu.resources
+C:\Users\branc\source\repos\TBSGame\TBSGame\obj\Debug\TBSGame.Menus.Editor.resources

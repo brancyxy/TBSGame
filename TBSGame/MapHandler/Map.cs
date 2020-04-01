@@ -1,21 +1,51 @@
 ﻿using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
+using System.IO.Compression;
+using System.Text;
 
 namespace TBSGame.MapHandler
 {
     class Map
     {
-        public List<TileInfo> TileInfos { private set; get; }
+        public List<TileInfo> Tiles { private set; get; }
         public TileMap TileMap { private set; get; }
-        public List<UnitInfo> UnitInfos { private set; get; }
+        public List<UnitInfo> Units { private set; get; }
         public byte PlayerCount { private set; get; }
 
-        public Map()
+        char[,] tileChars;
+        readonly string mapName,
+                        mapCreator;
+
+        public void SaveMap()
         {
-            GetTileInfos();
-            GetUnitInfos();
-            GetTileMap();
-            GetPlayerCount();
+            SavePlayerCount();
+            SaveTileInfos();
+            SaveUnitInfos();
+            SaveTileMap();
+
+            ZipFile.CreateFromDirectory(Utils.EDITOR_CACHE,
+                                        Utils.MAP_FOLDER + $"[{PlayerCount}] {mapName}-{mapCreator}");
+            Directory.Delete(Utils.EDITOR_CACHE, true);
+        }
+
+        /// <summary>
+        /// Creates the map file and writes the definition
+        /// </summary>
+        private void SaveTileMap()
+        {
+            var sw = new StreamWriter(Utils.EDITOR_CACHE + "map.txt", false, Encoding.UTF8);
+
+            for (byte line = 0; line < tileChars.GetLength(0); line++)
+            {
+                string currentLine = "";
+
+                for (byte column = 0; column < tileChars.GetLength(1); column++)
+                    currentLine += tileChars[line, column];
+
+                sw.Write(currentLine);
+            }
+            sw.Close();
         }
 
         /// <summary>
@@ -23,20 +53,34 @@ namespace TBSGame.MapHandler
         /// </summary>
         private void GetTileMap()
         {
-            char[,] tileChars = new char[20, 20];
+            tileChars = new char[20, 20];
             int line = 0;
-            var sr = new StreamReader(Utils.CACHE_FOLDER_NAME + "map.txt");
+            var sr = new StreamReader(Utils.MAP_CACHE + "map.txt",Encoding.UTF8);
             while (!sr.EndOfStream)
             {
                 var tmp = sr.ReadLine();
 
-                for (int column = 0; column < tmp.Length; column++)
+                for (byte column = 0; column < 20; column++)
                     tileChars[line, column] = tmp[column];
 
                 line++;
             }
             sr.Close();
-            TileMap = new TileMap(tileChars, TileInfos);
+            TileMap = new TileMap(tileChars, Tiles);
+        }
+
+        /// <summary>
+        /// Creates the unit definiton file from the list value
+        /// </summary>
+        private void SaveUnitInfos()
+        {
+            var sw = new StreamWriter(Utils.EDITOR_CACHE + "units.txt", false, Encoding.UTF8);
+            foreach (var u in Units)
+            {
+                sw.WriteLine(u.ToCSV());
+                u.Texture.Save(Utils.EDITOR_CACHE + u.Name + Utils.EDITOR_TILE_IMAGE_POSTFIX, ImageFormat.Png);
+            }
+            sw.Close();
         }
 
         /// <summary>
@@ -44,11 +88,25 @@ namespace TBSGame.MapHandler
         /// </summary>
         private void GetUnitInfos()
         {
-            UnitInfos = new List<UnitInfo>();
-            var sr = new StreamReader(Utils.CACHE_FOLDER_NAME + "units.txt");
+            Units = new List<UnitInfo>();
+            var sr = new StreamReader(Utils.MAP_CACHE + "units.txt", Encoding.UTF8);
             while (!sr.EndOfStream)
-                UnitInfos.Add(new UnitInfo(sr.ReadLine()));
+                Units.Add(new UnitInfo(sr.ReadLine()));
             sr.Close();
+        }
+        
+        /// <summary>
+        /// Creates the tile definiton file from the list value
+        /// </summary>
+        private void SaveTileInfos()
+        {
+            var sw = new StreamWriter(Utils.EDITOR_CACHE + "tiles.txt", false, Encoding.UTF8);
+            foreach (var t in Tiles)
+            {
+                sw.WriteLine(t.ToCSV());
+                t.Texture.Save(Utils.EDITOR_CACHE + t.Name + Utils.EDITOR_TILE_IMAGE_POSTFIX, ImageFormat.Png);
+            }
+            sw.Close();
         }
 
         /// <summary>
@@ -56,26 +114,55 @@ namespace TBSGame.MapHandler
         /// </summary>
         private void GetTileInfos()
         {
-            TileInfos = new List<TileInfo>();
-            var sr = new StreamReader(Utils.CACHE_FOLDER_NAME + "tiles.txt");
+            Tiles = new List<TileInfo>();
+            var sr = new StreamReader(Utils.MAP_CACHE + "tiles.txt", Encoding.UTF8);
             while (!sr.EndOfStream)
             {
                 string dummy = sr.ReadLine();
-                if (dummy.Split(';').Length == 5) TileInfos.Add(new TileInfo(dummy));
-                else TileInfos.Add(new TownInfo(dummy));
+                if (dummy.Split(';').Length == 5) Tiles.Add(new TileInfo(dummy));
+                else Tiles.Add(new TownInfo(dummy));
             }
             sr.Close();
         }
 
         /// <summary>
-        /// Reads the tile definiton file and sets the list value
+        /// Writes the map meta file and pushes the player count
+        /// </summary>
+        private void SavePlayerCount()
+        {
+            var sw = new StreamWriter(Utils.EDITOR_CACHE + "meta.txt", false, Encoding.UTF8);
+            sw.WriteLine(PlayerCount);
+            sw.Close();
+        }
+
+        /// <summary>
+        /// Reads the map meta file and fetches the player count
         /// </summary>
         private void GetPlayerCount()
         {
-            TileInfos = new List<TileInfo>();
-            var sr = new StreamReader(Utils.CACHE_FOLDER_NAME + "meta.txt");
+            var sr = new StreamReader(Utils.MAP_CACHE + "meta.txt", Encoding.UTF8);
             PlayerCount = byte.Parse(sr.ReadLine());
             sr.Close();
+        }
+
+        public Map()
+        {
+            GetTileInfos();
+            GetUnitInfos();
+            GetTileMap();
+            GetPlayerCount();
+
+            Directory.Delete(Utils.MAP_CACHE, true);
+        }
+        public Map(List<UnitInfo> units, List<TileInfo> tiles, char[,] tileMap,
+                   byte playerCount, string mapName, string mapCreator)
+        {
+            Tiles = tiles;
+            Units = units;
+            tileChars = tileMap;
+            PlayerCount = playerCount;
+            this.mapName = mapName;
+            this.mapCreator = mapCreator;
         }
     }
 }

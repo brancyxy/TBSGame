@@ -22,25 +22,23 @@ namespace TBSGame.Menus
 
         private Town selectedTown;
         private Unit selectedUnit;
-
         public GameWindow(bool useFullScreen)
         {
             InitializeComponent();
             InitializeButtons();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
 
-            Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
-
             map = new Map();
-
-            AddPlayers();
             AddPanels();
+            AddPlayers();
+
+            Scale(Utils.scale);
+            ScaleFont(Utils.scale);
+
             AddTiles();
-            ClearMenuView();
 
             PlayerNameDisplay.Text = "Player " + (currentPlayer + 1);
-
+            ClearMenuView();
         }
 
         /// <summary>
@@ -442,7 +440,7 @@ namespace TBSGame.Menus
             unitInfo = new UnitInfoPanel();
             infoArea.Controls.Add(unitInfo);
 
-            townArea = new TownPanel(map.UnitInfos);
+            townArea = new TownPanel(map.Units);
             infoArea.Controls.Add(townArea);
             townArea.recruitInfo.recruit.Click += new EventHandler(RecruiterClick);
 
@@ -451,22 +449,21 @@ namespace TBSGame.Menus
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
             btnEndTurn.Font = new Font(btnEndTurn.Font.FontFamily,
-                                       btnEndTurn.Font.Size * height);
+                                       btnEndTurn.Font.Size * scale.Height);
 
             logger.Font = new Font(logger.Font.FontFamily,
-                                   logger.Font.Size * height);
+                                   logger.Font.Size * scale.Height);
 
             PlayerNameDisplay.Font = new Font(PlayerNameDisplay.Font.FontFamily,
-                                              PlayerNameDisplay.Font.Size * height);
+                                              PlayerNameDisplay.Font.Size * scale.Height);
 
             Quit.Font = new Font(Quit.Font.FontFamily,
-                                 Quit.Font.Size * height);
+                                 Quit.Font.Size * scale.Height);
         }
 
         //make the top area move the window if in window mode

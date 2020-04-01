@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 namespace TBSGame.MapHandler
 {
@@ -10,7 +11,7 @@ namespace TBSGame.MapHandler
         public int APred { get; private set; }
         public double ArmorBonus { get; private set; }
         public string Name { get; private set; }
-        public Image Background { get; private set; }
+        public Image Texture { get; private set; }
 
         public TileInfo(string line)
         {
@@ -20,18 +21,35 @@ namespace TBSGame.MapHandler
 
             Character = tmp[0][0];
 
-            int tmpAPred;
-            if (int.TryParse(tmp[1], out tmpAPred)) APred = tmpAPred;
+            if (int.TryParse(tmp[1], out int tmpAPred)) APred = tmpAPred;
             else throw new Exception(ERROR_MESSAGE);
 
-
-            double tmpArmorBonus;
-            if (double.TryParse(tmp[2], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out tmpArmorBonus)) ArmorBonus = tmpArmorBonus;
+            if (double.TryParse(tmp[2], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double tmpArmorBonus)) ArmorBonus = tmpArmorBonus;
             else throw new Exception(ERROR_MESSAGE);
 
             Name = tmp[3];
 
-            Background = Image.FromFile(Utils.CACHE_FOLDER_NAME + tmp[4]);
+            Texture = Image.FromFile(Utils.MAP_CACHE + tmp[4]);
         }
+
+        public TileInfo(char character, string name, int APred, double armorBonus, Image texture)
+        {
+            Character = character;
+            Name = name;
+            this.APred = APred;
+            ArmorBonus = armorBonus;
+            Texture = texture;
+        }
+
+        public virtual string ToCSV()
+        {
+            string filePath = Utils.EDITOR_CACHE + Name + Utils.EDITOR_TILE_IMAGE_POSTFIX;
+            Texture.Save(filePath, ImageFormat.Png);
+
+            return $"{Character};{APred};{ArmorBonus};{Name};{filePath}";
+        }
+
+        
+
     }
 }

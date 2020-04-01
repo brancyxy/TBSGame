@@ -25,34 +25,22 @@ namespace TBSGame.Panels
             Size = new Size(308, 162);
 
             Init();
-
-            Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            tileName.Font = new Font(tileName.Font.FontFamily,
-                                     tileName.Font.Size * height);
+            Font scaledFont = DisplayLabel.ScaledFont(scale.Height);
 
-            tileCoords.Font = new Font(tileCoords.Font.FontFamily,
-                                       tileCoords.Font.Size * height);
-
-            tileActionPointReductionDisplay.Font = new Font(tileActionPointReductionDisplay.Font.FontFamily,
-                                                            tileActionPointReductionDisplay.Font.Size * height);
-
-            tileDefenseBonusDisplay.Font = new Font(tileDefenseBonusDisplay.Font.FontFamily,
-                                                    tileDefenseBonusDisplay.Font.Size * height);
-
-            tileActionPointReductionText.Font = new Font(tileActionPointReductionText.Font.FontFamily,
-                                                         tileActionPointReductionText.Font.Size * height);
-
-            tileDefenseBonusText.Font = new Font(tileDefenseBonusText.Font.FontFamily,
-                                                 tileDefenseBonusText.Font.Size * height);
+            tileName.Font = scaledFont;
+            tileCoords.Font = scaledFont;
+            tileActionPointReductionDisplay.Font = scaledFont;
+            tileDefenseBonusDisplay.Font = scaledFont;
+            tileActionPointReductionText.Font = scaledFont;
+            tileDefenseBonusText.Font = scaledFont;
         }
 
         /// <summary>

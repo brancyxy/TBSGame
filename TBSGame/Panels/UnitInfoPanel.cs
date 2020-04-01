@@ -9,7 +9,7 @@ namespace TBSGame.Panels
     class UnitInfoPanel : Panel
     {
         private DisplayLabel unitNameDisplay;
-        private Label unitCoords;
+        private DisplayLabel unitCoords;
 
         private DisplayLabel unitHealthDisplay;
         private ResourceBar unitHealthBar;
@@ -28,35 +28,23 @@ namespace TBSGame.Panels
             BackColor = Color.FromArgb(128, 64, 0);
 
             Init();
-            Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
 
-            Visible = false;
+            ScaleFont(Utils.scale);
         }
 
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            unitNameDisplay.Font = new Font(unitNameDisplay.Font.FontFamily,
-                                            unitNameDisplay.Font.Size * height);
+            Font scaledFont = DisplayLabel.ScaledFont(scale.Height);
 
-            unitCoords.Font = new Font(unitCoords.Font.FontFamily,
-                                       unitCoords.Font.Size * height);
-
-            unitHealthDisplay.Font = new Font(unitHealthDisplay.Font.FontFamily,
-                                              unitHealthDisplay.Font.Size * height);
-
-            unitDescDisplay.Font = new Font(unitDescDisplay.Font.FontFamily,
-                                            unitDescDisplay.Font.Size * height);
-
-            unitDamageDisplay.Font = new Font(unitDamageDisplay.Font.FontFamily,
-                                              unitDamageDisplay.Font.Size * height);
-
-            unitActionPointDisplay.Font = new Font(unitActionPointDisplay.Font.FontFamily,
-                                                   unitActionPointDisplay.Font.Size * height);
+            unitNameDisplay.Font = scaledFont;
+            unitCoords.Font = scaledFont;
+            unitHealthDisplay.Font = scaledFont;
+            unitDescDisplay.Font = scaledFont;
+            unitDamageDisplay.Font = scaledFont;
+            unitActionPointDisplay.Font = scaledFont;
         }
 
         /// <summary>

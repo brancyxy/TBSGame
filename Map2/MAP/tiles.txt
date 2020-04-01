@@ -1,6 +1,0 @@
-E;1;0;Road;road-ne.png
-S;1;0;Road;road-ws.png
--;1;0;Road;road-we.png
-l;1;0;Road;road-ns.png
-0;3;20;Forest;forest.png
-G;2;10;Grass;grass.png

@@ -5,6 +5,8 @@ namespace TBSGame.Misc
 {
     class DisplayLabel : Label
     {
+        public static Font ScaledFont(float scale)
+            => new Font("Microsoft Sans Serif", 8.25F * scale);
         public DisplayLabel(Point location)
         {
             AutoSize = true;

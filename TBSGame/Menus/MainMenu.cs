@@ -29,24 +29,24 @@ namespace TBSGame.Menus
         }
         public MainMenu(bool useFullScreen)
         {
-            this.Focus();
+            Focus();
             InitializeComponent();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
+
             Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
-            lbDisplay.Font = new Font(lbDisplay.Font.FontFamily, lbDisplay.Font.Size * height);
-            btnPlay.Font = new Font(btnPlay.Font.FontFamily, btnPlay.Font.Size * height);
-            btnOptions.Font = new Font(btnOptions.Font.FontFamily, btnOptions.Font.Size * height);
-            btnEditor.Font = new Font(btnEditor.Font.FontFamily, btnEditor.Font.Size * height);
-            btnExit.Font = new Font(btnExit.Font.FontFamily, btnExit.Font.Size * height);
+            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * scale.Height);
+            lbDisplay.Font = new Font(lbDisplay.Font.FontFamily, lbDisplay.Font.Size * scale.Height);
+            btnPlay.Font = new Font(btnPlay.Font.FontFamily, btnPlay.Font.Size * scale.Height);
+            btnOptions.Font = new Font(btnOptions.Font.FontFamily, btnOptions.Font.Size * scale.Height);
+            btnEditor.Font = new Font(btnEditor.Font.FontFamily, btnEditor.Font.Size * scale.Height);
+            btnExit.Font = new Font(btnExit.Font.FontFamily, btnExit.Font.Size * scale.Height);
         }
 
         //make the top area move the window if in window mode

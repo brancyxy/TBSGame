@@ -6,9 +6,12 @@ namespace TBSGame
 {
     public static class Utils
     {
-        public const string CACHE_FOLDER_NAME = @"MapCache\",
+        public const string MAP_CACHE = @"MapCache\",
                             SETTINGS_FILE = "AppSettings.ini",
-                            MAP_FOLDER = @"Maps\";
+                            MAP_FOLDER = @"Maps\",
+                            EDITOR_CACHE = @"Editor\",
+                            EDITOR_UNIT_IMAGE_POSTFIX = "@.png",
+                            EDITOR_TILE_IMAGE_POSTFIX = "$.png";
 
         public const int BASE_WIDTH = 608,
                          BASE_HEIGHT = 342,

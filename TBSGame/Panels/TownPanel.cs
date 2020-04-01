@@ -21,8 +21,9 @@ namespace TBSGame.Panels
             Size = new Size(308, 285);
             this.units = units;
 
-            Scale(Utils.scale);
             Init();
+
+            ScaleFont(Utils.scale);
 
             FillDgv();
         }
@@ -34,14 +35,12 @@ namespace TBSGame.Panels
         }
 
         /// <summary>
-        /// Scales the fonts of the DataGriidView texts, also scales its size
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleDgv()
+        public void ScaleFont(SizeF scale)
         {
             dgvSelect.DefaultCellStyle.Font = new Font(dgvSelect.DefaultCellStyle.Font.FontFamily,
                                                        dgvSelect.DefaultCellStyle.Font.Size * Utils.scale.Height);
-            dgvSelect.Scale(Utils.scale);
         }
 
         /// <summary>
@@ -75,7 +74,6 @@ namespace TBSGame.Panels
                 Name = "Unit",
                 ReadOnly = true
             });
-            ScaleDgv();
 
             Controls.Add(dgvSelect);
 

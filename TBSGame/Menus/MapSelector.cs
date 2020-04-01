@@ -16,22 +16,22 @@ namespace TBSGame.Menus
             InitializeComponent();
             Filldgv();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
+
             Scale(Utils.scale);
-            ScaleFontSize(Utils.scale.Height);
+            ScaleFont(Utils.scale);
         }
         /// <summary>
-        /// Scales the fonts of the texts
+        /// Extends the base scale method to scale the font size
         /// </summary>
-        /// <param name="height">It scales based on the height scale</param>
-        private void ScaleFontSize(float height)
+        public void ScaleFont(SizeF scale)
         {
-            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * height);
-            selectMap.Font = new Font(selectMap.Font.FontFamily, selectMap.Font.Size * height);
-            rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * height);
+            lbTitle.Font = new Font(lbTitle.Font.FontFamily, lbTitle.Font.Size * scale.Height);
+            selectMap.Font = new Font(selectMap.Font.FontFamily, selectMap.Font.Size * scale.Height);
+            rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * scale.Height);
             dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily,
-                                                                         dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * height);
+                                                                         dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * scale.Width);
             dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily,
-                                                            dgvMapSelector.DefaultCellStyle.Font.Size * height);
+                                                            dgvMapSelector.DefaultCellStyle.Font.Size * scale.Width);
         }
         /// <summary>
         /// Fills the DataGridView of the map selector. Map file names must have a set format
@@ -68,7 +68,7 @@ namespace TBSGame.Menus
                 }
             }
             rtbMapDebugLog.Text += ((dgvMapSelector.RowCount > 0)
-                                    ? rtbMapDebugLog.Text += $"Successfully loaded {dgvMapSelector.RowCount} maps!"
+                                    ? rtbMapDebugLog.Text += $"Successfully loaded {dgvMapSelector.RowCount} map{((dgvMapSelector.RowCount > 1) ? "s" : "")}!"
                                     : rtbMapDebugLog.Text += $"No maps found") + Environment.NewLine;
         }
         /// <summary>
