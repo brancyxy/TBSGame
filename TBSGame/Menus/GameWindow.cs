@@ -387,7 +387,6 @@ namespace TBSGame.Menus
                     if (players[player].InGame)
                         return;
 
-
             string VictoryTitle = $"Player {currentPlayer + 1} has won!";
             const string VictoryQuestion = "Do you want to continue playing in freeplay mode?";
 

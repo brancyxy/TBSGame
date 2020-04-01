@@ -52,12 +52,10 @@ namespace TBSGame.Menus
                     int playerCount = int.Parse(RemoveParentheses(tmp[0]));
                     tmp = RemovePlayerCountFromMapFileName(tmp);
 
-
                     tmp = string.Join(" ", tmp)
                                 .Split('-');
                     string creatorName = tmp[tmp.Length - 1];
                     tmp = RemoveCreatorNameFromMapFileName(tmp);
-
 
                     string name = string.Join("-", tmp);
                     dgvMapSelector.Rows.Add(playerCount, name, creatorName, m + ".zip");
@@ -114,7 +112,6 @@ namespace TBSGame.Menus
                                                     .Value
                                                     .ToString();
         }
-
 
         /// <summary>
         /// Runs when the select button is clicked

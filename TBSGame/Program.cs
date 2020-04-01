@@ -19,7 +19,6 @@ namespace TBSGame
         [STAThread]
         static void Main()
         {
-
             Initialize();
             ReadSettings();
             Utils.scale = DetermineSizeScale();
@@ -32,7 +31,6 @@ namespace TBSGame
                             PlayGame();
                         break;
                     }
-
                 case MainMenuAction.EXIT:
                     {
                         Application.Exit();
