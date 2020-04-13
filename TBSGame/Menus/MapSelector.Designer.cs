@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopField = new System.Windows.Forms.Panel();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.dgvMapSelector = new System.Windows.Forms.DataGridView();
             this.mapPlayerCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +51,7 @@
             this.TopField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TopField.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TopField.Controls.Add(this.btnReturn);
             this.TopField.Controls.Add(this.lbTitle);
             this.TopField.Location = new System.Drawing.Point(0, 0);
             this.TopField.Name = "TopField";
@@ -58,6 +60,16 @@
             this.TopField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopField_MouseDown);
             this.TopField.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopField_MouseMove);
             this.TopField.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopField_MouseUp);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(521, 6);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 1;
+            this.btnReturn.Text = "Quit";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.Return);
             // 
             // lbTitle
             // 
@@ -223,5 +235,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MapFileName;
         private System.Windows.Forms.Panel rtbMapDebugLogPadding;
         private System.Windows.Forms.Button selectMap;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

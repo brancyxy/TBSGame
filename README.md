@@ -3,4 +3,4 @@ Simple turn-based strategy game with map making engine and dynamic resources wit
 
 
 Terrain tileset: www.kenney.nl
-Download location: opengameart.org 
+Download location: https://opengameart.org/content/medieval-rts-120

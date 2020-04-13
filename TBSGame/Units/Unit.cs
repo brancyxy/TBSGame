@@ -89,7 +89,6 @@ namespace TBSGame.Units
         /// <summary>
         /// Processes damage to the unit
         /// </summary>
-        /// <param name="damage">ammount</param>
         /// <returns>True if the unit is killed</returns>
         public bool Damage(int damage)
         {

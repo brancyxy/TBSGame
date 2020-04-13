@@ -91,7 +91,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Makes the window immovable
         /// </summary>
-        /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
             const int WM_SYSCOMMAND = 0x0112;
@@ -108,8 +107,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Enables and disables the combobox depending on the fullscreen checkbox value
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SwitchComboBox(object sender, EventArgs e)
         {
             cbResolution.Enabled = !((CheckBox)sender).Checked;
@@ -118,8 +115,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Saves the settings and restarts the game.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Save(object sender, EventArgs e)
         {
             if (MessageBox.Show(CHANGE_TEXT, BOX_TITLE, MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -141,8 +136,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Closes the window
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Cancel(object sender, EventArgs e)
         {
             Close();
@@ -151,8 +144,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Resets the settings and restarts the game.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Reset(object sender, EventArgs e)
         {
             if (MessageBox.Show(RESET_TEXT, BOX_TITLE, MessageBoxButtons.YesNo) == DialogResult.Yes)

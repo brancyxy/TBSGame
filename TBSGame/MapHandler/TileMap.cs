@@ -10,12 +10,10 @@ namespace TBSGame.MapHandler
         const string ERROR_MISSING = "Error in creating tile map: there are missing tile definitions.";
         const string ERROR_MORE = "Error in creating tile map: there are multiple tile definitions for a tile";
         public Tile[,] Tiles { get; private set; }
-        public List<TileInfo> tileInfos;
 
         public TileMap(char[,] map, List<TileInfo> tiles)
         {
             Tiles = new Tile[20, 20];
-            tileInfos = tiles;
 
             for (byte line = 0; line < Tiles.GetLength(0); line++)
                 for (byte column = 0; column < Tiles.GetLength(1); column++)

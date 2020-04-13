@@ -1104,7 +1104,6 @@
             // 
             // editorScreenContainer
             // 
-            this.editorScreenContainer.Controls.Add(this.TopField);
             this.editorScreenContainer.Controls.Add(this.layerSelectorPanel);
             this.editorScreenContainer.Controls.Add(this.editorContainer);
             this.editorScreenContainer.Location = new System.Drawing.Point(0, 0);
@@ -1118,6 +1117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 342);
+            this.Controls.Add(this.TopField);
             this.Controls.Add(this.newMapScreen);
             this.Controls.Add(this.editorScreenContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

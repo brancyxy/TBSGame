@@ -91,8 +91,7 @@ namespace TBSGame
             var menu = new Menus.MainMenu(useFullScreen);
             try
             {
-                while (menu.ShowDialog() != DialogResult.OK)
-                    menu.Dispose();
+                menu.ShowDialog();
                 return menu.Action;
             }
             catch (Exception)
@@ -111,8 +110,7 @@ namespace TBSGame
             {
                 warn = true;
                 Utils.settings["UI"]["aspectRatioWarning"] = warn.ToString();
-                new FileIniDataParser()
-                    .WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
+                new FileIniDataParser().WriteFile(Utils.SETTINGS_FILE, Utils.settings, Encoding.UTF8);
             }
 
             if (warn)
@@ -163,6 +161,7 @@ namespace TBSGame
             else
             {
                 Utils.settings = new IniData();
+                Utils.settings["UI"]["aspectRatioWarning"] = true.ToString();
                 File.Create(Utils.SETTINGS_FILE).Close();
             }
 
@@ -197,7 +196,6 @@ namespace TBSGame
         private static void Initialize()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
 
             if (Directory.Exists(Utils.MAP_CACHE)) Directory.Delete(Utils.MAP_CACHE, true);
             Directory.CreateDirectory(Utils.MAP_CACHE);

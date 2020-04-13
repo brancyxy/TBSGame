@@ -117,8 +117,8 @@ namespace TBSGame.Menus
         /// </summary>
         private void Exit(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to quit?", "Quit editor", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                Application.Exit();
+            if (MessageBox.Show("Do you want to quit? Map will not be saved.", "Return to menu", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Application.Restart();
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace TBSGame.Menus
 
         /// <summary>
         /// Selects a unit for editing. Must be in edit mode
-        /// </summary>ó
+        /// </summary>
         private void SelectEditUnit(object sender, EventArgs e)
         {
             if (cbUnitEditMode.Checked)

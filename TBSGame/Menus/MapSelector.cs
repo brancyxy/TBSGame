@@ -29,9 +29,10 @@ namespace TBSGame.Menus
             selectMap.Font = new Font(selectMap.Font.FontFamily, selectMap.Font.Size * scale.Height);
             rtbMapDebugLog.Font = new Font(rtbMapDebugLog.Font.FontFamily, rtbMapDebugLog.Font.Size * scale.Height);
             dgvMapSelector.ColumnHeadersDefaultCellStyle.Font = new Font(dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.FontFamily,
-                                                                         dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * scale.Width);
+                                                                         dgvMapSelector.ColumnHeadersDefaultCellStyle.Font.Size * scale.Height);
             dgvMapSelector.DefaultCellStyle.Font = new Font(dgvMapSelector.DefaultCellStyle.Font.FontFamily,
-                                                            dgvMapSelector.DefaultCellStyle.Font.Size * scale.Width);
+                                                            dgvMapSelector.DefaultCellStyle.Font.Size * scale.Height);
+            btnReturn.Font = new Font(btnReturn.Font.FontFamily, btnReturn.Font.Size * scale.Height);
         }
         /// <summary>
         /// Fills the DataGridView of the map selector. Map file names must have a set format
@@ -60,10 +61,7 @@ namespace TBSGame.Menus
                     string name = string.Join("-", tmp);
                     dgvMapSelector.Rows.Add(playerCount, name, creatorName, m + ".zip");
                 }
-                catch (Exception ex)
-                {
-                    rtbMapDebugLog.Text += $"Error at map file {m}, error description: {ex}" + Environment.NewLine;
-                }
+                catch (Exception) { dgvMapSelector.Rows.Add("", m, ""); }
             }
             rtbMapDebugLog.Text += ((dgvMapSelector.RowCount > 0)
                                     ? rtbMapDebugLog.Text += $"Successfully loaded {dgvMapSelector.RowCount} map{((dgvMapSelector.RowCount > 1) ? "s" : "")}!"
@@ -125,6 +123,15 @@ namespace TBSGame.Menus
             }
         }
 
+        /// <summary>
+        /// Prompts a MessageBox, if "yes" is pressed, quits the game and returns to the main menu.
+        /// </summary>
+        private void Return(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to stop playing?", "Return to main menu", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Application.Restart();
+        }
+
         //make the top area move the window if in window mode
         private bool mouseDown;
         private Point lastLocation;
@@ -148,5 +155,7 @@ namespace TBSGame.Menus
         {
             mouseDown = false;
         }
+
+
     }
 }

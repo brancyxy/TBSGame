@@ -10,7 +10,7 @@ namespace TBSGame.Menus
 {
     public partial class GameWindow : Form
     {
-        private readonly Map map;
+        private Map map;
         private TileInfoPanel tileInfo;
         private TownPanel townArea;
         private UnitInfoPanel unitInfo;
@@ -28,7 +28,8 @@ namespace TBSGame.Menus
             InitializeButtons();
             if (useFullScreen) WindowState = FormWindowState.Maximized;
 
-            map = new Map();
+            ReadMap();
+
             AddPanels();
             AddPlayers();
 
@@ -39,6 +40,20 @@ namespace TBSGame.Menus
 
             PlayerNameDisplay.Text = "Player " + (currentPlayer + 1);
             ClearMenuView();
+        }
+
+        /// <summary>
+        /// Creates the map object. Returns to the main menu if there's an error.
+        /// </summary>
+        private void ReadMap()
+        {
+            try { map = new Map(); }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message,"The current map file is corrupted, returning to the main menu.");
+                Application.Restart();
+            }
+
         }
 
         /// <summary>
@@ -73,10 +88,9 @@ namespace TBSGame.Menus
         }
 
         /// <summary>
-        /// Checks a tile if there's an unit or town there and is it an ally or not.
+        /// Checks a tile if there's an unit or town there and whether if it's an ally or not.
         /// </summary>
         /// <param name="coords">The location of the tile</param>
-        /// <returns></returns>
         private TileStatus CheckTile(Coordinate coords)
         {
             if (players[currentPlayer].OwnedUnits.Exists(x => x.Coords == coords))
@@ -87,7 +101,6 @@ namespace TBSGame.Menus
                     for (int unit = 0; unit < players[player].OwnedUnits.Count; unit++)
                         if (players[player].OwnedUnits[unit].Coords == coords)
                             return TileStatus.ENEMY;
-
 
             for (byte line = 0; line < map.TileMap.Tiles.GetLength(0); line++)
                 for (byte column = 0; column < map.TileMap.Tiles.GetLength(1); column++)
@@ -153,8 +166,6 @@ namespace TBSGame.Menus
             tileInfo.Visible = false;
             unitInfo.Visible = false;
             townArea.Visible = false;
-            townArea.Visible = false;
-            townArea.Visible = false;
 
             for (int direction = 0; direction < actionButtons.Length; direction++)
                 actionButtons[direction].Visible = false;
@@ -163,8 +174,6 @@ namespace TBSGame.Menus
         /// <summary>
         /// Runs on click of the recruiter button
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="s"></param>
         private void RecruiterClick(object sender, EventArgs s)
         {
             if (selectedTown.Recruiting)
@@ -230,16 +239,12 @@ namespace TBSGame.Menus
                             .OwnedUnits
                             .Add(newUnit);
 
-
                         gameArea.Controls.Add(newUnit);
                     }
 
             foreach (var p in players)
                 foreach (var u in p.OwnedUnits)
-                {
                     u.ElapsedTurn();
-                    u.BringToFront();
-                }
         }
 
         /// <summary>
@@ -394,7 +399,7 @@ namespace TBSGame.Menus
 
 
             if (answer == DialogResult.No || answer == DialogResult.None)
-                Application.Exit();
+                Application.Restart();
 
         }
 
@@ -490,12 +495,12 @@ namespace TBSGame.Menus
         }
 
         /// <summary>
-        /// Prompts a MessageBox, if "yes" is pressed, quits the game.
+        /// Prompts a MessageBox, if "yes" is pressed, quits the game and returns to the main menu.
         /// </summary>
         private void Quit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to stop playing?", "Quit Game", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                Application.Exit();
+            if (MessageBox.Show("Do you want to stop playing?", "Return to main menu", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Application.Restart();
         }
     }
 }

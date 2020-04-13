@@ -62,8 +62,8 @@ namespace TBSGame.Menus
             if (mouseDown && WindowState != FormWindowState.Maximized)
             {
                 Location = new Point(
-                    (Location.X - lastLocation.X) + e.X,
-                    (Location.Y - lastLocation.Y) + e.Y);
+                    Location.X - lastLocation.X + e.X,
+                    Location.Y - lastLocation.Y + e.Y);
 
                 Update();
             }

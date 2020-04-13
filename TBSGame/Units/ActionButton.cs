@@ -55,7 +55,6 @@ namespace TBSGame.Units
                 default: return Color.Transparent;
             }
         }
-
         public void CenterAroundUnit(Coordinate unitLocation)
         {
             switch (direction)
